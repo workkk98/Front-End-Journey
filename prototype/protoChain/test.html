@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function Father () {
+            this.character = {
+                age:43,
+                name:'father'
+            }
+        }
+
+        function GrandPa () {
+            this.role = "grandPa"
+        }
+
+        Father.prototype = new GrandPa();
+
+        Father.prototype.sayName = function () {
+            console.log(this.character.name);
+        }
+
+        function Son () {
+            this.name = "son";
+        }
+
+        Son.prototype = new Father();
+
+        //修正构造函数的指向
+        Son.prototype.constructor = Son;
+
+        const person = new Son();
+
+        console.log(person);
+
+    </script>
+</body>
+</html>

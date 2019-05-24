@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <ul>
+        <li>
+            第一个问题 run函数消失了
+            使用call函数，只能继承 父类的实例属性和方法 而不能继承原型上的方法
+        </li>
+    </ul>
+    <script>
+        function Vehicle(powerSource) {
+            this.powerSource = powerSource;
+            this.components = ['座椅', '轮子'];
+        }
+
+        Vehicle.prototype.run = function() {
+            console.log('running~');
+        };
+        
+        function Car (wheelNumber) {
+            this.wheelNumber = wheelNumber;
+
+            Vehicle.call(this,"92汽油");
+        }
+
+        Car.prototype.playMusic = function () {
+            console.log('playMusic');
+        }
+
+        const car1 = new Car(4);
+
+        console.log(car1);
+    </script>
+</body>
+</html>
