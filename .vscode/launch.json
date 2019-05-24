@@ -24,6 +24,13 @@
             "request": "launch",
             "sourceMaps": false,
             "file": "${workspaceRoot}/chrome_debugger_vscode/test.html"  
+        },
+        {
+            "name": "Launch protoChain.html (disable sourcemaps)",
+            "type": "chrome",
+            "request": "launch",
+            "sourceMaps": false,
+            "file": "${workspaceRoot}/prototype/protoChain/demo.html"  
         }
     ]
 }

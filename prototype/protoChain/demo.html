@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        li {
+            font-size: 1em;
+        }
+    </style>
+</head>
+<body>
+    <ul>    
+        <li> 
+            父类有引用类型的数据时，生成的多个实例可以篡改其中的数据
+        </li>
+        <li>
+            子类的prototype指向原型实例，实例的constructor被改写
+        </li>
+        <li>
+            由于构造函数Car的原型先写方法playMusic后赋值原型实例，导致被覆盖
+        </li>
+        <li>
+            由于生成car1时 不可以对父类的powerSource进行赋值，需要后期修改
+        </li>
+    </ul>
+
+    <script>
+        function Vehicle(powerSource) {
+            this.powerSource = powerSource;
+            this.components = ['座椅', '轮子'];
+        }
+
+        Vehicle.prototype.run = function() {
+            console.log('running~');
+        };
+
+        function Car(wheelNumber) {
+            this.wheelNumber = wheelNumber;
+        }
+
+        Car.prototype.playMusic = function() {
+            console.log('sing~');
+        };
+
+        // 将父构造函数的实例赋值给子构造函数的原型
+        Car.prototype = new Vehicle();
+
+        const car1 = new Car(4); //汽车
+        const car2 = new Car (3); //三轮车
+
+        console.log(car1);
+
+        car1.components.push("车窗");
+        console.log(car2.components);  //["座椅","轮子","车窗"]多个实例对 !引用 类型的数据容易造成篡改
+
+        console.log(Car.prototype.constructor  === Vehicle) ; //ture 说明子类型上的原型实例的constructor 被改写了
+
+        console.log(car1.playMusic); //undefined 由于构造函数Car的原型先写方法playMusic后赋值原型实例，导致被覆盖
+    
+        console.log(car1.powerSource); //undefined 由于生成car1时 不可以对父类的powerSource进行赋值，需要后期修改
+        car1.powerSource = "92汽油"
+        console.log(car1.powerSource);
+    </script>
+</body>
+</html>
