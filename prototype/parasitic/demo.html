@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const cat = {
+            name:'fat',
+            type:"橘猫",
+            friends:['bob','lili'],
+            say () {
+                console.log(this.name);
+            }
+        }
+        function Parasitic (obj) {
+            const animal = Object.create(obj); //获取对象副本
+
+            //增强属性
+            animal.gender = "female";
+            animal.catch = function () {
+                console.log("I can catch mice");
+            }
+            
+            return animal;
+        }
+
+        const fat = Parasitic(cat);
+
+        console.log(fat);
+
+    </script>
+</body>
+</html>
