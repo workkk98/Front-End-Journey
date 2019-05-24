@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <ul>
+        <li>
+            调用了父类方法两次，原型链上继承了 属性和方法，call方法继承了属性，但是属性重复链两次，但根据原型链的规则
+            实例上的属性会屏蔽原型链上的属性
+        </li>
+    </ul>
+    <script>
+        function Vehicle(powerSource) {
+            this.powerSource = powerSource;
+            this.components = ['座椅', '轮子'];
+        }
+
+        Vehicle.prototype.run = function() {
+            console.log('running~');
+        };
+
+        function Car(wheelNumber) {
+            this.wheelNumber = wheelNumber;
+            Vehicle.call(this, '汽油'); // 第二次调用父类
+        }
+
+        Car.prototype = new Vehicle(); // 第一次调用父类
+
+        // 修正构造函数的指向
+        Car.prototype.constructor = Car;
+
+        Car.prototype.playMusic = function() {
+            console.log('sing~');
+        };
+
+        const car = new Car(4);
+
+        console.log(car);
+    </script>
+</body>
+</html>

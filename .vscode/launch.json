@@ -4,13 +4,7 @@
     // 欲了解更多信息，请访问: https://go.microsoft.com/fwlink/?linkid=830387
     "version": "0.2.0",
     "configurations": [
-        {
-            "type": "chrome",
-            "request": "attach",
-            "name": "Attach to Chrome",
-            "port": 9222,
-            "webRoot": "${workspaceRoot}"
-        },
+        //chrome debug
         {
             "name": "Launch test.html (disable sourcemaps)",
             "type": "chrome",
@@ -18,6 +12,7 @@
             "sourceMaps": false,
             "file": "${workspaceRoot}/chrome_debugger_vscode/test.html"  
         },
+        //prototype
         {
             "name": "Launch protoChain.html (disable sourcemaps)",
             "type": "chrome",
@@ -31,6 +26,20 @@
             "request": "launch",
             "sourceMaps": false,
             "file": "${workspaceRoot}/prototype/useCall/demo.html"  
+        },
+        {
+            "name": "Launch combine.html (disable sourcemaps)",
+            "type": "chrome",
+            "request": "launch",
+            "sourceMaps": false,
+            "file": "${workspaceRoot}/prototype/combine/demo.html"  
+        },
+        {
+            "name": "Launch prototype.html (disable sourcemaps)",
+            "type": "chrome",
+            "request": "launch",
+            "sourceMaps": false,
+            "file": "${workspaceRoot}/prototype/prototype/demo.html" 
         }
     ]
 }

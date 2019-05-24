@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <ul>
+        <li>
+            原型式继承 相当于 浅拷贝 导致引用类型 容易被多个实例修改
+        </li>
+    </ul>
+    <script>
+        function object(proto) {
+            function F() {}
+            F.prototype = proto;
+            return new F();
+        }
+
+        const cat = {
+            name: 'Lolita',
+                friends: ['Yancey', 'Sayaka', 'Mitsuha'],
+                say() {
+                console.log(this.name);
+            },
+        };
+
+        const cat1 = object(cat);
+
+        console.log(cat1);
+    </script>
+</body>
+</html>
