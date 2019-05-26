@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        class Vehicle {
+            constructor(powerSource) {
+                // 用 Object.assign() 会更加简洁
+                Object.assign(this,
+                    { powerSource, components: ['座椅', '轮子'] },
+
+                // 当然你完全可以用传统的方式
+                // this.powerSource = powerSource;
+                // this.components = ['座椅', '轮子'];
+                );
+            }
+
+            run() {
+            console.log('running~');
+            }
+        }
+
+        class Car extends Vehicle{
+            constructor(powerSource, wheelNumber) {
+                // 只有 super 方法才能调用父类实例
+                super(powerSource, wheelNumber);
+                this.wheelNumber = wheelNumber;
+            }
+
+            playMusic() {
+                console.log('play');
+            }
+        }
+
+        const car = new Car('汽油' , 4);
+
+        console.log(car);
+    </script>
+</body>
+</html>

@@ -47,6 +47,20 @@
             "request": "launch",
             "sourceMaps": false,
             "file": "${workspaceRoot}/prototype/parasitic/demo.html" 
+        },
+        {
+            "name": "Launch parasiticCombine.html (disable sourcemaps)",
+            "type": "chrome",
+            "request": "launch",
+            "sourceMaps": false,
+            "file": "${workspaceRoot}/prototype/parasiticCombine/demo.html" 
+        },
+        {
+            "name": "Launch es6.html (disable sourcemaps)",
+            "type": "chrome",
+            "request": "launch",
+            "sourceMaps": false,
+            "file": "${workspaceRoot}/prototype/es6/demo.html" 
         }
     ]
 }

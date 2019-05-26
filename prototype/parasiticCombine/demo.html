@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <ul>
+        <li>
+            <p>因为 null 是原型链的终点，因此以 null 为 __proto__ 创建的空对象是一个完全纯净的对象，看下图便一目了然。</p>
+            <img src="https://js.yanceyleo.com/Object.create.jpg" alt="链接失效" style="width: auto;height:auto">
+        </li>
+        <li>
+            小缺点 子类的方法得放在 原型链继承后
+        </li>
+    </ul>
+
+    <script>
+        function inheritPrototype (child , parent) {
+            const prototype = Object.create(parent.prototype);  //生成一个干净的原型对象 副本
+            prototype.constructor = child; //把原型对象的构造器指向 child构造函数
+            child.prototype = prototype; //child的原型实例指向prototype
+        }
+
+        function Vehicle(powerSource) {
+            this.powerSource = powerSource;
+            this.components = ['座椅', '轮子'];
+        }
+
+        Vehicle.prototype.run = function() {
+            console.log('running~');
+        };
+
+        function Car(wheelNumber) {
+            this.wheelNumber = wheelNumber;
+            Vehicle.call(this, '汽油');
+        }
+
+        inheritPrototype(Car, Vehicle);
+
+        Car.prototype.playMusic = function() {
+            console.log('sing~');
+        };
+
+        const car = new Car(4);
+
+        console.log(car)
+    </script>
+</body>
+</html>
