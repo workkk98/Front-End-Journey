@@ -34,9 +34,7 @@
         // }
         //onload回调事件应该是state状态=4 之后 onloadend触发时机在2或4即无法响应或能相应
         ajax.onload = function (e) {
-            if(ajax.readyState === 4) {
-                console.log(ajax.responseText);
-            }
+            console.log(ajax.responseText);
         }
     </script>
 </body>

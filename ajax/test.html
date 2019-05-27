@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="script.js"></script>
+</head>
+<body>
+    <script>
+        console.log(ajax);
+        ajax.init(function() {
+            //注意这个callback最后调用他的对象是xhr
+            console.log(this.responseText);
+        });
+        ajax.open('get','http://gank.io/api/xiandu/categories');
+        ajax.send();
+    </script>
+</body>
+</html>
