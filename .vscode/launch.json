@@ -61,6 +61,14 @@
             "request": "launch",
             "sourceMaps": false,
             "file": "${workspaceRoot}/prototype/es6/demo.html" 
-        }
+        },
+        //ajax
+        {
+            "name": "Launch ajax(disable sourcemaps)",
+            "type": "chrome",
+            "request": "launch",
+            "sourceMaps": false,
+            "file": "${workspaceRoot}/ajax/demo.html" 
+        },
     ]
 }

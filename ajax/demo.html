@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        感谢‘http://gank.io/api’提供的开源API
+    </header>
+    <script>
+        //原生初级的ajax方法
+        function init() {
+            let ajax = new XMLHttpRequest();
+            ajax.open('get','http://gank.io/api/xiandu/categories');
+            //这个语句一定得放在open后
+            ajax.setRequestHeader('Content-type','application/json');
+            return ajax;
+        }
+        
+        var ajax = init();
+
+        ajax.send();
+
+        ajax.onprogress = function (e) {
+            console.log('progress:', e.loaded/e.total);
+        }
+        // ajax.onreadystatechange = function (e) {
+        //     if(ajax.readyState === 4) {
+        //         console.log(ajax.responseText);
+        //     }
+        // }
+        //onload回调事件应该是state状态=4 之后 onloadend触发时机在2或4即无法响应或能相应
+        ajax.onload = function (e) {
+            if(ajax.readyState === 4) {
+                console.log(ajax.responseText);
+            }
+        }
+    </script>
+</body>
+</html>
