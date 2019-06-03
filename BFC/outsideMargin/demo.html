@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="demo.css">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 外边距被折叠了，而且orange的上侧外边距大于yellow的下侧外边距，因此这两个块级盒子的间距就以orange的上侧外边距为准。 -->
+    <div id="container">
+        <div id="red"></div>
+        <div id="yellow"></div>
+        <div id="orange"></div>
+    </div>
+    <h3>解决办法：阻止外边距的折叠的方法有很多，最简单的方法就是将这几个相邻的盒子放在独立的BFC容器中，使它们不再相邻</h1>
+</body>
+</html>

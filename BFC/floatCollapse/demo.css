@@ -1,0 +1,13 @@
+#container {
+    padding: 15px;
+    background-color: #000;
+    width: 100px;
+    /* overflow: auto; */
+  }
+  #float {
+    width: 50px;
+    height: 100px;
+    background-color: red;
+    float: left;
+  }
+  

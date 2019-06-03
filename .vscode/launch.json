@@ -70,5 +70,27 @@
             "sourceMaps": false,
             "file": "${workspaceRoot}/ajax/demo.html" 
         },
+        //BFC
+        {
+            "name": "Launch BFC(outsideMargin)",
+            "type": "chrome",
+            "request": "launch",
+            "sourceMaps": false,
+            "file": "${workspaceRoot}/BFC/outsideMargin/demo.html" 
+        },
+        {
+            "name": "Launch BFC(floatCollapse)",
+            "type": "chrome",
+            "request": "launch",
+            "sourceMaps": false,
+            "file": "${workspaceRoot}/BFC/floatCollapse/demo.html" 
+        },
+        {
+            "name": "Launch BFC(overlapping)",
+            "type": "chrome",
+            "request": "launch",
+            "sourceMaps": false,
+            "file": "${workspaceRoot}/BFC/overlapping/demo.html" 
+        },
     ]
 }
