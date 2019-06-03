@@ -92,5 +92,19 @@
             "sourceMaps": false,
             "file": "${workspaceRoot}/BFC/overlapping/demo.html" 
         },
+        {
+            "name": "Launch CSS.test.html",
+            "type": "chrome",
+            "request": "launch",
+            "sourceMaps": false,
+            "file": "${workspaceRoot}/css/test.html" 
+        },
+        {
+            "name": "Launch CSS.center.html",
+            "type": "chrome",
+            "request": "launch",
+            "sourceMaps": false,
+            "file": "${workspaceRoot}/css/center.html" 
+        },
     ]
 }

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        p {
+            color: coral;
+        }
+    </style>
+</head>
+<body>
+    <header style="visibility: hidden">
+        首先应该搞清楚，是行内元素还是块级元素
+    </header>
+    <p>
+        行内元素 水平居中
+    </p>
+    <ul>
+        <li style="text-align: center">行内元素1</li>
+    </ul>
+
+    <p>
+        块级元素 水平居中
+    </p>
+    <div>
+        <div style="background-color: black;width: 50px;height: 50px;margin: 0 auto"></div>
+    </div>
+
+    <p>
+        子元素含 float
+    </p>
+    <div style="margin: 0 auto;width: fit-content">
+        <div style="background-color: black;width: 50px;height: 50px;float: left"></div>
+    </div>
+</body>
+</html>
