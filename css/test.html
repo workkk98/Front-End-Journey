@@ -6,11 +6,38 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <style>
+        @import url(import.css); 
         div>span {
             color: blue;
         }
         div span {
             color: red;
+        }
+        .warning.urgent {
+            height: 50px;
+            background: silver;
+        }
+        .warning {
+            font-weight: bold;
+        }
+        .urgent {
+            font-style: italic;
+        }
+        h1[class] {
+            color: silver;
+        }
+        body a:link:hover {
+            color: maroon;
+        }
+        p:nth-child(1) {
+            font-weight: bold;
+        }
+        li:nth-child(2n+1) {
+            text-transform: uppercase;
+        }
+        
+        [type="checkbox"]:default + label { 
+            font-style: italic;
         }
     </style>
 </head>
@@ -19,5 +46,32 @@
         <span>test</span>
         <span></span>
     </div>
+    <p>这是用import命令引用的css，使用方法在style顶部@import url(url)</p>
+
+    <div class="warning urgent">When handling plutonium</div>
+
+    <h1 class="hoopla"> hello </h1>
+    <h1> serenity</h1>
+    <h1 class="fancy"> Fooling</h1>
+
+    <div>
+        <p>These are the necessary steps:</p>
+        <ul>
+            <li>Insert Key</li>
+            <li>Turn key <strong>clockwise</strong></li>
+            <li>Push accelerator</li>
+        </ul>
+        <p>
+            Do <em>not</em> push the brake at the same time as the accelerator
+        </p>
+        <a href="http:www.google.com" >谷歌</a>
+    </div>
+
+    <a href="http://www.youtube.com">油管地址</a>
+
+    <form action="">
+        <input type="checkbox" checked name="foo" value="bar">
+        <label for="chbx">this was checked on page load</label>
+    </form>
 </body>
 </html>
