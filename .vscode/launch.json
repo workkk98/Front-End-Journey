@@ -106,5 +106,19 @@
             "sourceMaps": false,
             "file": "${workspaceRoot}/css/center.html" 
         },
+        {
+            "name": "Launch CSS.text.html",
+            "type": "chrome",
+            "request": "launch",
+            "sourceMaps": false,
+            "file": "${workspaceRoot}/css/text.html" 
+        },
+        {
+            "name": "Launch CSS.box.html",
+            "type": "chrome",
+            "request": "launch",
+            "sourceMaps": false,
+            "file": "${workspaceRoot}/css/box.html" 
+        },
     ]
 }
