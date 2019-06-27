@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <p>Object.defineProperty()用于数据劫持，可以监听一个变量的读取和写入，并在发生读取的与写入的时候执行回调函数</p>
+    <p style="white-space: pre-wrap;">该api分别有三个参数，第一个是目标对象，第二个是目标属性和方法名（可修改既有的，也可以添加新属性和新方法），
+        第三个interface PropertyDescriptor {
+            configurable?: boolean;
+            enumerable?: boolean;
+            value?: any;
+            writable?: boolean;
+            get?(): any;
+            set?(v: any): void;
+          }</p>
+
+    <div id="app">
+        <input type="text" id="input">
+        <p id="p"></p>
+    </div>
+
+    <script>
+        let data = {
+        } ;
+        let input = document.querySelector('#input');
+        let p = document.querySelector('#p');
+        Object.defineProperty(data,'text',{
+            get() {
+                return this._text;
+            },
+            set(newData) {
+                this._text = newData;
+                input.value = newData;
+                p.innerHTML = newData;
+            }
+        });
+        input.addEventListener('input',(event) => {
+            data.text = event.target.value;
+        });
+    </script>
+</body>
+</html>

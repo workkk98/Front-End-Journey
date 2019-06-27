@@ -92,6 +92,7 @@
             "sourceMaps": false,
             "file": "${workspaceRoot}/BFC/overlapping/demo.html" 
         },
+        //css
         {
             "name": "Launch CSS.test.html",
             "type": "chrome",
@@ -119,6 +120,14 @@
             "request": "launch",
             "sourceMaps": false,
             "file": "${workspaceRoot}/css/box.html" 
+        },
+        //juejin
+        {
+            "name": "Launch model-view.html",
+            "type": "chrome",
+            "request": "launch",
+            "sourceMaps": false,
+            "file": "${workspaceRoot}/juejin/modelView.html" 
         },
     ]
 }
