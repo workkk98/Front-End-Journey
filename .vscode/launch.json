@@ -129,5 +129,13 @@
             "sourceMaps": false,
             "file": "${workspaceRoot}/juejin/modelView.html" 
         },
+        //vue
+        {
+            "name": "Launch vue-demo.html",
+            "type": "chrome",
+            "request": "launch",
+            "sourceMaps": false,
+            "file": "${workspaceRoot}/vue/demo.html"
+        }
     ]
 }

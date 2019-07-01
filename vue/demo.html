@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+</head>
+<body>
+    <div id="app">
+        <div>{{message}}</div>
+        <button v-on:click="reverseMessage">逆转消息</button>
+        <div v-bind:title="message2">鼠标悬停几秒钟查看此处动态绑定的提示信息！</div>
+        <p v-if="seen">现在你看到我了</p>
+        <ol>
+            <li v-for="todo in todos">
+                {{todo.text}}
+            </li>
+        </ol>
+        <ol>
+            <todo-item v-for="item in groceryList" v-bind:todo="item" v-bind:key="item.id"></todo-item>
+        </ol>
+        <input type="number" v-model.number="amount"> 
+        <count-amount v-bind:amount="amount" v-on:increase-amount="amount += 1"></count-amount>
+    </div>
+    <script>
+    Vue.component('todo-item',{
+        props:['todo'],
+        template:'<li> {{ todo.text }} </li>'
+    });
+    Vue.component('count-amount',{
+        props:{amount:Number},
+        template:`<div><span>{{amount}}</span><button v-on:click="$emit('increase-amount')">increase</button></div>`
+    });
+    var app = new Vue({
+        el: '#app',
+        data: {
+            message: 'Hello Vue!',
+            message2: '页面加载于 ' + new Date().toLocaleString(),
+            seen:true,
+            todos: [
+                { text: '学习 JavaScript' },
+                { text: '学习 Vue' },
+                { text: '整个牛项目' }
+            ],
+            groceryList : [
+                { id: 0, text: '蔬菜' },
+                { id: 1, text: '奶酪' },
+                { id: 2, text: '随便其它什么人吃的东西' }
+            ],
+            amount:0
+        },
+        methods: {
+            reverseMessage() {
+                this.message = this.message.split('').reverse().join('');
+            }
+        }
+    });
+    </script>
+</body>
+</html>
