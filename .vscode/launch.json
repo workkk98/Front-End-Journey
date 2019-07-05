@@ -136,6 +136,14 @@
             "request": "launch",
             "sourceMaps": false,
             "file": "${workspaceRoot}/vue/demo.html"
+        },
+        //demo
+        {
+            "name": "Launch demo.html",
+            "type": "chrome",
+            "request": "launch",
+            "sourceMaps": false,
+            "file": "${workspaceRoot}/demo.html"
         }
     ]
 }
