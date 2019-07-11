@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function sayJsonp (data) {
+            // let parseData = JSON.parse(data);
+            let div = document.createElement('div');
+            div.innerText = data.result;
+            document.body.appendChild(div);
+        }
+        let script = document.createElement('script');
+        script.src = 'http://127.0.0.1:8888/?callback=sayJsonp'
+        document.head.appendChild(script);
+    </script>
+</body>
+</html>

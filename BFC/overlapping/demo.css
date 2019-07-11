@@ -2,7 +2,7 @@
     padding: 15px;
     background-color: #000;
     width: 300px;
-    overflow: auto;
+    overflow: hidden;
   }
   #float {
     width: 50px;

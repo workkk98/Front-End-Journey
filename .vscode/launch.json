@@ -144,6 +144,22 @@
             "request": "launch",
             "sourceMaps": false,
             "file": "${workspaceRoot}/demo.html"
+        },
+        //clear
+        {
+            "name": "Launch clear.html",
+            "type": "chrome",
+            "request": "launch",
+            "sourceMaps": false,
+            "file": "${workspaceRoot}/clear/clear.html"
+        },
+        //jsonp
+        {
+            "name": "Launch jsonp.html",
+            "type": "chrome",
+            "request": "launch",
+            "sourceMaps": false,
+            "file": "${workspaceRoot}/jsonp/jsonp.html"
         }
     ]
 }
