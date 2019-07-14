@@ -13,6 +13,12 @@
             console.log(a);
             a = 100 ; //全局变量
         }
+        test();
+        setTimeout(function () {
+            console.log(this); //输出window
+        },1000);
+        setTimeout(() => console.log(this),1000);//输出windw
+        
     </script>
 </body>
 </html>

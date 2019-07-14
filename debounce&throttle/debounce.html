@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="content" style="height:150px;line-height:150px;text-align:center; color: #fff;background-color:#ccc;font-size:80px;"></div>
+    <script>
+        var num = 1;
+        var content = document.getElementById('content');
+        function count() {
+            content.innerHTML = num++;
+        };
+        const debounce = (func, wait, ...args) => {
+            let timeout;
+            return function(){
+                const context = this;
+                if (timeout) clearTimeout(timeout);
+                    timeout = setTimeout(() => {
+                        console.log(timeout);
+                        func.apply(context, args)
+                    },wait);
+            }
+        }
+        content.onmousemove = debounce(count,1000);
+    </script>        
+</body>
+</html>

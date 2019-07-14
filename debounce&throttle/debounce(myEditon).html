@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <button id="but">点击触发防抖事件</button>
+        <p type="text" id="inp" style="background-color: aquamarine"></p>    
+    </div>
+    <script>
+        let but = document.querySelector('#but');
+        let inp = document.querySelector('#inp');
+        var Timer = undefined;
+        function debonce(callback,time) {
+            if(Timer) {
+                clearTimeout(Timer);
+                inp.innerText = "防抖生效"+Math.random();
+                Timer=undefined;
+            } else {
+                Timer = setTimeout(callback,time);
+            }
+        }
+        function showMessage() {
+            console.log('执行完成,time:'+new Date().toLocaleTimeString());
+            Timer = undefined;
+        }
+        but.addEventListener('click',function() {
+            debonce(showMessage,1000);
+        });
+    </script>
+</body>
+</html>

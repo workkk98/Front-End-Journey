@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h1>定时器的相关复习</h1>
+    <h3>setTimeout函数</h3>
+    <p>入参（回调函数 ， 延迟执行时间返回），返回一个整数 ，这个整数可以用于 取消定时器</p>
+    <h3>setInterval函数</h3>
+    <p style="white-space: pre-wrap">与setTimeout函数基本没啥区别,但是setInterval函数会每间隔一段时间就会执行一次，无限时次的执行
+细节，这个间隔时间是指开始执行时间，例如执行代码需要5ms，则下次执行就是95ms后，
+若执行时间超过间隔时间 就立马执行</p>
+    <p>
+        clearTimeout和clearInterval函数可以取消定时器，通过传入（设定定时器返回的整数值）
+        来取消
+    </p>
+
+    <script>
+        function sayBeijingTime () {
+            console.log(new Date().toLocaleDateString());
+        }
+        let timer = setTimeout(sayBeijingTime , 100);
+        console.log('我先执行嘻嘻');
+        //setInterval(sayBeijingTime, 100);
+        clearTimeout(timer);
+        console.log(timer);  //经过clearTimeout函数调用后，timer值仍存在
+    </script>
+</body>
+</html>
