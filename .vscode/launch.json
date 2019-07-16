@@ -189,6 +189,14 @@
             "request": "launch",
             "sourceMaps": false,
             "file": "${workspaceRoot}/debounce&throttle/throttle(my).html"
+        },
+        //flex
+        {
+            "name": "Launch flex/flex.html",
+            "type": "chrome",
+            "request": "launch",
+            "sourceMaps": false,
+            "file": "${workspaceRoot}/flex/flex.html"
         }
     ]
 }
