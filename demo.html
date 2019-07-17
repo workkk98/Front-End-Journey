@@ -32,6 +32,22 @@
             a = 4;
         }
         console.log(a);
+
+
+        let map = new Map();
+        map.set('今天洗衣服了吗','洗了呢');
+        let promise =new Promise(function(resolve,reject){
+            if(map.get('今天洗衣服了吗')) {
+                resolve("yes");
+            } else {
+                reject('no');
+            }
+        });
+        promise.then(function (res) {
+            console.log(res);
+        }).catch(function (error) {
+            throw new Error(error);
+        })
     </script>
 </body>
 </html>

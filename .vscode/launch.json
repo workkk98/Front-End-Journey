@@ -163,32 +163,32 @@
         },
         //防抖和节流
         {
-            "name": "Launch debounce&throttle/timer.html",
+            "name": "Launch debounce_throttle/timer.html",
             "type": "chrome",
             "request": "launch",
             "sourceMaps": false,
-            "file": "${workspaceRoot}/debounce&throttle/timer.html"
+            "file": "${workspaceRoot}/debounce_throttle/timer.html"
         },
         {
-            "name": "Launch debounce&throttle/debounce.html",
+            "name": "Launch debounce_throttle/debounce.html",
             "type": "chrome",
             "request": "launch",
             "sourceMaps": false,
-            "file": "${workspaceRoot}/debounce&throttle/debounce.html"
+            "file": "${workspaceRoot}/debounce_throttle/debounce.html"
         },
         {
-            "name": "Launch debounce&throttle/throttle.html",
+            "name": "Launch debounce_throttle/throttle.html",
             "type": "chrome",
             "request": "launch",
             "sourceMaps": false,
-            "file": "${workspaceRoot}/debounce&throttle/throttle.html"
+            "file": "${workspaceRoot}/debounce_throttle/throttle.html"
         },
         {
-            "name": "Launch debounce&throttle/throttle(my).html",
+            "name": "Launch debounce_throttle/throttle(my).html",
             "type": "chrome",
             "request": "launch",
             "sourceMaps": false,
-            "file": "${workspaceRoot}/debounce&throttle/throttle(my).html"
+            "file": "${workspaceRoot}/debounce_throttle/throttle(my).html"
         },
         //flex
         {
