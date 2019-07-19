@@ -4,19 +4,18 @@
 }
 
 .father {
-    height: 300px;
     display: flex;
-    justify-content: center;
-    align-content: space-around;
-    flex-direction: row;
+    justify-content: flex-start;
+    align-content: flex-start;
     /* 若主轴是横轴，交叉轴方向永远竖直向下
         若主轴是竖轴，交叉轴永远垂直向右 */
-    flex-wrap: wrap;
+    flex-flow: row wrap;
 }
 
 .father > div {
-    width: 100px;
-    height: 100px;
-    background-color: white;
-    border: 1px solid red;
+    flex: 1 1 200px;
+    height: 300px;
+    border: 1px solid gainsboro;
+    background-color: silver;
 }
+
