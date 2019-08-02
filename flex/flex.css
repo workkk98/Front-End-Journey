@@ -9,11 +9,11 @@
     align-content: flex-start;
     /* 若主轴是横轴，交叉轴方向永远竖直向下
         若主轴是竖轴，交叉轴永远垂直向右 */
-    flex-flow: row wrap;
+    flex-flow: row nowrap;
 }
 
 .father > div {
-    flex: 1 1 200px;
+    flex: 0 2 500px;
     height: 300px;
     border: 1px solid gainsboro;
     background-color: silver;

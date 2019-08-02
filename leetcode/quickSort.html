@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function quickStart(arr) {
+            if(arr.length <=1) return arr;
+            let pivotIndex = Math.floor(arr.length/2);
+            let pivot = arr.splice(pivotIndex , 1)[0];
+            console.log(pivot);
+            let left = [];
+            let right = [];
+            for(let i = 0; i<arr.length ; i++) {
+                if(arr[i] <= pivot ) {
+                    left.push(arr[i]);
+                } else {
+                    right.push(arr[i])
+                }
+            }
+            return quickStart(left).concat([pivot] , quickStart(right));
+        }
+        let arr =quickStart([7,8,100,3,4,90,5,6,7]);
+        let newArr = [1,2,3].concat([1,2],[45]);
+    </script>
+</body>
+</html>

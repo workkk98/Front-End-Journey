@@ -1,0 +1,45 @@
+.cl-grid {
+    display: grid;
+    grid-template-rows: [start] 200px [middle] 200px [end];
+    grid-template-columns: [start] 300px [middle] 300px [right] 300px [end];
+    grid-auto-columns: 300px;
+    column-gap: 10px;
+} 
+
+.cl-grid-one {
+    grid-row-start: 1;
+    grid-row-end: span 2;
+    grid-column: middle / span 1;
+    background-color: black;
+    margin: 10px;
+}
+
+.cl-grid-area {
+    display: grid;
+    grid-template-areas:
+        "h h h h"
+        "l c c f"
+        "l b b b";
+    grid-template-columns: 1fr 20em 20em 1fr;
+    grid-template-rows: 40px 10em 3em;
+}
+
+.cl-grid-area-one {
+    grid-row: l / l;
+    grid-column: l / l;
+    background-color: red;
+}
+
+.ol-grid {
+    display: grid;
+    width: 45em;
+    height: 8em;
+    grid-template-rows: 4em 4em;
+    grid-template-columns: 15em 15em 15em;
+    grid-auto-flow: column;
+}
+
+.ol-grid li {
+    grid-row: auto;
+    grid-column: auto;
+}
