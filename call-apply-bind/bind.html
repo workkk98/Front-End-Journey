@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        Function.prototype._bind = function (context) {
+            const self = this ;
+            return function () {
+                return self.apply(context);
+            }
+        }
+
+        function bar() {
+            return this.value;
+        }
+        let obj = {
+            value :1
+        };
+        const newBar = bar._bind(obj);
+        // console.log(newBar());
+
+        Function.prototype._bind_ = function (context) {
+            context.fn = this;
+            let result = context.fn();
+            delete context.fn;
+            return function () {
+                return result
+            }
+        }
+    </script>
+</body>
+</html>

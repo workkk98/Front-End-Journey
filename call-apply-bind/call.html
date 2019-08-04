@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //call方法实质是把 方法传到对象中，此时this指向对象
+        Function.prototype._call = function (context,...args) {
+            context.fn = this;
+            // console.log(this);
+            //this指向函数
+            context.fn(args);
+            delete context.fn;
+
+        }
+
+        function foo(args) {
+            console.log(args);
+            console.log(this.value);
+        }
+
+        let bar = {
+            value:1
+        }
+
+        foo._call(bar,1,2,3);
+
+    </script>
+</body>
+</html>

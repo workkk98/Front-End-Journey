@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function _promise (ms,value) {
+            return new Promise(function(resolve,reject) {
+                // console.log(this); //window
+                setTimeout(resolve,ms,value)
+            });
+        }
+        
+        // _promise(100).then(function(value) {
+        //     console.log(value);
+        // },function() {
+        // });
+
+        const p1 = new Promise(function (resolve, reject) {
+            setTimeout(() => reject(new Error('fail')), 3000)
+        })
+
+        const p2 = new Promise(function (resolve, reject) {
+            setTimeout(() => resolve(p1), 1000)
+        })
+
+        p2
+        .then(result => console.log(result))
+            .catch(error => console.log(error))
+                .finally(() => console.log('end'));
+        //输出fail 这时p1的状态就会传递给p2，也就是说，p1的状态决定了p2的状态
+        //一般来说 ，不在then()的第二个参数中 捕获错误，总是在最后写个catch
+
+
+        let pall1 = _promise(100,'100ms');
+        let pall2 = _promise(200,'200ms');
+        let pall3 = _promise(300,'300ms');
+
+        let pAll = Promise.all([pall1,pall2,pall3]);
+        pAll.then((value) => console.log(value)).catch((reason)=>  {throw new Error(reason)});
+
+        let pRace = Promise.race([pall1,pall2,pall3]);
+        pRace
+            .then(console.log)
+                .catch(console.error);
+
+        //Promise.resolve('foo')
+        // 等价于
+        //new Promise(resolve => resolve('foo'))
+
+
+    </script>
+</body>
+</html>
