@@ -1,18 +1,17 @@
 <template>
   <div id="app">
-    <jump>跳转到666</jump>
     <router-view></router-view>
   </div>
 </template>
 
 <script>
-import jump from './components/Jump.vue'
 export default {
   name: 'app',
   components: {
-    jump
+  },
+  created() {
   }
-}
+} 
 </script>
 
 <style>

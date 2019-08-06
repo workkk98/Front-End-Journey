@@ -1,16 +1,19 @@
 <template>
     <div class="flex-container">
         <Count></Count>
-        <count></count>
+        <countVuex></countVuex>
     </div>
 </template>
 
 <script>
 import Count from '../components/Count'
+import CountVuex from '../components/CountVuex.vue'
+
 export default {
     name:'index',
     components:{
-        Count
+        Count,
+        CountVuex
     }
 }
 </script>
