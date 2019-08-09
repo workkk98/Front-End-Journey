@@ -5,6 +5,7 @@ Vue.use(VueRouter)
 
 import IndexView from './views/index.vue'
 import testVue from './views/test.vue'
+import shoppingView from './views/shopping.vue'
 
 const router = new VueRouter({
     routes:[
@@ -24,6 +25,11 @@ const router = new VueRouter({
                 }
             ]
         },
+        //vuex巩固
+        {
+            path:"/shopping",
+            component:shoppingView
+        }
     ]
 })
 

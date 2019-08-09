@@ -9,6 +9,7 @@ function anotherNew (fun) {
 }
 
 //掘金找到的好像更棒的 模拟new
+//原因 假如说构造函数返回了一个新的对象 
 function New(){
     var obj=new Object();
     //取出第一个参数，就是我们要传入的构造函数；此外因为shift会修改原数组，所以arguments会被去除第一个参数
