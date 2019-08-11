@@ -1,17 +1,24 @@
 <template>
     <div>
         <input type="text" :value="id">
+        <div>{{message}}</div>
+        <emit v-on:selfEmit="getMessage"></emit>    
         <router-view></router-view>
     </div>
 </template>
 
 <script>
+import emit from '../components/emit'
 export default {
     name:'test',
     data() {
         return {
-            id:0
+            id:0,
+            message:''
         }
+    },
+    components:{
+        emit
     },
     created() {
         this.id =this.$route.params.id;
@@ -27,6 +34,11 @@ export default {
     watch: {
         '$route' (to) {
             this.id = to.params.id;
+        }
+    },
+    methods:{
+        getMessage(message) {
+            this.message = message;
         }
     }
 }

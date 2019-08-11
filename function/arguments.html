@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //arguments就是一种类数组对象
+
+        function foo (name,age,profession) {
+            console.log(arguments); //实参长度
+        }
+
+        foo('zhang',21)
+        console.log(foo.length);    //形参 长度
+
+        var data = [];
+
+        for (var i = 0; i < 3; i++) {
+            (data[i] = function () {
+                console.log(arguments.callee.i) 
+            }).i = i;
+        }
+
+        data[0]();
+        data[1]();
+        data[2]();
+
+        function foo(name, age, sex, hobbit) {
+
+        console.log(name, arguments[0]); // name name
+
+        // 改变形参
+        name = 'new name';
+
+        console.log(name, arguments[0]); // new name new name
+
+        // 改变arguments
+        arguments[1] = 'new age';
+
+        console.log(age, arguments[1]); // new age new age
+
+        // 测试未传入的是否会绑定
+        console.log(sex); // undefined
+
+        sex = 'new sex';
+
+        console.log(sex, arguments[2]); // new sex undefined
+
+        arguments[3] = 'new hobbit';
+
+        console.log(hobbit, arguments[3]); // undefined new hobbit
+
+        }
+
+        foo('name', 'age')
+
+        //自己总结下，就是说形参有传数值的，两者同时修改，没有传值的，一个变化，另一个不变
+
+        //除此之外，以上是在非严格模式下，如果是在严格模式下，实参和 arguments 是不会共享的。
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="watcher"></div>
+    <script>
+        class Dep {
+            constructor() {
+                this.watchers = [];
+                this.val = undefined;
+            }
+
+            addWatcher(watcher) {
+                this.watchers.push(watcher);
+            }
+
+            notyfy(newVal) {
+                if(newVal !== this.val) {
+                    this.watchers.forEach((watcher) => {
+                    watcher.update(newVal);
+                });
+                }
+            }
+
+            setVal(val) {
+                this.val = val;
+            }
+        }
+
+        class Publisher {
+            //obj即监听对象,实力有限 仅只能监听一个val;
+            constructor(obj) {
+                this.obj = obj;
+                this.dep = null;
+            }
+
+            init(dep) {
+                this.dep = dep;
+                Object.keys(this.obj).forEach((key) => {
+                    this.listener(key);
+                    this.dep.setVal(this.obj[key]);
+                })
+            }
+
+            listener(key) {
+                let self = this;
+                Object.defineProperty(obj,key,{
+                    set(newVal) {
+                        self.dep.notyfy(newVal);
+                    }
+                })
+            }
+        }
+
+        class watcher {
+            constructor() {
+                this.watcher = document.querySelector('#watcher');
+            }
+            update(val) {
+                this.watcher.innerHTML = val;
+            }
+        }
+
+        let obj = {
+            name:'xf',
+            job:'农民'
+        }
+        let publisher = new Publisher(obj);
+        let dep = new Dep();
+        publisher.init(dep);
+        dep.addWatcher(new watcher());
+    </script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 第一版
+
+        function add(a, b) {
+            return a + b;
+        }
+        var curry = function (fn) {
+            //调用curry函数时，传入的参数
+            var args = [].slice.call(arguments, 1);
+            return function() {
+                //调用 curry函数返回的 新函数的参数 因为arguments是类数组对象 故而使用[].slice.call
+                 var newArgs = args.concat([].slice.call(arguments));
+                return fn.apply(this, newArgs);
+            };
+        };
+
+        var addCurry = curry(add, 1, 2);
+        addCurry(4,5) // 3
+    </script>
+</body>
+</html>
