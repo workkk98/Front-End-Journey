@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var regex = /(\d{4})-(\d{2})-(\d{2})/;
+        var string = '2019-08-15';
+        //console.log(regex.exec('2019-08-15'));
+        //console.log(('2019-08-15').match(regex));
+        var result = string.replace(regex, function() {
+	        return RegExp.$2 + "/" + RegExp.$3 + "/" + RegExp.$1;
+        });
+        //console.log(result); 
+
+        var expression = 'a_b_c_d';
+        let newExp = expression.replace(/(?<=_)([a-z])/g,function () {
+            return RegExp.$1+RegExp.$2;
+        })
+        console.log(newExp)//a_d_d_d
+        let newExp2 = expression.replace(/[_-]+([a-z])?/g,function (match,p1) {
+            console.log(match ,p1 );
+            return p1 ? p1.toUpperCase() : '';
+        })
+        console.log(newExp2)
+    </script>
+</body>
+</html>

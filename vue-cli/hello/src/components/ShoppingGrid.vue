@@ -23,11 +23,10 @@ export default {
     },
     methods:{
         increment() {
-            //mutations不能同名函数
-            this.$store.commit('incrementProduct',{productName:this.productName})
+            this.$store.commit('shop/incrementProduct',{productName:this.productName,productPrice:+this.productName.length})
         },
         sum() {
-            this.price = this.$store.getters.sumPrice;
+           this.price = this.$store.getters['shop/sumPrice']
         }
     }
 }

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+function findDecrement(array1, array2) {
+    let newArray = flatten(array1);
+    let newArray2 = flatten(array2);
+    let different = [];
+    for (let i = 0; i < newArray.length; i++) {
+        let count = 0;
+        for (let j = 0; j < newArray2.length; i++) {
+            if (newArray[i] === newArray2[j]) {
+                count++;
+            }
+        }
+        console.log(count);
+        if (count === 0) {
+            different.push(newArray[i]);
+        }
+    }
+    for (let i = 0; i < newArray2.length; i++) {
+        let count = 0;
+        for (let j = 0; j < newArray.length; i++) {
+            if (newArray[i] === newArray2[j]) {
+                count++;
+            }
+        }
+        if (count === 0) {
+            different.push(newArray[i]);
+        }
+    }
+    return different;
+}
+
+
+function flatten(arr) {
+    let newArr = [];
+    if (Array.isArray(arr)) {
+        arr.forEach(function (element, index) {
+            if (Object.prototype.toString.call(element) == "[object Array]") {
+                newArr = newArr.concat(flatten(element));
+            } else {
+                newArr.push(element);
+            }
+        });
+    }
+    return newArr;
+}
+
+const array1 = [1, 2, 3];
+const array2 = [2, 3, 4];
+const result = findDecrement(array1, array2);
+console.log(result);
+
+        </script>
+</body>
+</html>

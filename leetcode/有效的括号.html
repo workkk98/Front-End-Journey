@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+ var isValid = function(s) {
+    var stack = []
+    var map = { 
+        '(' : ')',
+        '[': ']',
+        '{': '}'
+    }
+    
+    for (var char of s) {
+        console.log(char);
+        //如果是 (  [  { 则插入
+        if(char in map) {
+            stack.push(char)
+        } else {
+            if( !stack.length || char != map[stack.pop()]) {
+                return false
+            }
+        }
+    }
+    
+    // 如果最后stack 里没有元素了， 就一定是匹配的
+    return !stack.length
+};
+
+    console.log(isValid('({))'));
+    </script>
+</body>
+</html>

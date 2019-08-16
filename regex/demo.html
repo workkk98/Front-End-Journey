@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // let phoneRule =/1\d{10}/;
+        // let phoneNumber = '15968170563'
+        // console.log(phoneRule.__proto__);
+
+        let test = /#F{3}|#[fF]\w{2,5}/g;
+        var string = "#ffbbad #Fc01DF #FFF #ffE";
+        console.log( string.match(test) ); 
+
+
+        var result = "aa_b_c".replace(/(?<=_)/g, 'X');
+
+        console.log(result);  //aa_Xb_Xc
+    </script>
+</body>
+</html>
