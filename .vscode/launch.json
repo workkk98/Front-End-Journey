@@ -20,48 +20,6 @@
             "sourceMaps": false,
             "file": "${workspaceRoot}/prototype/protoChain/demo.html"  
         },
-        {
-            "name": "Launch useCall.html (disable sourcemaps)",
-            "type": "chrome",
-            "request": "launch",
-            "sourceMaps": false,
-            "file": "${workspaceRoot}/prototype/useCall/demo.html"  
-        },
-        {
-            "name": "Launch combine.html (disable sourcemaps)",
-            "type": "chrome",
-            "request": "launch",
-            "sourceMaps": false,
-            "file": "${workspaceRoot}/prototype/combine/demo.html"  
-        },
-        {
-            "name": "Launch prototype.html (disable sourcemaps)",
-            "type": "chrome",
-            "request": "launch",
-            "sourceMaps": false,
-            "file": "${workspaceRoot}/prototype/prototype/demo.html" 
-        },
-        {
-            "name": "Launch parasitic.html (disable sourcemaps)",
-            "type": "chrome",
-            "request": "launch",
-            "sourceMaps": false,
-            "file": "${workspaceRoot}/prototype/parasitic/demo.html" 
-        },
-        {
-            "name": "Launch parasiticCombine.html (disable sourcemaps)",
-            "type": "chrome",
-            "request": "launch",
-            "sourceMaps": false,
-            "file": "${workspaceRoot}/prototype/parasiticCombine/demo.html" 
-        },
-        {
-            "name": "Launch es6.html (disable sourcemaps)",
-            "type": "chrome",
-            "request": "launch",
-            "sourceMaps": false,
-            "file": "${workspaceRoot}/prototype/es6/demo.html" 
-        },
         //ajax
         {
             "name": "Launch ajax(disable sourcemaps)",
@@ -77,49 +35,6 @@
             "request": "launch",
             "sourceMaps": false,
             "file": "${workspaceRoot}/BFC/outsideMargin/demo.html" 
-        },
-        {
-            "name": "Launch BFC(floatCollapse)",
-            "type": "chrome",
-            "request": "launch",
-            "sourceMaps": false,
-            "file": "${workspaceRoot}/BFC/floatCollapse/demo.html" 
-        },
-        {
-            "name": "Launch BFC(overlapping)",
-            "type": "chrome",
-            "request": "launch",
-            "sourceMaps": false,
-            "file": "${workspaceRoot}/BFC/overlapping/demo.html" 
-        },
-        //css
-        {
-            "name": "Launch CSS.test.html",
-            "type": "chrome",
-            "request": "launch",
-            "sourceMaps": false,
-            "file": "${workspaceRoot}/css/test.html" 
-        },
-        {
-            "name": "Launch CSS.center.html",
-            "type": "chrome",
-            "request": "launch",
-            "sourceMaps": false,
-            "file": "${workspaceRoot}/css/center.html" 
-        },
-        {
-            "name": "Launch CSS.text.html",
-            "type": "chrome",
-            "request": "launch",
-            "sourceMaps": false,
-            "file": "${workspaceRoot}/css/text.html" 
-        },
-        {
-            "name": "Launch CSS.box.html",
-            "type": "chrome",
-            "request": "launch",
-            "sourceMaps": false,
-            "file": "${workspaceRoot}/css/box.html" 
         },
         //juejin
         {
@@ -190,13 +105,12 @@
             "sourceMaps": false,
             "file": "${workspaceRoot}/debounce_throttle/throttle(my).html"
         },
-        //flex
         {
-            "name": "Launch flex/flex.html",
+            "name": "Launch leetcode/逆波兰表达式.html",
             "type": "chrome",
             "request": "launch",
             "sourceMaps": false,
-            "file": "${workspaceRoot}/flex/flex.html"
+            "file": "${workspaceRoot}/leetcode/逆波兰表达式.html"
         }
     ]
 }
