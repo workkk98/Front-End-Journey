@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function QA(array) {
+            let point = 0;
+            for (let i = 0 ; i< array.length ; i++) {
+                if(array[point] !== array[i]) {
+                    array[++point] = array[i];
+                }
+            }
+            return array.slice(0,point+1);
+        }
+
+        let array = QA([1,1,1,2,3,4,4,4,4]);
+        console.log(array)
+    </script>
+</body>
+</html>

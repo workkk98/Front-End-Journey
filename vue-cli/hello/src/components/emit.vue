@@ -6,10 +6,10 @@
 
 <script>
 export default {
-    name:'以下犯上',
+    name:'yixiafanshang',
     methods:{
         selfEmit() {
-            this.$emit('selfEmit',"行动代号：以下犯上");
+            this.$emit('selfEmit',"行动代号：以下犯上","能加些sauce");
         }
     }
 }

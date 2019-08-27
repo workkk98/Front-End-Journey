@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        button {
+            color: magenta;
+            transition: color 200ms ease-in 50ms;
+        }
+        button:hover {
+            color: rebeccapurple;
+            transition: color 200ms ease-out 50ms;
+        }
+        .longer {
+            width: 100px;
+            height: 20px;
+            position: absolute;
+            left: 0%;
+            background-color: rgba(255, 0, 0, 0.5);
+            transition: left 2s ease-in 50ms;
+        }
+        .longer:hover {
+            left: calc(100% - 100px);
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <button>哈哈哈哈哈</button>
+    </div>
+    <div style="position: relative">
+        <div class="longer"></div>
+    </div>
+</body>
+</html>

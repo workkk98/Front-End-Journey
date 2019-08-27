@@ -8,12 +8,61 @@
 </head>
 <body>
     <script>
+        /**
+         * @param {number[]} nums
+         * @return {number}
+         */
         var dominantIndex = function(nums) {
-            let list = nums.sort(function(a,b){
-                return a-b;
-            })
+            if(nums.length ===1) {
+                return 0;
+            }
+            let sb = {
+                max:{
+                    index:undefined,
+                    value:undefined
+                },
+                second:{
+                    index:undefined,
+                    value:undefined
+                }
+            };
+            for(let i = 0 ; i < nums.length ; i++) {
+                if( i===0 ) {
+                    sb.max.index = i;
+                    sb.max.value = nums[i];
+                }
+                if( i===1 ) {
+                    if( sb.max.value >= nums[i] ) {
+                        sb.second.index = i;
+                        sb.second.value = nums[i]
+                    } else {
+                        sb.second = sb.max;
+                        sb.max = {
+                            index:i,
+                            value:nums[i]
+                        }
+                    }
+                }
+                if( i > 1 ) {
+                    if(nums[i] > sb.max.value) {
+                        sb.second = sb.max;
+                        sb.max = {
+                            index:i,
+                            value:nums[i]
+                        }
+                    } else if( nums[i] > sb.second.value) {
+                        sb.second.value = nums[i];
+                        sb.second.index = i;
+                    }
+                }
+            }
+            if( Math.floor(sb.max.value / sb.second.value ) >=2 ) {
+                return sb.max.index;
+            } else {
+                return -1;
+            }
         };
-        dominantIndex([1,2,3])
+        console.log(dominantIndex([3, 6, 1, 0]))
     </script>
 </body>
 </html>

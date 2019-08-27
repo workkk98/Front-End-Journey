@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function sort(arr) {
+            if(arr.length <=1) {
+                return arr;
+            }
+            let len = arr.length;
+            for(let i =1 ; i<len ; i++) {
+                let current = arr[i];
+                let preIndex = i -1;
+                while( preIndex >=0 && arr[preIndex] >= current) {
+                    arr[preIndex+1] = arr[preIndex];
+                    preIndex --;
+                }
+                arr[preIndex+1] = current;
+            }
+            return arr;
+        }
+
+        console.log(sort([2,3, 7, 5, 4, 6]));
+    </script>
+</body>
+</html>

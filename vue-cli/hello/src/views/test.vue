@@ -37,8 +37,9 @@ export default {
         }
     },
     methods:{
-        getMessage(message) {
-            this.message = message;
+        getMessage(message,sauce) {
+            //说明这个可能是用arguments来做到 ，传入多个值的
+            this.message = message + sauce;
         }
     }
 }
