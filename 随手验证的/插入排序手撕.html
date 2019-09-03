@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function insertSort(array) {
+            if(array.length <= 1) {
+                return array;
+            }
+            for(let i =1 ; i< array.length ; i++) {
+                let value = array[i];
+                let pre = i-1;
+                while(pre >= 0 && array[pre] > value) {
+                    array[pre+1] = array[pre];
+                    pre--;
+                }
+                array[pre+1] = value;
+            }
+            return array;
+        }
+
+        console.log(insertSort([2,3, 7, 5, 4, 6,8]));
+    </script>
+</body>
+</html>

@@ -10,7 +10,6 @@ export default {
   components: {
   },
   created() {
-    console.log(this);
   }
 } 
 </script>

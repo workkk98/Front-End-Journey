@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        Promise.Allkk = function (array) {
+            return new Promise(function (resolve,reject) {
+                let result = array.reduce(function (pre , next ,index) {
+                    pre[index] = array[index].then(function (value) {
+                    return value;
+                    },function (e) {
+                        throw new Error(e)
+                    })
+                    return pre;
+                },[]);
+                resolve(result);
+            })
+        }
+
+        let promiseA = new Promise((resolve,reject) => {
+            setTimeout(function(params) {
+                resolve('a');
+            },1000);
+        })
+        let promiseB = new Promise((resolve,reject) => {
+            setTimeout(function(params) {
+                resolve('b');
+            },2000);
+        })
+
+        let arr = Promise.Allkk([promiseA,promiseB]);
+        arr.then(function (v) {
+            console.log(v)
+        }).catch(function (e) {
+            console.log(e)
+        })
+    </script>
+</body>
+</html>

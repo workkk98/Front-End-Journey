@@ -8,19 +8,22 @@
 </head>
 <body>
     <script>
-        Array.prototype._flatten = function () {
+        Array.prototype._flat = function (num) {
+            if( num <=0 ) {
+                return this;
+            }
             let arr = [];
-            this.forEach(element => {
-                if(Array.isArray(element)) {
-                    arr = arr.concat(element._flatten())
+            this.forEach(function (value,index,array) {
+                if(Array.isArray(value)) {
+                    arr =arr.concat(value._flat(--num));
                 } else {
-                    arr.push(element)
+                    arr.push(value)
                 }
-            });
-
+            })
             return arr;
         }
-        console.log([1,2,3,[4,5]]._flatten());
+        
+        console.log([1,[2,[3]]]._flat(5));
     </script>
 </body>
 </html>
