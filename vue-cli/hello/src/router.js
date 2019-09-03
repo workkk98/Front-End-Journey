@@ -7,6 +7,7 @@ import IndexView from './views/index.vue'
 import testVue from './views/test.vue'
 import shoppingView from './views/shopping.vue'
 import instagram from './views/instagram.vue'
+import vmodel from './views/vModel.vue'
 
 const router = new VueRouter({
     routes:[
@@ -35,6 +36,10 @@ const router = new VueRouter({
             path:'/instagram',
             component:instagram,
             alias:'/'
+        },
+        {
+            path:'/vmodel',
+            component:vmodel
         }
     ]
 })

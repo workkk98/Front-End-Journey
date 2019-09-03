@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <p>实现call、apply其实根本就是，将函数作为引用对象的属性</p>
+    <script>
+        var a = 3;
+        function add(b) {
+            return this.a+b;
+        }
+        Function.prototype._call = function () {
+            let args = Array.from(arguments);
+            let obj = args[0];
+            args.splice(0,1);
+            obj.func = this;
+            let result = obj.func(...args);
+            delete obj.func;
+            return result;
+        }
+        console.log(window.add(4));
+        console.log(add._call({a:4},4))
+    </script>
+</body>
+</html>
