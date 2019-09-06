@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function Node(data) {
+            let node = Object.create(null);
+            node.data = data;
+            node.left = null;
+            node.right = null;
+            return node;
+        }
+
+        function BT() {
+            this.root = null;
+            this.insert = function (data) {
+                let newNode = new Node(data);
+                if(this.root === null) {
+                    this.root = newNode
+                } else {
+                    insertNode(this.root,newNode);
+                }
+            }
+        }
+
+        function insertNode(node,newNode) {
+            if( node.data > newNode.data ) {
+                node.left === null ? node.left = newNode : insertNode(node.left,newNode);
+            } else {
+                node.right === null ? node.right = newNode : insertNode(node.right , newNode);
+            }
+        }
+
+        let bt = new BT();
+        let a = -5;
+        while( a<5 ) {
+            bt.insert(a);
+            a++;
+        }
+        console.log(bt);
+        
+    </script>
+</body>
+</html>

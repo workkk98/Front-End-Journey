@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <button id="app">点击我</button>
+    <br>
+    <button>另外一个</button>
+    <p>得出结论 
+        mousedown -> focus -> mouseup -> click
+        <br>
+        焦点始终在 同一button上 就不会触发 focus
+    </p>
+    <script>
+        let button = document.querySelector('#app');
+        button.onfocus = function (params) {
+            console.log('focus')
+        }
+        button.onmouseup = function (params) {
+            console.log('mouseup')
+        }
+        button.onmousedown = function (params) {
+            console.log('mousedown')
+        }
+        button.onclick = function (params) {
+            console.log('click')
+        }
+        button.onblur = function (params) {
+            console.log('blur')
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+
+    <p>
+        循环调用，初始化节点，必须使用this.root,因为this.root = null ,即无法传递指针。
+    </p>
+    <script>
+        class Bt {
+            constructor() {
+                this.root = null;
+            }
+
+            createNode(data) {
+                let obj = Object.create(null);
+                obj.data = data;
+                obj.left = null;
+                obj.right = null;
+                return obj;
+            }
+
+            insert(data) {
+                let node = this.createNode(data);
+                let root = this.root;
+                if( this.root === null ) {
+                    this.root = node;
+                } else {
+                    while(true) {
+                        if(root.data > node.data && root.left === null) {
+                            root.left = node;
+                            break;
+                        }
+                        if(root.data <= node.data && root.right === null) {
+                            root.right = node;
+                            break;
+                        }
+                        if(root.data > node.data && root.left !== null) {
+                            root = root.left;
+                        }
+                        if( root.data <= node.data && root.right !== null ) {
+                            root = root.right;
+                        }
+                    }
+                }
+            }
+        }
+        
+        let bt = new Bt();
+        bt.insert(7);
+        bt.insert(4);
+        bt.insert(8);
+        bt.insert(3);
+        bt.insert(5);
+        bt.insert(7.5);
+        bt.insert(9);
+
+        console.log(bt);
+
+        var preorderTraversal = function(root) {
+            let arr = [];
+            arr.push(root.data);
+            if(root.left !== null) {
+                arr = arr.concat(preorderTraversal(root.left))
+            }
+            if(root.right !== null) {
+                arr = arr.concat(preorderTraversal(root.right))
+            }
+            return arr;
+        };
+
+        var inorderTraversal = function(root) {
+            if(root.left !== null) {
+                inorderTraversal(root.left);
+            }
+            console.log(root.data);
+            if(root.right !== null) {
+                inorderTraversal(root.right);
+            }
+        };
+
+    console.log(preorderTraversal(bt.root));
+    inorderTraversal(bt.root);
+    </script>
+</body>
+</html>
