@@ -7,18 +7,29 @@
     <title>Document</title>
 </head>
 <body>
+    <p>
+        tips:
+            1.promise的动态then方法
+            2.等待最后一个promise执行完成后，调用resolve函数（通过计数器判断）
+    </p>
     <script>
-        Promise.Allkk = function (array) {
+        Promise.Allkk =function (array) {
+            let count = 0;
+            let promiseLen = array.length;
+            function excutor(params,resolve) {
+                count++;
+                if(promiseLen === count) {
+                    resolve(params);
+                }
+            }
             return new Promise(function (resolve,reject) {
                 let result = array.reduce(function (pre , next ,index) {
-                    pre[index] = array[index].then(function (value) {
-                    return value;
-                    },function (e) {
-                        throw new Error(e)
-                    })
+                    array[index].then((data) => {
+                        pre[index] = data;
+                        excutor(pre,resolve);
+                    },() => reject())
                     return pre;
                 },[]);
-                resolve(result);
             })
         }
 
@@ -34,11 +45,7 @@
         })
 
         let arr = Promise.Allkk([promiseA,promiseB]);
-        arr.then(function (v) {
-            console.log(v)
-        }).catch(function (e) {
-            console.log(e)
-        })
+        arr.then((arr) => console.log(arr),(err) => console.log(err));
     </script>
 </body>
 </html>

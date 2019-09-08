@@ -10,13 +10,13 @@
     <script>
         function sleep(time) {
             return new Promise((resolve,reject) => {
-                setTimeout(resolve,time)
+                setTimeout(() => resolve("data"),time)
             })
         }
 
         async function fun() {
             console.time("sleep");
-            await sleep(0);
+            console.log(await sleep(1000));
             console.timeEnd("sleep");
         }
 
