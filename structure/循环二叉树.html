@@ -55,10 +55,10 @@
         let bt = new Bt();
         bt.insert(7);
         bt.insert(4);
-        bt.insert(8);
+        bt.insert(9);
         bt.insert(3);
         bt.insert(5);
-        bt.insert(7.5);
+        bt.insert(7);
         bt.insert(9);
 
         console.log(bt);
@@ -85,8 +85,20 @@
             }
         };
 
+    var postorderTraversal = function (root) {
+            if(root.left !==null) {
+                postorderTraversal(root.left)
+            }
+            if(root.right !== null ) {
+                postorderTraversal(root.right)
+            }
+            console.log(root.data)
+        }
+
+
     console.log(preorderTraversal(bt.root));
-    inorderTraversal(bt.root);
+    // inorderTraversal(bt.root);
+    postorderTraversal(bt.root);
     </script>
 </body>
 </html>

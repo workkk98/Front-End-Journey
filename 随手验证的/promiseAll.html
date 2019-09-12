@@ -11,6 +11,7 @@
         tips:
             1.promise的动态then方法
             2.等待最后一个promise执行完成后，调用resolve函数（通过计数器判断）
+            3.但凡一个函数出错，直接调用reject()函数
     </p>
     <script>
         Promise.Allkk =function (array) {
@@ -27,7 +28,7 @@
                     array[index].then((data) => {
                         pre[index] = data;
                         excutor(pre,resolve);
-                    },() => reject())
+                    },(err) => reject(err))
                     return pre;
                 },[]);
             })

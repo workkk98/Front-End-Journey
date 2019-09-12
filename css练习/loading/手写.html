@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0px;
+            background-color: #000;
+        }
+        .loader_container {
+            position: absolute;
+            height: 50px;
+            width: 50px;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%,-50%);
+            opacity: 0.7;
+            animation: container_move 500ms linear 300ms infinite;
+        }
+        .loader_cut {
+            width: 25px;
+            height: 50px;;
+        }
+
+        .loder_cricle {
+            box-sizing: border-box;
+            height: 50px;
+            width: 50px;
+            border: 15px solid white;
+            border-radius: 50%;
+            border-left-color: transparent;
+            border-bottom-color: transparent;
+            animation: circle_move 1000ms cubic-bezier(.4,0,.22,1) linear infinite;
+        }
+
+        @keyframes container_move {
+            from {
+                transform: rotate(0deg)
+            }
+            to {
+                transform: rotate(360deg)
+            }
+        }
+
+        @keyframes circle_move {
+            0% { transform: rotate(0) }
+            50% { transform: rotate(-140deg) }
+            100% { transform: rotate(0) }
+        }
+    </style>
+</head>
+<body>
+    <div class="loader_container">
+        <div class="loader_cut">
+            <div class="loder_cricle"></div>
+        </div>
+    </div>
+</body>
+</html>

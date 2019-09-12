@@ -111,6 +111,13 @@
             "request": "launch",
             "sourceMaps": false,
             "file": "${workspaceRoot}/leetcode/逆波兰表达式.html"
-        }
+        },
+        {
+            "name": "Launch postTraversal/后序遍历二叉树.html",
+            "type": "chrome",
+            "request": "launch",
+            "sourceMaps": false,
+            "file": "${workspaceRoot}/structure/循环二叉树.html"
+        },
     ]
 }
