@@ -7,16 +7,19 @@
     <title>Document</title>
 </head>
 <body>
-    <div id="watcher"></div>
+    <div class="watcher"></div>
+    
+
+    <h1 class="watcher"></h1>
     <script>
         class Dep {
             constructor() {
-                this.watchers = [];
+                this.watchers = null;
                 this.val = undefined;
             }
 
             addWatcher(watcher) {
-                this.watchers.push(watcher);
+                this.watchers = watcher;
             }
 
             notyfy(newVal) {
@@ -58,8 +61,8 @@
         }
 
         class watcher {
-            constructor() {
-                this.watcher = document.querySelector('#watcher');
+            constructor(dom) {
+                this.watcher = dom;
             }
             update(val) {
                 this.watcher.innerHTML = val;
@@ -70,10 +73,20 @@
             name:'xf',
             job:'农民'
         }
+
+        function initWatchers(name) {
+            let watcherDomList = Array.from(document.querySelectorAll(name));
+            //map返回新数组
+
+            return watcherDomList.map(function (value , index , array) {
+                return new watcher(value);
+            })
+
+        }
         let publisher = new Publisher(obj);
         let dep = new Dep();
         publisher.init(dep);
-        dep.addWatcher(new watcher());
+        dep.addWatcher(initWatchers('.watcher'));
     </script>
 </body>
 </html>

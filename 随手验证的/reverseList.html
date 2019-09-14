@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function ReverseList(pHead) {
+            // write code here
+            if(pHead.next === null ) {
+                return pHead;
+            }
+            let node = pHead.next;
+            let newNode = ReverseList(node);
+            node.next = pHead;
+            pHead.next = null;
+
+            return newNode;
+        }
+
+        let obj = {
+            val:1,
+            next: {
+                val:2,
+                next : {
+                    val:3,
+                    next:null
+                }
+            }
+        }
+        console.log(ReverseList(obj))
+    </script>
+</body>
+</html>
