@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let obj = {
+            a_b:1,
+            a_bbb_c:2,
+            a_bc_c_d:{
+                a_b:1
+            }
+        }
+
+        function format(obj) {
+            let upperObj = {};
+            Object.keys(obj).forEach(element => {
+                let value = obj[element];
+                let camelCase = element.replace(/(_)(\w)/g,(match , p1 , p2) => p2.toUpperCase());
+                upperObj[camelCase] = typeof value !== "object" ? value : format(value);
+            });
+            return upperObj;
+        }
+
+        console.log(format(obj));
+    </script>
+</body>
+</html>
