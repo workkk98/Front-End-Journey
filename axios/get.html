@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</head>
+<body>
+    <script>
+        axios.get('https://nei.netease.com/api/apimock/b209329e46daae533ac0649051abcba9/api/todos/:01')
+        .then(function (data) {
+            console.log(data);
+        }).catch(function (error) {
+            console.log(error);
+        })
+    </script>
+</body>
+</html>

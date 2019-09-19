@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <!-- canvas定宽高 ，   width 300 height 150 -->
+    <canvas>
+        如果不支持，会显示该句。
+    </canvas>
+
+
+    <script>
+        let canvas = document.querySelector('canvas');
+        if(canvas.getContext) {
+            var ctx = canvas.getContext("2d");
+        } else {
+            console.log("版本太低");
+        }
+        ctx.moveTo(0,0);
+        ctx.lineTo(0,100);
+        ctx.lineTo(100,100);
+        ctx.lineCap = "round";
+        ctx.strokeStyle = 'red';
+        ctx.lineWidth = 5;
+        ctx.stroke();//stroke means  划线
+
+
+        ctx.beginPath();
+        ctx.moveTo(300, 0)
+        ctx.lineTo(300, 100)
+        ctx.lineTo(200, 100)
+        ctx.strokeStyle = 'blue';
+        ctx.lineWidth = 10;
+        ctx.closePath();
+        ctx.stroke();
+    </script>
+</body>
+</html>

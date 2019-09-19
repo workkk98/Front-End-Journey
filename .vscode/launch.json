@@ -119,5 +119,12 @@
             "sourceMaps": false,
             "file": "${workspaceRoot}/structure/循环二叉树.html"
         },
+        {
+            "name": "Launch heapSort/堆排序.html",
+            "type": "chrome",
+            "request": "launch",
+            "sourceMaps": false,
+            "file": "${workspaceRoot}/leetcode/排序/堆排序.html"
+        },
     ]
 }
