@@ -1,0 +1,14 @@
+{
+  "name": "modulesyntax",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index",
+  "scripts": {},
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/cli": "^7.6.0",
+    "@babel/core": "^7.6.0",
+    "@babel/preset-env": "^7.6.0"
+  }
+}

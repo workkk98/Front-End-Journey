@@ -1,0 +1,3 @@
+#忽略 module文件夹下的包
+
+module/node_modules
