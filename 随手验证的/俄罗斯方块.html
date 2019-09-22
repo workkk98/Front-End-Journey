@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function fn(line , count , string) {
+            let list = Array.from({length:line},() => 0);
+            let processList = string.split(" ");
+            for(let i = 0 ;i<count ; i++) {
+                let index = processList[i] -1;
+                list[index] = list[index] + 1;
+            }
+            let point = list[0];
+            for(let i = 1; i<list.length ; i++) {
+                if(point > list[i]) {
+                    point = list[i];
+                }
+            }
+            return point
+        }
+
+        console.log(fn(4,10,"1 1 2 2 2 3 1 2 3"));
+    </script>
+</body>
+</html>

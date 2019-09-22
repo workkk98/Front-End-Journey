@@ -7,6 +7,8 @@
     <title>Document</title>
 </head>
 <body>
+
+    <a href="javascript:;">牛渴望</a>
     <script>
         function Node(data) {
             let node = Object.create(null);
@@ -44,6 +46,27 @@
         }
         console.log(bt);
         
+
+        //反转二叉树
+
+        function reverseBinaryTree(node) {
+            if(node.left ===  null && node.right === null) {
+                return ;
+            }
+            let point = node.left === null ?  null : node.left;
+            node.left = node.right;
+            node.right = point;
+
+            if(node.left !== null ) {
+                reverseBinaryTree(node.left);
+            }
+            if(node.right !== null ) {
+                reverseBinaryTree(node.right);
+            }
+        }
+
+        reverseBinaryTree(bt.root)
+        console.log(bt);
     </script>
 </body>
 </html>
