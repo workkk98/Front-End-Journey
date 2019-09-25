@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function binarySearch(array , target , head , tail) {
+            let index = -1;
+            let mid = Math.floor(head + (tail - head) /2);
+            if(array[mid] === target) {
+                return mid;
+            }
+            if(array[mid] > target) {
+                index = binarySearch(array , target , head , mid-1);
+            }
+            if(array[mid] > target) {
+                index = binarySearch(array , target , mid+1 , tail);
+            }
+            return index;
+        }
+    
+    
+        var a = binarySearch([1,2,3,4,5], 6 , 0 ,5);
+    </script>
+</body>
+</html>
