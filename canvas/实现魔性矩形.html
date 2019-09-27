@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <canvas id="canvas"></canvas>
+    </div>
+
+    <script>
+        let canvas = document.getElementById('canvas');
+        //不能用style 来修改canvas
+        canvas.width = 800;
+        canvas.height = 600;
+        let ctx = canvas.getContext("2d");
+        
+
+        function strokeRect(x,y,width,height) {
+            ctx.beginPath();
+            ctx.rect(x,y,width,height)
+            ctx.stroke();
+        }
+        for(let i =0 ; i<100 ; i =i +5) {
+            let size = i;
+            strokeRect(0+size,0+size,200-2*size,200-2*size);
+        }
+    </script>
+</body>
+</html>

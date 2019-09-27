@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <canvas id="canvas"></canvas>
+
+    <script>
+        let canvas = document.querySelector('#canvas');
+
+        canvas.height = 600;
+        canvas.width = 800;
+
+        let ctx = canvas.getContext('2d');
+        ctx.fillStyle = "#FFF";
+        //context.arc(x,y,radius,startAngle,endAngle,anticlockwise)
+        //arc(x,y,半径,起始弧度,结束弧度(0弧度是 90度 方向 位置),true:逆时针,false:顺时针（默认false）)
+        // ctx.arc(400,300,50,0.5*Math.PI,1.5*Math.PI,true)
+        // ctx.stroke()
+    
+        function strokeCircleRect(x,y,radius,width,height) {
+            ctx.beginPath();
+            ctx.arc(x+width-radius , y+height-radius ,radius , 0 ,0.5*Math.PI );
+            ctx.lineTo(x+radius,y+height);
+            ctx.arc(x+radius , y+height-radius , radius , 0.5*Math.PI , Math.PI);
+            ctx.lineTo(x,y+radius);
+            ctx.arc(x+radius , y+radius , radius , Math.PI , 1.5*Math.PI);
+            ctx.lineTo(x+width - radius,y);
+            ctx.arc(x+width - radius , y+radius , radius , 1.5*Math.PI , 2*Math.PI);
+            ctx.lineTo(x+width,y+height-radius);
+            ctx.closePath()
+            ctx.stroke();
+        }
+
+        strokeCircleRect(0,0,20,400,300)
+    </script>
+</body>
+</html>
