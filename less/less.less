@@ -1,0 +1,76 @@
+/* 值变量 使用名称 类似 white/不需要引号*/
+
+@pink : pink;
+@specialRed : rgba(255,0,0,0.5);
+@p1 : .p1 ;
+@p2 : p2;
+@border: border;
+@borderRadiusV1: 2px;
+@BGI: .bgI ;
+@__dir: "./";
+@imgSzie : 828px;
+
+@{p1} {
+    color: @pink;
+}
+
+
+@triangle : {
+    border-left: 20px solid transparent;
+    border-right: 20px solid transparent;
+    border-top: 20px solid transparent;
+    border-bottom: 20px solid black;
+    width: 0px;
+}
+
+/* . 与 # 均可作为 方法前缀 
+    方法后写不写 () 看个人习惯。
+*/ 
+
+.card () {
+    background: #f6f6f6;
+    -webkit-box-shadow: 0 1px 2px rgba(151, 151, 151, .58);
+    box-shadow: 0 1px 2px rgba(151, 151, 151, .58);
+}
+
+.card2 (@color : rgba(151, 151, 151, .58)) {
+    background: #f6f6f6;
+    -webkit-box-shadow: 0 1px 2px @color;
+    box-shadow: 0 1px 2px @color;
+}
+
+.@{p2} {
+    /* x偏移量 | y偏移量 | 阴影模糊半径 | 阴影扩散半径 | 阴影颜色 */
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+    @{border} : 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: @borderRadiusV1;
+}
+
+
+@{BGI} {
+    height: @imgSzie;
+    width: @imgSzie;
+    background: url("@{__dir}IMG_0942.jpg");
+}
+
+.triangle {
+    @triangle()
+}
+
+.p3 {
+    &::before {
+        content: "使用& 嵌套创建的"
+    }
+}
+
+.p4_div {
+    .card();
+    width: 200px;
+    height: 20px;
+}
+
+.p4_divs {
+    .card2(rgba(255,0,0,0.7));
+    width: 200px;
+    height: 20px;
+}

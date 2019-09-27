@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Less</title>
+    <!-- <link rel="stylesheet/less" href="./less.less">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/less.js/2.5.3/less.min.js"></script> -->
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <h1>less学习</h1>
+    <p>第一种，引入link标签 ， cdn引入less ， link先于less  ，<strong>且 rel属性得是 'stylesheet/less'(因为cdn问题取消)</strong></p>
+    <p>第二种，npm 全局安装 less  ,npm -g install less 
+        <br>
+        lessc style.less > style.css
+    </p>
+    <p class="p1 p2">值变量：用法 @变量名：值
+        <br>
+        选择器变量：@变量名：值
+        使用 @{变量名}
+        <br>
+        属性变量和选择器类似
+        总结：键名 得使用@{}
+        <br>
+        url变量
+        <div class="bgI"></div>
+        属性s变量
+        <div class="triangle"></div>
+        变量运算
+    </p>
+
+    <p class="p3">
+        <h3>嵌套</h3>
+        &指上父层的键名
+        <br>
+        媒体查询符
+    </p>
+
+    <p>
+        <h3>混合方法</h3>
+        <ul>
+            <li>无参数方法</li>
+            <li>参数方法</li>
+            <li>方法的命名空间</li>
+        </ul>
+        <div class="p4_div"></div>
+        <br>
+        <div class="p4_divs"></div>
+    </p>
+
+    <p>
+        <h3>继承</h3>
+        <ul>
+            <li>extend关键字</li>
+            <div>语法案例 &:extend(.class) =>   目标选择器 , .class {} </div>
+            <br>
+            <li>all关键字</li>
+            <div>使用选择器匹配到的全部声明。 => #wrap:extend(#main all)</div>
+        </ul>
+    </p>
+
+</body>
+</html>

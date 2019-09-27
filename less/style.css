@@ -1,0 +1,39 @@
+/* 值变量 使用名称 类似 white/不需要引号*/
+.p1 {
+  color: pink;
+}
+.p2 {
+  /* x偏移量 | y偏移量 | 阴影模糊半径 | 阴影扩散半径 | 阴影颜色 */
+  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 2px;
+}
+.bgI {
+  height: 828px;
+  width: 828px;
+  background: url("./IMG_0942.jpg");
+}
+.triangle {
+  border-left: 20px solid transparent;
+  border-right: 20px solid transparent;
+  border-top: 20px solid transparent;
+  border-bottom: 20px solid black;
+  width: 0px;
+}
+.p3::before {
+  content: "使用& 嵌套创建的";
+}
+.p4_div {
+  background: #f6f6f6;
+  -webkit-box-shadow: 0 1px 2px rgba(151, 151, 151, 0.58);
+  box-shadow: 0 1px 2px rgba(151, 151, 151, 0.58);
+  width: 200px;
+  height: 20px;
+}
+.p4_divs {
+  background: #f6f6f6;
+  -webkit-box-shadow: 0 1px 2px rgba(255, 0, 0, 0.7);
+  box-shadow: 0 1px 2px rgba(255, 0, 0, 0.7);
+  width: 200px;
+  height: 20px;
+}
