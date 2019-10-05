@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>promise 手撕</title>
+</head>
+<body>
+    <h1>大家都知道 ， 为了解决 callback回掉地狱的问题， promise应运而生</h1>
+
+    <script>
+        function _Promise(executor) {
+            const self = this;
+            this.value;
+            this.state = 'pending';
+            this.onResolvedCallback = [];
+            this.onRejectedCallback = [];
+            try{
+                executor.call(this,resolve,reject);
+            } catch (err) {
+                this.reject(err);
+            }
+
+            //resolve,reject函数中 得用self , 解决 this的问题,因为执行setTimeout时，是window对象
+            //所以,调用resolve（）函数 ，this绑到了window对象上
+            function resolve(value) {
+                if( self.state === 'pending') {
+                    //window
+                    // console.log(this)
+                    self.value = value;
+                    self.state = 'fullfilled';
+                    self.callback(value)
+                }
+            }
+
+            function reject(value) {
+                
+            }
+        }
+        //注册成功或失败的事件
+        _Promise.prototype.then = function (resolve , reject ) {
+            if(this.state === 'fullfilled') {
+                resolve()
+            }
+            this.callback = resolve;
+            this.callback2 = reject;
+        }
+
+        
+
+        var p = new _Promise(function (resolve,reject) {
+                console.time('_promise');
+            setTimeout(function () {
+                console.timeEnd('_promise')
+                resolve('time')
+            },1000)
+        }).then((value)=> {
+            console.log('success:'+value)
+        },() => console.log('fail'))
+
+
+        // var p2 = new Promise((resolve,reject) => {
+        //     setTimeout(() => resolve('time2'),1000)
+        // })
+        // setTimeout(() => p2.then((value) => console.log(value)),2000)
+    </script>
+</body>
+</html>

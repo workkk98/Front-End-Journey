@@ -24,8 +24,13 @@
         </ol>
         <input type="number" v-model.number="amount"> 
         <count-amount v-bind:amount="amount" v-on:increase-amount="amount += 1"></count-amount>
+        <h3>v-template v指令集</h3>
+        <div>
+            <input type="text" v-focus>
+        </div>
     </div>
     <script>
+
     Vue.component('todo-item',{
         props:['todo'],
         template:'<li> {{ todo.text }} </li>'
@@ -34,6 +39,15 @@
         props:{amount:Number},
         template:`<div><span>{{amount}}</span><button v-on:click="$emit('increase-amount')">increase</button></div>`
     });
+    Vue.directive('focus',{
+        bind(){},
+        inserted: function (el) {
+            el.focus()
+        },
+        updated() {},
+        componentUpdated() {},
+        unbind() {}
+    })
     var app = new Vue({
         el: '#app',
         data: {
