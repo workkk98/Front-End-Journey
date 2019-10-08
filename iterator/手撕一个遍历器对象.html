@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function iterator(params) {
+    let obj = {
+        0:'a',
+        1:'b',
+        2:'c'
+    };
+    let index = 0;
+    return {
+        next() {
+            if(index < 3) {
+                return {
+                    value:obj[index++],
+                    done:false
+                }
+            } else {
+                return {
+                    value:undefined,
+                    done:true
+                }
+            }
+        }
+    }
+}
+
+let obj = {
+    [Symbol.iterator]:iterator
+}
+
+
+// for(let i of obj) {
+//     console.log(i)
+// }
+        function* generator(params) {
+            yield 1;
+            yield 2;
+            yield 3;
+        }
+
+        generator[Symbol.iterator] = function (params) {
+            return this()
+        }
+
+        // for(let i of generator) {
+        //     console.log(i)
+        // }
+            console.log(generator());
+            
+            for(let i of generator ()) {
+                console.log(i)
+            }
+            /**
+             * 总结出 ，除了generator函数外，let of必须要求对象有个key名为Symbol.iterator属性,调用其返回遍历器对象
+             * 而generator函数， 则可直接()  猜测 先是调用了 Symbol.iterator指向自己 ，然后调用自己
+             **/
+    </script>
+</body>
+</html>
