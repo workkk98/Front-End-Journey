@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function printMatrix(matrix)
+{
+    // write code here
+    let bottom = matrix.length -1 ;
+    let right = matrix[0].length -1 ;
+    let left = 0,top = 0;
+    let res = [];
+    while(left <= right && top <= bottom) {
+
+        for(let i=left;i<=right;i++) {
+            res.push(matrix[top][i])
+        }
+
+        for(let j=top+1;j<=bottom;j++) {
+            res.push(matrix[j][right])
+        }
+        for(let i=right-1;i>=left;i--) {
+            if(top===bottom) {
+                break
+            }
+            res.push(matrix[bottom][i]) 
+        }
+        for(let j= bottom-1;j>=top+1 ; j--) {
+            if(left === right) {
+                break;
+            }
+            res.push(matrix[j][left])
+        }
+        left++;top++;right--;bottom--;
+    }
+    return res
+}
+        console.log(printMatrix([[1,2,3,4,5],[6,7,8,9,10],[11,12,13,14,15]]));
+        
+    </script>
+</body>
+</html>

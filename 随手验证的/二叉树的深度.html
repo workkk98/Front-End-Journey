@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function maxDepth (root) {
+            if(!root) {
+                return 0;
+            }
+            return Math.max(maxDepth(root.left),maxDepth(root.right))+1
+        }
+        let i = 0
+        let clearNum = setInterval(() => {
+            i++;
+            console.log(i)
+            if(i==10) {
+                clearInterval(clearNum)
+            }
+        }, 100);
+    </script>
+</body>
+</html>

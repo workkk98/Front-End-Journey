@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+function ListNode(x){
+    this.val = x;
+    this.next = null;
+}
+
+function Merge(pHead1, pHead2)
+{
+    // write code here
+    var p;
+    if(pHead1 === null) {
+        return p = pHead2;
+    } else if(pHead2 === null) {
+        return p = pHead1;
+    }
+
+    if(pHead1.val <= pHead2.val) {
+        p = pHead1;
+        p.next = Merge(pHead1.next,pHead2)
+    } else {
+        p = pHead2;
+        p.next = Merge(pHead1,pHead2.next)
+    }
+    return p;
+}
+    function add(node,...args) {
+        for(let i = 0; i<args.length ; i++) {
+            node.next = new ListNode(args[i])
+            node = node.next;
+        }
+    }
+    let b = new ListNode(1);
+    let a = new ListNode(7);
+    add(a,8)    //7 8
+    console.log(a);
+    add(b,4,6)  //1 4 6
+    console.log(b);
+    console.log(Merge(a,b))
+    </script>
+</body>
+</html>
