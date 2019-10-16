@@ -7,16 +7,14 @@
     <title>Document</title>
 </head>
 <body>
+    <input type="radio" name="" id="radio" value="123">
+
+
     <script>
-        new Promise(function (resolve,reject) {
-            resolve('a')
-        }).then(function (params) {
-            
-        },function (params) {
-            
-        }).then(function (params) {
-            console.log(params)
-        })
+        var text = document.getElementById('radio');
+        text.addEventListener('change',function (e) {
+            console.log(e);
+        },false)
     </script>
 </body>
 </html>

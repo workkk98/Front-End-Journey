@@ -10,13 +10,43 @@
 <body>
     <div id="app">
         <div>{{this.a}}</div>
+        <br>
+        <select name="" id="" v-model="select">
+            <option value="" disabled>请选择</option>
+            <option value="option1">option1</option>
+            <option value="option2">option2</option>
+        </select>
+        <span>{{select}}</span>
+        <br>
+        <input type="radio" id="radio" value="radio"  v-model="radio">
+        <label for="radio">radio</label>
+        <p></p>
+        <input type="checkbox" name="" id="c1" value="c1" v-model="checkbox">
+        <label for="c1">c1</label>
+        <input type="checkbox" name="" id="c2" value="c2" v-model="checkbox">
+        <label for="c2">c2</label>
+        <input type="checkbox" name="" id="c3" value="c3" v-model="checkbox">
+        <label for="c3">c3</label>
+
+
+        <p style="white-space: pre-wrap;">{{ message }}</p>
+        <br>
+        <textarea v-model="message" placeholder="add multiple lines"></textarea>
+        <br>
+        <label>这是个隐式绑定input(数字类型)<input type="number"></label>
     </div>
 
     <script>
         var vm = new Vue({
             el:'#app',
-            data: {
-                a:'a'
+            data() {
+                return {
+                    a:'测试demo',
+                    select:'',
+                    radio:"",
+                    message:"",
+                    checkbox:[]
+                }
             }
         })
 
