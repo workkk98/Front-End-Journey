@@ -17,6 +17,9 @@
         let script = document.createElement('script');
         script.src = 'http://127.0.0.1:8888/?callback=sayJsonp'
         document.head.appendChild(script);
+        setTimeout(function (params) {
+            document.head.removeChild(script)
+        },0)
     </script>
 </body>
 </html>
