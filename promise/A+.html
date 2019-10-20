@@ -65,6 +65,7 @@ function Promise (executor) {
  */
 
 /**
+ * 对then执行函数中 return的 x值进行一个判断后执行resolve()函数
  * 对resolve 进行改造增强 针对resolve中不同值情况 进行处理
  * @param  {promise} promise2 promise1.then方法返回的新的promise对象
  * @param  {[type]} x         promise1中onFulfilled的返回值

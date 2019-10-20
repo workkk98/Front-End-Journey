@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <form action="./form.html" onsubmit="submitX(event)">
+            <label for="submit">submit</label><input type="submit" name="" id="submit">
+        </form>
+    </div>
+    <script>
+        function submitX(event) {
+            console.log(event);
+            event.preventDefault();
+            //告诉user agent：如果此事件没有被显式处理，那么它默认的动作也不要做（因为默认是要做的）
+            //但是事件还是继续传播
+            //event.stopPropagation() 阻止冒泡
+        }
+        var app = document.getElementById('app');
+        app.addEventListener('submit',function (e) {
+            console.log(e);
+        })
+    </script>
+</body>
+</html>

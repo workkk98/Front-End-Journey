@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <p>
+        Promise.all这个函数本质上入参[promise,promise,...]
+        返回一个promise对象携带各个promise的结果
+        它的过程其实就是等待所有的promise对象状态转换成fullfilled后，
+        把返回的promise状态改为fullfilled 然后携带一个一一对应的数组
+    </p>
+    <script>
+        
+Promise._all = function (args) {
+let len =args.length;
+let count = 0;
+let value = []
+function normalize(resolve,reject) {
+    //promise是一个个promise对象
+    args.forEach((promise,index) => {
+        promise.then(function (data) {
+            count++;
+            value[index]=data;
+            if(count === len) {
+                resolve(value);
+            }
+        },function (err) {
+            reject(err)
+        })
+    });
+}
+return new Promise(normalize)
+}
+
+let timeout =function (data,ms) {
+    return new Promise(function (resolve,reject) {
+        setTimeout(function () {
+            resolve(data)
+        },ms)
+    })
+}
+
+let out = Promise._all([timeout(1,100),timeout(2,2000),timeout(3,0)])
+
+
+setTimeout(function (params) {
+    console.log(out);
+    out.then(function (params) {
+        console.log(params[1]);
+    })
+},3000)
+    </script>
+</body>
+</html>
+

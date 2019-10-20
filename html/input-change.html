@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <p>change和input事件很类似，前者多用于select、radio、checkbox这种选择框
+        ，且比input会有多一步blur的步骤</p>
+    <p>在内联中，例如onclick=""引号这里就是个script脚本,且类似立即执行函数
+        而使用dom.onclick 或是 dom.addEventLisner像是回调函数
+    </p>
+    <input type="radio" name="" id="radio" value="123">
+    <button onclick="cancelChecked(event);var a = 3;console.log(a);">取消选中</button>
+    <p>下面是事件冒泡:</p>
+    <div id="eventBubble">
+        <div>
+            <div>事件冒泡</div>
+        </div>
+    </div>
+
+    <div>
+        <p>相同值的checkbox，切换后会触发onchange事件</p>
+        <label>checkbox1:</label><input type="checkbox" name="" id="checkbox1" value="checkbox">
+        <label>checkbox2:</label><input type="checkbox" name="" id="checkbox2" value="checkbox">
+    </div>
+        <p>得出结论：input在text输入框中键入什么值，都会触发，而onchange则是blur后且得修改value值</p>
+    <div>
+        <label>这是text:</label><input type="text" name="" id="text" onchange="textOnChange()">
+    </div>
+
+
+    <script>
+        var text = document.getElementById('radio');
+        text.addEventListener('change',function (e) {
+            console.log(e);
+        },false)
+        function cancelChecked(e) {
+            var radio = document.getElementById('radio');
+            console.log(e)
+            radio.checked = false ;
+        }
+        var eventBubble =  document.getElementById('eventBubble');
+        eventBubble.addEventListener('click',function (e) {
+            console.log(e.target);
+        })
+
+        var checkbox1 = document.getElementById('checkbox1');
+        var checkbox2 = document.getElementById('checkbox2');
+        checkbox1.addEventListener('change',function (params) {
+            console.log("onchange1")
+        })
+        checkbox2.addEventListener('change',function (params) {
+            console.log("onchange2")
+        })
+
+        function textOnChange(event) {
+            console.log('text-onchange')
+        }
+    </script>
+</body>
+</html>

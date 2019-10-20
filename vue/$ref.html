@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+</head>
+<body>
+    <div id="app">
+        <p>通过ref属性</p>
+        <button @click="chooseSonInput">聚焦到子组件</button>
+        <br>
+        <button @click="sendMessage">通过ref传递一些信息</button>
+        <son-input ref="agent"></son-input>
+    </div>
+    <script>
+        Vue.component('SonInput',{
+            template:'<div><label>input:<label><input type="text" ref="littleAgent" onfocus="console.log(3)"></div>',
+            methods:{
+                focus() {
+                    console.log(this.$refs.littleAgent)
+                    this.$refs.littleAgent.focus()
+                },
+                print() {
+                    console.log(this.$message);
+                }
+            }
+        })
+        var vm = new Vue({
+            el:'#app',
+            methods:{
+                chooseSonInput() {
+                    console.log(this.$refs.agent.focus());
+                },
+                sendMessage() {
+                    this.$refs.agent.$message = 'sendMessage';
+                    this.$refs.agent.print()
+                }
+            }
+        })
+    
+    </script>
+</body>
+</html>

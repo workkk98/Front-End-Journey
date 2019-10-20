@@ -122,12 +122,12 @@ Observer.prototype.convert = function (key, val) {
 /**
  * 
  * @param {data对象} obj 
- * @param {*} key 
- * @param {*} val 
+ * @param {data键名} key 
+ * @param {data属性值} val 
  */
 function defineReactive (obj, key, val) {
   var dep = new Dep()
-  var property = Object.getOwnPropertyDescriptor(obj, key)//    返回该属性的配置 读enumerable 删configurable 写writable
+  var property = Object.getOwnPropertyDescriptor(obj, key)//返回值是个对象 ，属性的配置 读enumerable 删configurable 写writable
   if (property && property.configurable === false) {
     return
   }

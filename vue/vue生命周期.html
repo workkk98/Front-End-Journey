@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Vue生命周期</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+</head>
+<body>
+    <div id="app">
+        <p>{{title}}</p>
+    </div>
+    <script>
+        var vm =null;
+        vm = new Vue({
+            // el:'#app', 
+            data() {
+                return {
+                    title:'生命周期'
+                }
+            },
+            beforeCreate() {
+                console.log("beforeCreate: "+vm);
+            },
+            created() {
+                console.log("created: "+vm);
+                this.$mount(document.querySelector('#app'));//入参dom对象
+            },
+            beforeMount() {
+                console.log("beforeMount: "+vm);
+            },
+            mounted() {
+                console.log("mounted: "+vm);
+            },
+            beforeUpdate() {
+                console.log("beforeUpdated: "+vm);
+            },
+            updated() {
+                console.log("update: "+vm);
+            },
+            beforeDestroy() {
+                console.log("beforeDestroy: "+vm);
+            },
+            destryoyed() {
+                console.log("destroyed: "+vm);
+            }
+        })
+    </script>
+</body>
+</html>
