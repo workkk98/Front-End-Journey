@@ -9,9 +9,24 @@
 </head>
 <body>
     <div id="el">
+        <my-component v-model="model"></my-component>
+        <p></p> 
         <base-input v-on:focus.native="onFocus" v-model="value" :label="label"></base-input>
+        <p></p>
+        <update-title-grammar :title="syncTittle" @update:title="syncTittle = $event"></update-title-grammar>
+        等同于=
+        <sync-grammar :title.sync="syncTittleB"></sync-grammar>
     </div>
     <script>
+        Vue.component('my-component' , {
+            model:{
+                props:'value',
+                event:'input'
+            },
+            props:['value'],
+            template:`<label>v-model基础语法:<input type="text" @input="$emit('input',$event.target.value)" :value="value"></label>`,
+        })
+
         Vue.component('base-input', {
             inheritAttrs: false,
             props: ['label', 'value'],
@@ -45,15 +60,35 @@
             `
             })
         
-        new Vue({
+        Vue.component('update-title-grammar' , {
+            template:'<label>{{title}}<input type="text" v-on:input="$emit(\'update:title\',$event.target.value)"></label>',
+            props:['title']
+        })
+
+        Vue.component('sync-grammar' , {
+            template:'<label>{{title}}<input type="text" v-on:input="$emit(\'update:title\',$event.target.value)"></label>',
+            props:['title']
+        })
+        var vm = new Vue({
             el:'#el',
             data:() => {
                 return {
-                    label:'ceshi',
-                    value:1
+                    model:'1998',
+                    label:'base-input组件:',
+                    value:1,
+                    syncTittle:'update:title',
+                    syncTittleB:'sync:title'
                 }
             },
             methods:{
+                onFocus() {
+                    console.log('base-input  focus')
+                }
+            },
+            watch:{
+                model:function (val) {
+                    console.log(val)
+                }
             }
         })
     </script>

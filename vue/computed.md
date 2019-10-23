@@ -22,7 +22,7 @@
 }
 ```
 
-在中间我们也能看到，初始化顺序是 data > computed > watch，(我觉得，watch能观察computed的属性也和这一顺序也有关，暂没有考证)
+在中间我们也能看到，初始化顺序是props > data > computed > watch，(我觉得，watch能观察computed的属性也和这一顺序也有关，暂没有考证)
 
 ----
 
@@ -33,12 +33,15 @@ const computedWatcherOptions = { computed: true }
 
 function initComputed (vm: Component, computed: Object) {
   // $flow-disable-line
+  //创建个watchers对象
   const watchers = vm._computedWatchers = Object.create(null)
   // computed properties are just getters during SSR
   const isSSR = isServerRendering()
 
+
   for (const key in computed) {
     const userDef = computed[key]
+    //遍历computed对象,获得每个key的getter方法
     const getter = typeof userDef === 'function' ? userDef : userDef.get 
     if (process.env.NODE_ENV !== 'production' && getter == null) {
       warn(
@@ -46,7 +49,7 @@ function initComputed (vm: Component, computed: Object) {
         vm
       )
     }
-
+    //创建watcher对象
     if (!isSSR) {
       // create internal watcher for the computed property.
       watchers[key] = new Watcher(
@@ -113,6 +116,7 @@ class Watcher {
   }
   
   get () {
+    //捆绑dep对象
     pushTarget(this)
     let value
     const vm = this.vm
@@ -201,9 +205,18 @@ export default class Dep {
   }
 }
 
+// 为Dep.target 赋值
+function pushTarget (Watcher) {
+	if (Dep.target) targetStack.push(Dep.target)
+  	Dep.target = Watcher
+}
+function popTarget () {
+  Dep.target = targetStack.pop()
+}
+
 Dep.target = null
 ```
->watcher 中实例化了 dep 并向 dep.subs 中添加了订阅者，dep 通过 notify 遍历了 dep.subs 通知每个 watcher 更新。
+>在新建watcher实例的过程中还创建了dep对象
 
 
 最后一步, 
@@ -221,10 +234,29 @@ if (!(key in vm)) {
 }
 ```
 
-最后看一下 defineComputed()
+最后看一下 defineComputed() ,注意看 createComputedGetter()
 经过一系列操作 ， **还需要重新看下这系列操作**
 
-
+createComputedGetter (key) {
+  return function computedGetter () {
+    //获取到相应的watcher
+    const watcher = this._computedWatchers && this._computedWatchers[key]
+    if (watcher) {
+      //watcher.dirty 参数决定了计算属性值是否需要重新计算，默认值为true，即第一次时会调用一次
+        if (watcher.dirty) {
+          /*每次执行之后watcher.dirty会设置为false，只要依赖的data值改变时才会触发
+          watcher.dirty为true,从而获取值时从新计算*/
+          watcher.evaluate()
+        }
+        //获取依赖
+        if (Dep.target) {
+          watcher.depend()
+        }
+        //返回计算属性的值
+        return watcher.value
+    }
+  }
+}
 
 ```
 export function defineComputed (
@@ -293,9 +325,9 @@ sharedPropertyDefinition = {
 
 * 调用计算属性时会触发其Object.defineProperty的get访问器函数
 
-* 调用 watcher.depend() 方法向自身的消息订阅器 dep 的 subs 中添加其他属性的 watcher
+* 调用 watcher.depend() 方法向自身的消息订阅器 dep 的 subs 中添加其他属性的 watcher （computed属性互相计算）
 
-* 调用 watcher 的 evaluate 方法（进而调用 watcher 的 get 方法）让自身成为其他 watcher 的消息订阅器的订阅者，首**先将 watcher 赋给 Dep.target**，然后执行 getter 求值函数，当访问求值函数里面的属性（比如来自 data、props 或其他 computed）时，会同样触发它们的 get 访问器函数从而将该计算属性的 watcher 添加到求值函数中属性的 watcher 的消息订阅器 dep 中，当这些操作完成，最后关闭 Dep.target 赋为 null 并返回求值函数结果。
+* 调用 watcher 的 evaluate 方法（进而调用 watcher 的 get 方法）让自身 **成为其他 watcher 的消息订阅器的** 订阅者，首**先将 watcher 赋给 Dep.target**，然后执行 getter 求值函数，当访问求值函数里面的属性（比如来自 data、props 或其他 computed）时，会同样触发它们的 get 访问器函数从而将该计算属性的 watcher 添加到求值函数中属性的 watcher 的消息订阅器 dep 中，当这些操作完成，最后关闭 Dep.target 赋为 null 并返回求值函数结果。
 
 * 当某个属性发生变化，触发 set 拦截函数，然后调用自身消息订阅器 dep 的 notify 方法，遍历当前 dep 中保存着所有订阅者 wathcer 的 subs 数组，并逐个调用 watcher 的  update 方法，完成响应更新
 

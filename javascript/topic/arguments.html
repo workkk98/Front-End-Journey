@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <p>
+            传入的参数，实参和 arguments 的值会共享，当没有传入时，实参与 arguments 值不会共享
+            除此之外，以上是在非严格模式下，如果是在严格模式下，实参和 arguments 是不会共享的。
+    </p>
+
+    <script>
+        function arg(a,b,c) {
+            // 'use strict';
+            console.log("a:"+a," arguments-a:"+arguments[0]);
+            b = 'bb';
+            console.log("b:"+b," arguments-b:"+arguments[1]);
+        }
+        arg('a','b')
+
+        var arr = [];
+        for(var i = 0 ;i<5;i++) {
+            (arr[i] = function () {
+                console.log(arguments.callee.i)
+            }).i = i
+        }
+        setTimeout(() => arr.forEach(fun=>fun()),0)
+    </script>
+</body>
+</html>
