@@ -37,6 +37,11 @@
         <textarea v-model="message" placeholder="add multiple lines"></textarea>
         <br>
         <label>这是个隐式绑定input(数字类型)<input type="number"></label>
+
+        <div>
+            <div><input type="text" v-model="objListener.name"></div>
+            <div><button v-on:click="addObjListener">点击增加objListener.name</button></div>
+        </div>
     </div>
 
     <script>
@@ -48,7 +53,8 @@
                     select:'',
                     radio:"",
                     message:"",
-                    checkbox:[]
+                    checkbox:[],
+                    objListener: {}
                 }
             },
             computed:{
@@ -67,6 +73,9 @@
             methods:{
                 pulsA() {
                     this.deractionA = 'a'
+                },
+                addObjListener() {
+                    this.objListener.name = this.objListener.name + 'a'
                 }
             }
         })

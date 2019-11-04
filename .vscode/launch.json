@@ -133,5 +133,12 @@
             "sourceMaps": false,
             "file": "${workspaceRoot}/随手验证的/最大子序和.html"
         },
+        {
+            "name": "Launch 合并两个有序数组.html",
+            "type": "chrome",
+            "request": "launch",
+            "sourceMaps": false,
+            "file": "${workspaceRoot}/随手验证的/合并两个有序数组.html"
+        },
     ]
 }

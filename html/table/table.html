@@ -25,6 +25,40 @@
         </table>
     </div>
 
+    <h2>table学习</h2>
+    <ol>
+        <li>thead和tfoot在一张表中都只能有一个，而tbody可以有多个。</li>
+        <li>tfoot必须出现在tbody前面，这样浏览器在接收主体数据之前，就能渲染表尾，有利于加快表格的显示速度。这一点对大型表格尤其重要。</li>
+        <li>thead、tbody和tfoot里面都必须使用tr标签。</li>
+        <li>rame属性控制着表格最外围的四条边框的可见性 ，而 rules 则控制着表格内部边框的可见性。</li>
+    </ol>
+    <table frame="box" rules="all" >
+        <caption>我才是表头</caption>
+        <colgroup span="1" width="200"></colgroup>
+        <colgroup span="1" width="200"></colgroup>
+        <thead>
+            <tr>
+                <th>1列</th>
+                <th>2列</th>
+            </tr>
+        </thead>
+        <tfoot>
+            <tr>
+                <th>尾1</th>
+                <th>尾2</th>
+            </tr>
+        </tfoot>
+        <tbody>
+            <tr>
+                <td>1.1</td>
+                <td>1.2</td>
+            </tr>
+            <tr>
+                <td>2.1</td>
+                <td>2.2</td>
+            </tr>
+        </tbody>
+    </table>
 
 </body>
 </html>

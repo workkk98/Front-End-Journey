@@ -11,6 +11,7 @@
     <div id="app">
         <p>{{title}}</p>
     </div>
+    <p>template 外部的html? {{title}}</p>
     <script>
         var vm =null;
         vm = new Vue({
@@ -20,6 +21,7 @@
                     title:'生命周期'
                 }
             },
+            // template: '<div>vue内部的template {{title}}</div>',
             beforeCreate() {
                 console.log("beforeCreate: "+vm);
             },
