@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+</head>
+<body>
+    <div id="app">
+       <div v-for="item in arr">{{item.num}}</div>
+       <button @click="change">change</button>
+    </div>
+
+    <script>
+        var vm = new Vue({
+            el:'#app',
+            data() {
+                return {
+                    arr:[
+                        {num:1},
+                        {num:2},
+                        {num:3},
+                    ]
+                }
+            },
+            computed:{
+                
+            },
+            methods:{
+                change(){
+                    // this.$set(this.arr,0,{num:999})
+                    this.arr[1]={num:0}
+                    console.log(this.arr)
+                }
+            }
+        })
+
+    </script>
+</body>
+</html>

@@ -71,14 +71,18 @@
         })
         var vm = new Vue({
             el:'#el',
-            data:() => {
+            data:function() {
                 return {
                     model:'1998',
                     label:'base-input组件:',
                     value:1,
                     syncTittle:'update:title',
-                    syncTittleB:'sync:title'
+                    syncTittleB:'sync:title',
+                    nativeComponent:'native-component'
                 }
+            },
+            created() {
+                console.log(this.nativeComponent)
             },
             methods:{
                 onFocus() {

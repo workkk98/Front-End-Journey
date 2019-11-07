@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+</head>
+<body>
+  <div id="app">
+    <v-model v-model="model" @focus.native="console.log('native')"></v-model>
+    sync和model很相似，数据双向绑定的语法糖
+    <sync-comonent :text.sync="syncComponent"></sync-comonent>
+  </div>
+  <script>
+    Vue.component('v-model',{
+      model:{
+        props:'value',//不能取名叫data
+        event:'input'
+      },
+      template:"<div>{{value}}<input :value=\"value\" @input=\"$emit('input',$event.target.value)\"></div>",
+      props:['value']
+    })
+    Vue.component('sync-comonent',{
+      props:['text'],
+      template:'<div>{{text}}<input @input="$emit(\'update:text\',$event.target.value)" :value="text"></div>',
+      created() {
+        console.log(this.text)
+      }
+    })
+    new Vue({
+      el:'#app',
+      data() {
+        return {
+          model:'我是v-model',
+          syncComponent:'syncComponent'
+        }
+      },
+      created() {
+        console.log(this.syncComponent)
+      },
+      watch: {
+        model: function (newVal) {
+          console.log(newVal)
+        }
+      }
+    })
+  
+  </script>
+</body>
+</html>
