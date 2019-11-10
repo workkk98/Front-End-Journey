@@ -13,11 +13,17 @@
         <button @click="chooseSonInput">聚焦到子组件</button>
         <br>
         <button @click="sendMessage">通过ref传递一些信息</button>
+        <button @click="updateSonTitle">更新自组件的data</button>
         <son-input ref="agent"></son-input>
     </div>
     <script>
         Vue.component('SonInput',{
-            template:'<div><label>input:<label><input type="text" ref="littleAgent" onfocus="console.log(3)"></div>',
+            template:'<div><h1>{{title}}</h1><label>input:<label><input type="text" ref="littleAgent" onfocus="console.log(3)"></div>',
+            data() {
+                return {
+                    title:'我叫ref'
+                }
+            },
             methods:{
                 focus() {
                     console.log(this.$refs.littleAgent)
@@ -37,6 +43,9 @@
                 sendMessage() {
                     this.$refs.agent.$message = 'sendMessage';
                     this.$refs.agent.print()
+                },
+                updateSonTitle() {
+                    this.$refs.agent.title = '父组件更新了自组件的data'
                 }
             }
         })

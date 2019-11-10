@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>$attrs</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+</head>
+<body>
+  <div id="app">
+    <p>{{name}} : {{state}} ,job:{{job}}</p>
+    <middle :job="job" @to-be-drunk="toBeDrunk" :name="name"></middle>
+  </div>
+  <script>
+    Vue.component('son-god', {
+      template:'<div>Son:I can beat my father cause I know all of him <div><button @click="changeFatherState">hit me</button></div></div>',
+      created() {
+        console.log(this.$attrs, this.$listeners)
+      },
+      methods:{
+        changeFatherState() {
+          this.$emit('to-be-drunk',{actio:'peace'})
+        }
+      }
+    })
+    Vue.component('middle', {
+      template:'<div>我是middle:<br><son-god v-bind="$attrs" v-on="$listeners"></son-god></div>',
+      props:['name'] //已被注册的 不在attrs中
+    })
+    new Vue({
+      el:'#app',
+      data:{
+        name: 'father',
+        job: 'none',
+        state: 'sleep'
+      },
+      methods:{
+        toBeDrunk(playload) {
+          this.state = 'I am Drunk'
+          console.log(playload)
+        }
+      }
+    })
+  </script>
+</body>
+</html>
