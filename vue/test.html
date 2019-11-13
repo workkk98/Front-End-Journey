@@ -12,7 +12,7 @@
         <div>{{this.a}}</div>
         <div>computed a : {{deractionA}}</div>
         {{deractionAB}}
-        <button @click="pulsA">给上面a的加点字</button>
+        <button @click="() => { pulsA() }">给上面a的加点字</button>
         <br>
         <select name="" id="" v-model="select">
             <option value="" disabled>请选择</option>

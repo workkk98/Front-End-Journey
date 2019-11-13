@@ -12,6 +12,7 @@
     <div>{{a.a_b}}</div>
     <div>{{a.a_c}}</div>
     <div>{{a.a_d}}</div>
+    <div>{{b.a}}</div>
     <button @click="changeOb">hit me</button>
   </div>
   <script>
@@ -22,11 +23,14 @@
             a:{
               a_b:'a_b',
               a_c:'a_c'
+            },
+            b:{
+              a:''
             }
           }
         },
         mounted() {
-          console.log(this.$data.a)
+          console.log(this.$data)
         },
         methods:{
           changeOb() {
@@ -35,6 +39,7 @@
               a_c:'a_c_2',
               a_d:'a_d_2'
             }
+            // this.b = '123'
             console.log(this.a)
           }
         }
@@ -55,7 +60,7 @@
           return '我才是son'
         }
       })
-      console.log(father.son.son)
+      // console.log(father.son.son)
   </script>
 </body>
 </html>

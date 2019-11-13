@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+</head>
+<body>
+  <div id="app"><par-a><par-b></par-b></par-a></div>
+  <script>
+    Vue.component('par-a',{
+      template:'<div>a<slot></slot></div>',
+      created() {
+        console.log(this.$parent)
+      }
+    })
+    Vue.component('par-b',{
+      template:'<div>b</div>',
+      created() {
+        console.log(this.$parent.$parent)
+      }
+    })
+    new Vue({
+      el:'#app',
+      data() {
+        return {
+
+        }
+      }
+    })
+  </script>
+</body>
+</html>

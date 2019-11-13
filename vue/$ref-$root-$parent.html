@@ -9,20 +9,26 @@
 </head>
 <body>
     <div id="app">
+        <h1>使用ref和parent或是root就像是在操纵这个vNode一样</h1>
         <p>通过ref属性</p>
         <button @click="chooseSonInput">聚焦到子组件</button>
         <br>
         <button @click="sendMessage">通过ref传递一些信息</button>
         <button @click="updateSonTitle">更新自组件的data</button>
+        <button @click="setNewProperty">设立新的属性</button>
         <son-input ref="agent"></son-input>
     </div>
     <script>
         Vue.component('SonInput',{
-            template:'<div><h1>{{title}}</h1><label>input:<label><input type="text" ref="littleAgent" onfocus="console.log(3)"></div>',
+            template:'<div><h1>{{title}}</h1><label>input:<label><input type="text" ref="littleAgent" onfocus="console.log(3)"><div>newPropety{{newProperty}}</div><son-son></son-son></div>',
             data() {
                 return {
-                    title:'我叫ref'
+                    title: '我叫ref',
+                    newProperty: ''
                 }
+            }, 
+            created() {
+                console.log(this.$root.$data)
             },
             methods:{
                 focus() {
@@ -34,8 +40,20 @@
                 }
             }
         })
+        Vue.component('son-son', {
+            template:'<div>我是son-son =>所有子组件通过$root访问到根元素</div>',
+            created() {
+                console.log('son-son:')
+                console.log(this.$root.$data)
+            }
+        })
         var vm = new Vue({
             el:'#app',
+            data() {
+                return {
+                    a:'a'
+                }
+            },
             methods:{
                 chooseSonInput() {
                     console.log(this.$refs.agent.focus());
@@ -46,6 +64,9 @@
                 },
                 updateSonTitle() {
                     this.$refs.agent.title = '父组件更新了自组件的data'
+                },
+                setNewProperty() {
+                    this.$refs.agent.$set(this.$data,'newProperty','newProperty')
                 }
             }
         })

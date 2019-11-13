@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+</head>
+<body>
+  <div id="app">
+      <sp-component v-model="specialVal"></sp-component> 
+  </div>
+  <script>
+    Vue.component('sp-component',{
+      template:'<div><label>这是sp-component<input type="text" :value="sv" @input="$emit(\'input\',$event.target.value)"><label></div>',
+      props:['sv'],
+      model:{
+        prop:'sv',
+        event:'input'
+      },
+      created() {
+        console.log(this.$listeners)
+      }
+    })
+    new Vue({
+      el:'#app',
+      data:{
+        specialVal:'val'
+      },
+      watch:{
+        specialVal(newVal) {
+          console.log(newVal)
+        }
+      }
+    })
+  </script>
+</body>
+</html>

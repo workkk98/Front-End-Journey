@@ -9,7 +9,7 @@ function* helloWorldGenerator(params) {
 let p = helloWorldGenerator()  //返回的是遍历器对象
 
 //调用遍历器的Symbol.iterator 即指向本身 ,而非遍历器对象
-console.log("Symbol.iterator指向本身"+p[Symbol.iterator]() === p);
+console.log("Symbol.iterator指向本身" + p[Symbol.iterator]() === p);
 console.log(p.next())
 console.log(p.next())
 console.log(p.next())

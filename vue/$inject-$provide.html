@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+</head>
+<body>
+    <div id="app"><par-a><par-b></par-b></par-a></div>
+  <script>
+    Vue.component('par-a',{
+      template:'<div>a<slot></slot></div>',
+      inject: ['introduceYourself'],
+      // 这里可以证明 inject在beforeCreate后调用
+      // beforeCreate() {
+      //   console.log('par-a')
+      //   this.introduceYourself()
+      // }
+    })
+    Vue.component('par-b',{
+      template:'<div>b</div>',
+      inject: ['introduceYourself'],
+      created() {
+        console.log('par-b')
+        this.introduceYourself()
+        console.log(this.$inject)
+      }
+    })
+    new Vue({
+      el:'#app',
+      data() {
+        return {
+          container:'I\'m container'
+        }
+      },
+      provide() {
+        return {
+          introduceYourself: this.introduceYourself
+        }
+      },
+      methods:{
+        introduceYourself() {
+          console.log(this.container)
+        }
+      }
+    })
+  </script>
+</body>
+</html>

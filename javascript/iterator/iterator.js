@@ -17,3 +17,5 @@ console.log(typeof it) ;
 console.log(it.next()) ;
 console.log(it.next()) ;
 console.log(it.next()) ;
+
+
