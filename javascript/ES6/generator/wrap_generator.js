@@ -18,11 +18,11 @@ function spwan (generator) {
   return new Promise(function (resolve,reject) {
     const iterator = generator()  //遍历器
     function step (value) {
-      let fragment = iterator.next(value)
+      let fragment = iterator.next(value)  //todo 
       if(fragment.done) {
         resolve(fragment.value)
       } else {
-        Promise.resolve(fragment.value).then(function (data) {
+        Promise.resolve(fragment.value).then(function (data) {  //todo
           step(data)
         })
       }

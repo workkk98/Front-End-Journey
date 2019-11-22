@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+</head>
+<body>
+  <div id="app">
+    <div>这个是对于data的子对象手动更新视图的测试{{a.b}}</div>
+    <button @click="updateView">我来手动视图更新</button>
+    <div>事实证明，如果在根data中未创建属性，直接在视图上渲染会报错，ReferenceError: b is not defined</div>
+    <button @click="updateViewTwo">我来手动视图更新</button>    
+  </div>
+  <script>
+    new Vue({
+      el:'#app',
+      methods: {
+        updateView() {
+          this.a.b = "成了"
+          console.log(this.a.__ob__);
+          this.a.__ob__.dep.notify()
+        },
+        updateViewTwo() {
+          this.b = "又成了"
+          this.$data.__ob__.dep.notify()
+        }
+      },
+      data() {
+        return {
+          a:{
+
+          }
+        }
+      }
+    })
+    
+  </script>
+</body>
+</html>

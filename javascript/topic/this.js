@@ -8,6 +8,8 @@ let obj = {
     a:'a',
     b:'b'
 }
+
+console.log(printKeys())
 console.log(printKeys.call(obj,'c','d'))
 
 console.log(printKeys.apply(obj,['c','d']))

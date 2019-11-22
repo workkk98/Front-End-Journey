@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+</head>
+<body>
+  <div id="app">
+    <div>{{syncVal}}</div>
+    <div><sync-com :coolval.sync="syncVal"></sync-com></div>
+  </div>
+  <script>
+    Vue.component('sync-com',{
+      template:'<label>同步：<input type="text" :value="coolval" @input="$emit(\'update:coolval\',$event.target.value)"></label>',
+      props:['coolval'],
+      created() {
+        console.log(this.coolVal)
+      }
+    })
+    new Vue({
+      el: '#app',
+      data() {
+        return {
+          syncVal: '123'
+        }
+      }
+    })
+  </script>
+</body>
+</html>

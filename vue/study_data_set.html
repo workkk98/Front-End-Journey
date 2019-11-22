@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>探究data属性中赋予不同类型的值的区别</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+</head>
+<body>
+  <div id="app">
+    <h1>探究data属性中赋予不同类型的值的区别</h1>
+    <div>
+      <div>属性a相关</div>
+      <div>this.a.a: {{this.a.a}}</div>
+      <div>
+        <button @click="changeABasic">change a = basic</button>
+        <button @click="changeAReference">change a = reference</button>
+        <button @click="changeAThisReference">change a = this.b</button>
+      </div>
+    </div>
+    <div>
+      <div>属性b相关</div>
+      <div>this.b.a: {{this.b.a}}</div>
+      <div>
+        更新b，a不会变 <button @click="changeB">this.b.a = 'b-a'</button>
+      </div>
+    </div>
+  </div>
+  <script>
+    new Vue({
+      el: '#app',
+      methods: {
+        changeABasic() {
+          this.a = 'a'
+          console.log(this.a)
+        },
+        changeAReference() {
+          this.a = { a : 'new:a-a'}
+          console.log(this.a)
+        },
+        changeAThisReference() {
+          this.a = this.b
+          console.log(this.a)
+          console.log(this.b)
+          console.log(this.a === this.b)  // true 说明 a和b指向同一个对象
+        },
+        changeB() {
+          this.b.a = 'b-a'
+        }
+      },
+      data() {
+        return {
+          a: {
+            a: 'a-a'
+          },
+          b: {
+            a: 'b-b'
+          }
+        }
+      },
+      mounted() {
+        console.log(this.a)
+        console.log(this.b)
+      }
+    })
+  </script>
+</body>
+</html>

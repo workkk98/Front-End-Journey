@@ -14,6 +14,8 @@
     <div>{{a.a_d}}</div>
     <div>{{b.a}}</div>
     <button @click="changeOb">hit me</button>
+    <div>点击hit me 按钮后出现的第三个值未再定义data中，但因为修改对象整个值后，重新调用了observe（）</div>
+    <button @click="changeObAgain">hit me</button>
   </div>
   <script>
       new Vue({
@@ -41,6 +43,10 @@
             }
             // this.b = '123'
             console.log(this.a)
+          },
+          changeObAgain() {
+            this.a.a_d = 'a_d_3',
+            console.log(this.a.a_d)
           }
         }
       })

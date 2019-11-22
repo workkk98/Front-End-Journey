@@ -17,7 +17,7 @@ function spawn(genF) {
         if(next.done) {         //遍历完成后， 即next.done === true 
           return resolve(next.value);   //加这个return 主要是 返回step函数，不再递归下去
         }
-        Promise.resolve(next.value).then(function(v) {  //如果next.value就是一个promise对象，应该都不用调用Promise.resolve()这个api
+        Promise.resolve(next.value).then(function(v) {  //promise的存在使自动执行存在了可能
           step(function() { return gen.next(v); });
         }, function(e) {
           step(function() { return gen.throw(e); });
