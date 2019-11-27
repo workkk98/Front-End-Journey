@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+</head>
+<body>
+  <div id="app">
+    <div>name: {{name}}</div>
+    <div>fullName: {{fullName}}</div>
+  </div>
+  <script>
+    new Vue({
+      el: '#app',
+      beforeCreate() {
+
+      },
+      data() {
+        return {
+          name: 'zhang'
+        }
+      },
+      computed: {
+        fullName: {
+          set(val) {
+            this.name = val
+          },
+          get() {
+            return this.name+ ' xiaofan'
+          }
+        }
+      },
+      created() {
+        console.log(this._computedWatchers)  //computed watcher存放的对象
+      }
+    })
+  </script>
+</body>
+</html>
