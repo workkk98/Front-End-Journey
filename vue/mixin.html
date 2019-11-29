@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+</head>
+<body>
+  <div id="app">
+
+  </div>
+  <script>
+    let mixin = {
+      data() {
+        return {
+          mixinName: 'mixinName',
+          message: 'mixin'
+        }
+      },
+      created() {
+        console.log(this.mixinName) // 混入的钩子先一步调用
+      }
+    }
+    // methods,components,directives合并对象，同名属性组件优先
+    new Vue({
+      el: '#app',
+      mixins: [mixin],
+      data() {
+        return {
+          name: 'root',
+          message: 'root'
+        }
+      },
+      created() {
+        console.log(this.$data)
+      }
+    })
+  </script>
+</body>
+</html>

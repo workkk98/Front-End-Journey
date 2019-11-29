@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+</head>
+<body>
+  <style>
+    body {
+      margin: 0px;
+    }
+    .container {
+      width: 400px;
+      height: 400px;
+      margin-left: calc(50% - 200px);
+    }
+    .bar {
+      background-color: rgba(255, 0, 0, 0.6);
+      height: 100%;
+      width: 100%;
+    }
+    .bar-leave-to {
+      opacity: 0;
+    }
+    .bar-leave-active {
+      transition: opacity 2s;
+    }
+  </style>
+  <div id="app">
+    <div class="container">
+      <div style="width: 100%;height: 150px;">
+        <button @click="offShow(0)">click me</button>
+      </div>
+        <div v-for="(item,index) of list" :key="item" :style="item.style"> 
+          <transition name="bar">
+            <div v-if="item.show" class="bar"></div>
+          </transition>
+        </div>
+    </div>
+  </div>
+  <script>
+    new Vue({
+      el:'#app',
+      methods: {
+        offShow(time) {
+          if(time === 4) {
+            this.list[time].show = false
+            return;
+          } else {
+            this.list[time].show = false
+            setTimeout(() => {
+              this.offShow(++time)
+            },100)
+          }
+        }
+      },
+      data() {
+        return {
+          list: [
+            {
+              style: { width: "200px", height: "20px", marginLeft: "0px"},
+              show: true
+            },
+            {
+              style: { width: "180px", height: "20px", marginLeft: "10px"},
+              show: true
+            },
+            {
+              style: { width: "160px", height: "20px", marginLeft: "20px"},
+              show: true
+            },
+            {
+              style: { width: "140px", height: "20px", marginLeft: "30px"},
+              show: true
+            },
+            {
+              style: { width: "120px", height: "20px", marginLeft: "40px"},
+              show: true
+            }
+          ]
+        }
+      }
+    })
+  </script>
+</body>
+</html>

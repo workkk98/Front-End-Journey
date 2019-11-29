@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+</head>
+<body>
+  <div id="app">
+    <input type="text" v-focus.modify="directiveA" id="#input">
+    <button @click="updateDirectiveA">click me</button>
+    <a href="#input">锚点</a>
+  </div>
+  <script>
+    new Vue({
+      el: '#app',
+      methods: {
+        updateDirectiveA() {
+          this.directiveA = 'focus-next'
+        }
+      },
+      data() {
+        return {
+          directiveA: 'focus'
+        }
+      },
+      directives:{
+        focus: {
+          bind() {},
+          inserted: function (el, binding, vnode, oldVnode) {
+            console.log(binding)
+            el.focus()
+          },
+          update(el,binding) {
+            console.log(binding)
+          }, //所在组件的 VNode 更新时调用，但是可能发生在其子 VNode 更新之前
+          componentUpdated() {}, //指令所在组件的 VNode 及其子 VNode 全部更新后调用
+          unbind() {}
+        }
+      }
+    })
+  </script>
+</body>
+</html>

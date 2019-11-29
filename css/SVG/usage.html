@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>SVG</title>
+</head>
+<body>
+  <h1>
+    svg 全称 Scalable Vector Graphics 
+  </h1>
+  <div>矢量图像，无限缩放的原因是浏览器以点与线打印，而非像素</div>
+  <div>常用的一些元素 text circle rect line path textPath polygon g</div>
+  <!-- <div>
+    <svg width="200" height="200">
+        <text x="0" y="50">A nice rectangle</text>
+      </svg>
+      <svg width="200" height="200">
+          <rect x="0" y="0" width="50" height="50" fill="red"></rect>
+      </svg>
+      <svg height="200">
+          <circle cx="50" cy="50" r="50" fill="#529fca" />
+      </svg>
+      <svg height="300" width="300">
+          <path d="M 100 100 L 200 200 H 10 V 40 H 70"
+                fill="#59fa81" stroke="#d85b49" stroke-width="3" />
+      </svg>
+  </div> -->
+  <div>
+    <svg style="display: none;">
+      <defs>
+        <g id="logo1">
+          <line x1="3" y1="3" x2="48" y2="3" stroke="#529fca" stroke-width="5px"></line>
+          <line x1="3" y1="19" x2="65" y2="19" stroke="#529fca"></line>
+          <line x1="3" y1="35" x2="48" y2="35" stroke="#529fca"></line>
+          <line x1="3" y1="51" x2="65" y2="51" stroke="#529fca"></line>
+        </g>
+        <g id="leftalign">
+          <polyline points="3 10,30 30,3 57" fill="none" stroke="#000"></polyline>
+        </g>
+      </defs>
+    </svg>
+    <svg width="300" height="300">
+      <use href="#leftalign" x="100" y="100" fill="balck"></use>
+    </svg>
+  </div>
+</body>
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <h1>transtion虚拟标签只对跟单个标签有效果</h1>
+  <p>当有相同标签名的元素切换时，需要通过 key 特性设置唯一的值来标记以让 Vue 区分它们，否则 Vue 为了效率只会替换相同标签内部的内容</p>
+  <div>out-in 和 in-out模式</div>
+
+  <div id="app">
+    <transition name="fade">
+      <div>我是一段魔法的字体</div>
+    </transition>  
+    <div style="margin-left: 50px;">
+      <div>我可以控制上面的文字</div>
+      <transition name="change" mode="out-in">
+          <button v-if="show" key="on" class="display-button" @click="showContent">on</button>
+          <button v-else key="off" class="display-button" @click="showContent">off</button>
+        </transition>
+    </div>
+    <div style="margin-top: 50px;">
+      <div>
+        <button @click="addItemToList">add</button>
+        <button @click="removeItemOfList">remove</button>
+      </div>
+      <div>
+        <transition-group name="list" tag="p">
+          <!-- 注意这里的key -->
+          <span v-for="(item, index) of list" :key="item" class="span-item">{{item}}</span>
+        </transition-group>
+      </div>
+    </div>
+    <div>
+      <button @click="showContent">show bottom</button>
+      <!-- css:false 跳过css检查 -->
+      <transition
+        v-bind:css="false"
+        @before-enter="beforeEnterSpan"
+        @enter="enterSpan"
+        @after-enter="afterEnterSpan"
+        @leave="leaveSpan"
+      >
+        <span v-if="show">通过钩子控制过渡</span>
+      </transition>
+    </div>
+  </div>
+  <script>
+    new Vue({
+      el: '#app',
+      methods: {
+        showContent() {
+          this.show = !this.show
+        },
+        addItemToList() {
+          this.list.splice(this.randomIndex,0, ++this.numIndex)
+        },
+        removeItemOfList() {
+          this.list.splice(this.randomIndex,1)
+        },
+        beforeEnterSpan(el) {
+          el.style.opacity = "0"
+        },
+        enterSpan(el,done) {
+          done()
+          // setTimeout(done,1000)
+        },
+        // 当只用JavaScript控制钩子时， 必要在enter和leave过程中调用done
+        afterEnterSpan(el) {
+          console.log('afterEnter')
+          el.style.opacity = "1"
+        },
+        leaveSpan(el,done) {
+          setTimeout(() => {
+            console.log('leave')
+            done()
+          },100)
+        }
+      },
+      data() {
+        return {
+          show: true,
+          list: [1,2,3,4,5],
+          numIndex: 6
+        }
+      },
+      computed: {
+        randomIndex() {
+          return Math.floor(Math.random() * this.list.length)
+        }
+      }
+    })
+  </script>
+</body>
+</html>

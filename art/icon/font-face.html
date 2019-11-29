@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    @font-face {
+      font-family: "iconfont";
+      src: url('iconfont.eot'); /* IE9*/
+      src: url('iconfont.eot#iefix') format('embedded-opentype'), /* IE6-IE8 */
+      url('./icon-font/iconfont.woff') format('woff'), /* chrome, firefox */
+      url('iconfont.ttf') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
+      url('iconfont.svg#iconfont') format('svg'); /* iOS 4.1- */
+    }
+    .iconfont {
+      font-family:"iconfont" !important;
+      font-size:16px;
+      color: black;
+      font-style:normal;
+      -webkit-font-smoothing: antialiased;
+      -webkit-text-stroke-width: 0.2px;
+      -moz-osx-font-smoothing: grayscale;
+    }
+    .icon-bofangjilu::before {
+      content: "\e8ad";
+    }
+  </style>
+</head>
+<body>
+  <div>font-face语法，font-family声明字体名，src拿资源，本地到请求远程</div>
+  <div>WOFF = Web Open Font Format 由Mozilla联合其它几大组织共同开发 【支持的浏览器：IE9+,Firefox3.5+,Chrome6+,Safari3.6+,Opera11.1+】</div>
+  <pre>
+    <code>
+        @font-face {
+          [ font-family: <family-name>; ] ||
+          [ src: <src>; ] ||
+          [ unicode-range: <unicode-range>; ] ||
+          [ font-variant: <font-variant>; ] ||
+          [ font-feature-settings: <font-feature-settings>; ] ||
+          [ font-variation-settings: <font-variation-settings>; ] ||
+          [ font-stretch: <font-stretch>; ] ||
+          [ font-weight: <font-weight>; ] ||
+          [ font-style: <font-style>; ]
+        }
+    </code>
+  </pre>
+  <div>使用unicode：会员 <i class="iconfont">&#xe8b1;</i></div>
+  <div>使用多加一个class： <i class="iconfont icon-bofangjilu"></i></div>
+</body>
+</html>
