@@ -3,4 +3,5 @@
 module/node_modules
 leetcode.code-workspace
 vue/vue-dev
+vue/vue-router-dev
 **/node_modules
