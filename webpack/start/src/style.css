@@ -1,0 +1,14 @@
+@font-face {
+  font-family: "iconfont";
+  src: url('./iconfont.woff')
+}
+
+
+.hello {
+  color: red;
+}
+
+.hello::after {
+  font-family: "iconfont" !important;
+  content: '\e8ad';
+}

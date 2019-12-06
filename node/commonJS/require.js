@@ -11,8 +11,12 @@
  */
 
  const character = require('./export')
+ const fs = require('fs')
  console.log(character)
 
 
 //module源码可以看a.js ,b.js 调用每个模块都是其实都是new Moudle所以是值的拷贝
 //每个moudle都有require方法
+
+//require源码实际上简单来讲就是先创建一个以X为路径的module实例，然后按照规则寻找，找到文件后调用fs.readFileSync
+//获得文件字符串然后包在立即执行函数中执行
