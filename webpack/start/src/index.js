@@ -29,3 +29,11 @@ function component() {
 }
 
 document.body.appendChild(component());
+
+if (module.hot) {
+  // 因为热更新刷新页面，所以这段话在浏览器控制台马上消失
+  module.hot.accept('./print.js', function (params) {
+    console.log('Accepting the updated printMe module!');
+    printMe()
+  })
+}
