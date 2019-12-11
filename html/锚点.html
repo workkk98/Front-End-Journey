@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    .common {
+      height: 100vh;
+      width: 200px;
+    }
+    #app_a {
+      background: rgba(255, 0, 0, 0.5);
+    }
+    #app_b {
+      background: rgba(0, 255, 0, 0.5);
+    }
+    .red_box {
+      display: none;
+    }
+    .red_box:target {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <p>触发条件</p>
+  <ul>
+    <li>1. 父元素可滚动</li>
+    <li>2. 锚点元素在父元素的内部</li>
+  </ul>
+  <p>激活锚点 触发target伪类</p>
+  <div id="app_a" class="common red_box"></div>
+  <a href="#app_a">跳转到app_a锚点</a>
+  <a href="#app_b">跳转到app_b锚点</a>
+  <div id="app_b" class="common">
+  </div>
+  <a href="#">到顶部</a>
+</body>
+</html>

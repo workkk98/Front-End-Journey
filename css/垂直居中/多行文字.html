@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    .app {
+      text-align: center;
+      line-height: 150px;
+    }
+    .inner_cell {
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1em;
+    }
+    .after_app {
+      text-align: center;
+      height: 200px;
+    }
+    .after_app::after {
+      content: "";
+      line-height: 150px;
+    }
+    .after_app>div {
+      display: inline-block;
+      vertical-align: middle;
+    }
+  </style>
+</head>
+<body>
+  <p>内容高度由line-height决定</p>
+  <p>vertical-align作用于行内元素和table-cell元素的垂直对齐方式，由line-height影响</p>
+  <div class="app">
+    <div class="inner_cell">
+        虽然vertical-align属性只会在inline-block水平的元素上起作用 
+        <br>
+        但是其影响到的元素涉及到inline属性的元素
+    </div>
+  </div>
+  <div class="after_app">
+    <div>通过after决定line-height</div>
+  </div>
+</body>
+</html>
