@@ -2,7 +2,8 @@
     <div>
         <input type="text" :value="id">
         <div>{{message}}</div>
-        <emit v-on:selfEmit="getMessage"></emit>    
+        <emit v-on:selfEmit="getMessage"></emit>  
+        <button @click="jumpNext('test')">refresh</button>  
         <router-view></router-view>
     </div>
 </template>
@@ -40,7 +41,19 @@ export default {
         getMessage(message,sauce) {
             //说明这个可能是用arguments来做到 ，传入多个值的
             this.message = message + sauce;
+        },
+        jumpNext(name) {
+            this.$router.push({ name: name , params: { id: Date.now() }})
         }
+    },
+    beforeRouteLeave(to,from,next) {
+        console.log('beforeRouteLeave')
+        next()
+    },
+    //vueRouter 2.2新增 like /foo/1 跳转到 /foo/2
+    beforeRouteUpdate(to,from,next) {
+        console.log('复用组件 beforeRouteUpdated')
+        next()
     }
 }
 </script>

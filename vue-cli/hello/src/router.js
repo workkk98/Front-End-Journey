@@ -12,9 +12,15 @@ import vmodel from './views/vModel.vue'
 const router = new VueRouter({
     routes:[
         {
+            name: 'index',
             path:'/index',
-            component:IndexView
+            component:IndexView,
+            beforeEnter(to,from,next) {
+                console.log("routes beforeEnter")
+                next()
+            }
         },
+        //可复用的组件
         {
             path :'/test/:id',
             component:testVue,
@@ -33,6 +39,7 @@ const router = new VueRouter({
             component:shoppingView
         },
         {
+            name: 'instagram',
             path:'/instagram',
             component:instagram,
             alias:'/'
@@ -42,6 +49,11 @@ const router = new VueRouter({
             component:vmodel
         }
     ]
+})
+// 下次可以用作权限设计
+router.beforeEach( (to,from,next) => {
+    console.log("全局 beforeEach")
+    next()
 })
 
 export default router;

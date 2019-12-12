@@ -1,7 +1,9 @@
 <template>
     <div class="flex-container">
-        <Count></Count>
-        <countVuex></countVuex>
+        <button @click="jumpNext('instagram')">jump to instagram</button>
+        <button @click="jumpNext('test')">jump to test</button>
+        <Count v-if="false"></Count>
+        <countVuex v-if="false"></countVuex>
     </div>
 </template>
 
@@ -14,6 +16,19 @@ export default {
     components:{
         Count,
         CountVuex
+    },
+    methods: {
+        jumpNext(name) {
+            if(name === 'test') {
+                this.$router.push({ name: name, params: { id: 15}})
+            } else {
+                this.$router.push({ name: name})
+            }
+        }
+    },
+    beforeRouteLeave(to, from, next) {
+        console.log("beforeRouterLeave")
+        next()
     }
 }
 </script>
