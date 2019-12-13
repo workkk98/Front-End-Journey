@@ -33,6 +33,12 @@ export default {
             let index = this.albumList.length;
             this.albumList.push({index:++index});
         }
+    },
+    beforeRouteEnter(to,from,next) {
+        console.log('异步或同步加载组件完成后 beforeRouteEnter')
+        next((vm) => {
+            console.log("执行回调")
+        })
     }
 }
 </script>

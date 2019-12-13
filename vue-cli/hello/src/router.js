@@ -6,11 +6,11 @@ Vue.use(VueRouter)
 import IndexView from './views/index.vue'
 import testVue from './views/test.vue'
 import shoppingView from './views/shopping.vue'
-import instagram from './views/instagram.vue'
 import vmodel from './views/vModel.vue'
 
 const router = new VueRouter({
     routes:[
+        // 路由测试起点
         {
             name: 'index',
             path:'/index',
@@ -41,8 +41,12 @@ const router = new VueRouter({
         {
             name: 'instagram',
             path:'/instagram',
-            component:instagram,
-            alias:'/'
+            component:() => import('./views/instagram.vue'),
+            alias:'/',
+            beforeEnter(to,from,next) {
+                console.log('instagram beforeEnter')
+                next()
+            }
         },
         {
             path:'/vmodel',
@@ -54,6 +58,15 @@ const router = new VueRouter({
 router.beforeEach( (to,from,next) => {
     console.log("全局 beforeEach")
     next()
+})
+
+router.beforeResolve( (to,from,next) => {
+    console.log("在同步或异步加载组件后 beforeResolve")
+    next()
+})
+
+router.afterEach( (to,from) => {
+    console.log("afterEach 没有next")
 })
 
 export default router;

@@ -27,7 +27,7 @@ export default {
         }
     },
     beforeRouteLeave(to, from, next) {
-        console.log("beforeRouterLeave")
+        console.log("beforeRouteLeave")
         next()
     }
 }
