@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    .box {
+      font-size: 20px;
+      line-height: 1em;
+    }
+    .box .normal {
+      vertical-align: baseline;
+    }
+    .box .percent {
+      vertical-align: -25%;
+    }
+    .box .positive-percent {
+      vertical-align: 25%;
+    }
+    .middle-box {
+      background-color: black;
+      color: white;
+      padding-left: 20px;
+    }
+    .dot {
+      display:inline-block;
+      width:4px;
+      height:4px;
+      background:white;
+    }
+    .box-line-height {
+      line-height: 10px;
+    }
+    .bottom-box {
+      background-color: black;
+      color: white;
+      padding-left: 20px;
+      font-size: 20px;
+      line-height: 2;
+    }
+  </style>
+</head>
+<body>
+  <p>vertical-align 可以使用数值 百分数（根据 line-height） 保留字例如baseline，middle</p>
+  <div class="box">
+    <span class="normal">xxx</span>
+    <span class="percent">xxx</span>
+    <span class="positive-percent">xxx</span>
+  </div>
+  <p>下面vertical-align 属性依次是 baseline middle bottom top text-bottom text-top</p>
+  <div class="middle-box">
+    <span class="dot"></span>
+    <span class="dot" style="vertical-align: middle;"></span>
+    <span class="dot" style="vertical-align: bottom;"></span>
+    <span class="dot" style="vertical-align: top;"></span>
+    <span class="dot" style="vertical-align: text-bottom;"></span>
+    <span class="dot" style="vertical-align: text-top;"></span>
+    xxxxxxxx
+  </div>
+  <p>对比下 text-bottom和text-top的区别 先bottom 后text-bottom</p>
+  <p>得出结论：</p>
+  <ul>
+    <li>bottom 是对于父元素整行的底部</li>
+    <li>text-bottom 是紧贴父元素text的底部</li>
+  </ul>
+  <div class="bottom-box">
+    <span class="dot" style="vertical-align: bottom;"></span>
+    <span class="dot" style="vertical-align: text-bottom;"></span>
+    xxxxx
+  </div>
+  
+</body>
+</html>
