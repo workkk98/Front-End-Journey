@@ -1,5 +1,6 @@
 <template>
     <div>
+        <button @click="() => { this.$router.push({name:'vmodel'}) }">jump to another</button>
         <cpn v-model="value"></cpn>
         <slot-button v-bind:sbv="sbv" ref="slot">
             <template v-slot:title>
@@ -56,7 +57,17 @@ export default {
         value:function (val) {
             console.log(val)
         }
-    }
+    },
+    beforeRouteLeave: [
+        (to,from,next) => {
+            console.log('1')
+            next()
+        },
+        (to,from,next) => {
+            console.log('2')
+            next()
+        }
+    ]
 }
 </script> 
 

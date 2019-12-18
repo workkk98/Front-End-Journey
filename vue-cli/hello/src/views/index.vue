@@ -29,6 +29,9 @@ export default {
     beforeRouteLeave(to, from, next) {
         console.log("beforeRouteLeave")
         next()
+    },
+    mounted() {
+        console.log(this.$route)
     }
 }
 </script>
