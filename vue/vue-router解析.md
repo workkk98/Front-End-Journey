@@ -872,4 +872,10 @@ export function resolveAsyncComponents (matched: Array<RouteRecord>): Function {
     }
 ```
 
-你可以看到其实也就是启动了另一个队列，值得注意的是postEnterCbs存放的是**你在beforeRouteEnter传入next回调的函数cb**，通过nextTick这个api，保证组件渲染完毕后执行回调。且cb参数绑定的是当前的instance也就是vue实例。
+你可以看到其实也就是启动了另一个队列，
+* onComplete函数中会更新所有vue实例的route对象，以及执行afterHooks也就是afterEach函数构建的hooks数组
+* 值得注意的是postEnterCbs存放的是**你在beforeRouteEnter传入next回调的函数cb**，函数通过nextTick这个api，保证组件渲染完毕后执行回调，且cb参数绑定的是当前的instance也就是vue实例。
+
+
+> 总结: 主要就是对 使用vue-router插件和调用this.\$router.push()发生的过程，实际上还有很多东西可讲。例如router-view的原理
+> 我们在可以看看这篇文章，我也是从中学习整理总结出来的。[Vue.js技术揭秘](https://ustbhuangyi.github.io/vue-analysis/v2/vue-router/)

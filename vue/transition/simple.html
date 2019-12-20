@@ -33,12 +33,15 @@
     <div class="container">
       <div style="width: 100%;height: 150px;">
         <button @click="offShow(0)">click me</button>
+        <button @click="reset">reset</button>
       </div>
+      <div v-if="show">
         <div v-for="(item,index) of list" :key="item" :style="item.style"> 
           <transition name="bar">
             <div v-if="item.show" class="bar"></div>
           </transition>
         </div>
+      </div>
     </div>
   </div>
   <script>
@@ -48,13 +51,18 @@
         offShow(time) {
           if(time === 4) {
             this.list[time].show = false
-            return;
           } else {
             this.list[time].show = false
             setTimeout(() => {
               this.offShow(++time)
             },100)
           }
+        },
+        offDiv() {
+          this.show = false
+        },
+        reset() {
+          this.show = true
         }
       },
       data() {
@@ -80,7 +88,8 @@
               style: { width: "120px", height: "20px", marginLeft: "40px"},
               show: true
             }
-          ]
+          ],
+          show:true
         }
       }
     })
