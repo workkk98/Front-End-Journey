@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0px;
+    }
+    html,body {
+      height: 100%;
+    }
+    .wrap {
+      min-height: 100%;
+      background-color: white;
+      overflow: hidden;
+      /* 为了wrap内的元素不影响外面的，且因为min-height的关系，这只是把wrap变为BFC模型 */
+    }
+    .wrap .main {
+      height: 900px;
+      margin-bottom: 50px;
+      background-color: lightsalmon;
+    }
+    .footer {
+      height: 50px;
+      margin-top: -50px;
+      background-color: lightslategrey;
+    }
+  </style>
+</head>
+<body>
+  <!--
+    实现思路，首先footer一定是个独立元素，否则就跟在main后面了。通过margin-top使footer挤到wrap的底部
+    wrap的min-height设置100% 和 overflow:hidden 使得本身有高度（而非靠子元素撑起）且是BFC
+    然后给footer额外空间，主要是为了main不被遮挡
+   -->
+  <div class="wrap">
+    <div class="main">
+      <div style="margin-top:100px;height: 10px;"></div>
+      <div>我是内容</div>
+    </div>
+  </div>
+  <div class="footer"></div>
+</body>
+</html>

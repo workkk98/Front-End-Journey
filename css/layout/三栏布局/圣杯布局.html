@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>圣杯布局</title>
+  <style>
+    .container {
+      padding-left: 220px;
+      padding-right: 220px;
+      /* 为左右两栏保存空间 */
+    }
+    .left {
+      float: left;
+      background-color: lightgreen;
+      width: 200px;
+      height: 100px;
+      margin-left: -100%;
+      position: relative;
+      left: -220px;
+    }
+    .center {
+      float: left;
+      background-color: lightgray;
+      width: 100%;
+    }
+    .right {
+      float: left;
+      background-color: lightsalmon;
+      width: 200px;
+      height: 100px;
+      margin-left: -200px;
+      position: relative;
+      right: -220px;
+    }
+  </style>
+</head>
+<body>
+  <!-- 
+    实现思路:
+    首先写中间布局，优先加载。左右两栏 固定布局，中间自适应
+    中间容器自适应所以宽度100%,三个容器都用float:left,然后通过盒模型和postion布局把左右容器移到合适的位置
+    实现步骤
+    1.先完成dom（中左右），因为希望中间布局能先加载，中100%宽度，左右固定宽度
+    2.左容器margin-left设置-100% 右容器margin-left设置margin-left: -200px;使三个容器到同一行
+    (左容器margin-left设置-100%为啥能换到同一行，因为center容器宽度100%，自动换行了，右容器同样的道理)
+    3.设置父容器的padding-left和padding-right，让左右两边留出间隙
+    4.通过设置相对定位，让left和right部分移动到两边
+    缺点
+   -->
+   <div class="container">
+     <div class="center">
+       <h2>圣杯布局</h2>
+       <h2>圣杯布局</h2>
+       <h2>圣杯布局</h2>
+       <h2>圣杯布局</h2>
+       <h2>圣杯布局</h2>
+       <h2>圣杯布局</h2>
+       <h2>圣杯布局</h2>
+       <h2>圣杯布局</h2>
+       <h2>圣杯布局</h2>
+       <h2>圣杯布局</h2>
+     </div>
+     <div class="left"></div>
+     <div class="right"></div>
+  </div>
+</body>
+</html>

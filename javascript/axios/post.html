@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</head>
+<body>
+    <script>
+        axios.post('https://nei.netease.com/api/apimock/b209329e46daae533ac0649051abcba9/api/todos/',{
+            "id": "97608",
+            "text": "VLCSljYLJq",
+            "completed": false,
+            "group": {
+                "id": 66332,
+                "name": "cYoQ18Y4FW",
+                "description": "TlKE8fhSlb",
+                "createTime": 1535612922850,
+                "creator": {
+                    "id": 67178,
+                    "username": "HC73TAZYE4",
+                    "nickname": "aedKox7bmp",
+                    "createTime": 1535613019758
+                },
+                "creatorId": 67987
+            },
+            "creator": {
+                "id": 68036,
+                "username": "AzdL97vTvP",
+                "nickname": "bTJMk5ooa3",
+                "createTime": 1535613277721
+            },
+            "createTime": 1535612704044,
+            "groupId": 68705,
+            "creatorId": 69658
+        })
+        .then(function (data) {
+            console.log(data)
+        },function (err) {
+            console.log(err)
+        })
+    </script>
+</body>
+</html>

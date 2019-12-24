@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>单列布局</title>
+  <style>
+    * {
+      opacity: 0.7;
+    }
+    .header {
+      margin: auto;
+      background-color: cornflowerblue;
+      height: 100px;
+    }
+    .content {
+      margin: auto;
+      background-color: red;
+      height: 200px;
+    }
+    .footer {
+      margin: auto;
+      background-color: black;
+      height: 200px;
+    }
+    .common {
+      width: 960px;
+    }
+    .common-max-width {
+      max-width: 900px;
+    }
+    .func {
+      position: fixed;
+      bottom: 20px;
+      left: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="func">
+    <button id="btn">width to max-width</button>
+  </div>
+  <div class="header common"></div>
+  <div class="content common"></div>
+  <div class="footer common"></div>
+  <script>
+    var btn = document.getElementById('btn')
+    var divList = Array.from(document.getElementsByClassName('common'))
+
+    btn.addEventListener('click', function (e) {
+      divList.forEach((ele) => {
+        let classList = ele.className.split(' ')
+        ele.className = classList[0] + ' common-max-width'
+      })
+    })
+  </script>
+</body>
+</html>

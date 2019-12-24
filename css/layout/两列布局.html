@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>自由适应两列布局</title>
+  <style>
+    .parent {
+      background-color: lightblue;
+      overflow: hidden;
+    }
+    .left {
+      float: left;
+      background-color: lightcoral;
+      width: 200px;
+      margin-right: 20px;
+    }
+    .right {
+      overflow: hidden;
+      background-color: lightgreen;
+    }
+  </style>
+</head>
+<body>
+  <!-- 
+    如果是普通的两列布局，浮动+普通元素的margin便可以实现，
+    但是这个得固定左侧栏的宽度
+    如果是自适应的两列布局，利用float+overflow:hidden便可以实现
+    运用到了BFC的两个规则，BFC区域
+    1.计算BFC的高度时，浮动元素也参与计算
+    2.BFC的区域不会与float box(float box也是BFC)重叠。
+   -->
+  <div>
+    <div class="parent">
+      <div class="left">
+        <p>left</p>
+      </div>
+      <div class="right">
+        <p>right</p>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

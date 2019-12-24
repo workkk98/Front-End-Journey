@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>边框与定位</title>
+  <style>
+    .container {
+      width: 960px;
+      margin: auto 0;
+    }
+    .main {
+      border-right: 220px solid #dfdfdf;
+      position: absolute;
+      width: 740px;
+      height: 800px;  
+      background: green;
+    }
+    .left {
+      background: #dfdfdf;
+      margin-left: 740px;
+      position: absolute;
+      height: 800px;
+      width: 220px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="main"></div>
+    <div class="left"></div>
+  </div>
+</body>
+</html>

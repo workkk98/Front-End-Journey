@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>padding补偿法</title>
+  <style>
+    .container {
+      padding-left: 220px;
+      padding-right: 220px;
+      overflow: hidden;
+      /* 为左右两栏保存空间 */
+    }
+    .left {
+      float: left;
+      background-color: lightgreen;
+      width: 200px;
+      height: 100px;
+      margin-left: -100%;
+      position: relative;
+      left: -220px;
+    }
+    .center {
+      float: left;
+      background-color: lightgray;
+      width: 100%;
+    }
+    .right {
+      float: left;
+      background-color: lightsalmon;
+      width: 200px;
+      height: 100px;
+      margin-left: -200px;
+      position: relative;
+      right: -220px;
+    }
+    .common {
+      padding-bottom: 100000px;
+      margin-bottom: -100000px;
+    }
+  </style>
+</head>
+<body>
+  <!-- 
+    正padding负margin的原理
+    首先把列的padding-bottom设为一个足够大的值，再把列的margin-bottom设一个与前面的padding-bottom的正值相抵消的负值，
+    父容器设置超出隐藏，这样子父容器的高度就还是它里面的列没有设定padding-bottom时的高度，当它里面的任一列高度增加了，
+    则父容器的高度被撑到它里面最高那列的高度，其他比这列矮的列则会用它们的padding-bottom来补偿这部分高度差。
+    因为背景是可以用在padding占用的空间里的，而且边框也是跟随padding变化的，所以就成功的完成了一个障眼法。
+  -->
+   <div class="container">
+     <div class="center common">
+       <h2>圣杯布局</h2>
+       <h2>圣杯布局</h2>
+       <h2>圣杯布局</h2>
+       <h2>圣杯布局</h2>
+       <h2>圣杯布局</h2>
+       <h2>圣杯布局</h2>
+       <h2>圣杯布局</h2>
+       <h2>圣杯布局</h2>
+       <h2>圣杯布局</h2>
+       <h2>圣杯布局</h2>
+     </div>
+     <div class="left common"></div>
+     <div class="right common"></div>
+  </div>
+</body>
+</html>

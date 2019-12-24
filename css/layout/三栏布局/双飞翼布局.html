@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>双飞翼</title>
+  <style>
+    .container {
+      min-width: 600px;
+    }
+    .center {
+      float: left;
+      width: 100%;
+      background-color: lightgrey;
+    }
+    .left {
+      float: left;
+      width: 200px;
+      height: 200px;
+      margin-left: -100%;
+      background-color: lightgreen;
+    }
+    .right {
+      float: left;
+      width: 200px;
+      height: 200px;
+      margin-left: -200px;
+      background-color: lightpink;
+    }
+    .center .inner {
+      margin: 0px 200px;
+    }
+  </style>
+</head>
+<body>
+  <!-- 主要思路还是从100%和浮动元素的角度来实现
+  1. center 100% left right定宽 都是浮动元素
+  2. 通过 margin-left使三者同行
+  3. 增加一个内容器inner 把主列嵌套在一个center中利用主列的左、右外边距进行布局调整
+  -->
+   <div class="container">
+    <div class="center">
+      <div class="inner">knkn</div>
+    </div>
+    <div class="left"></div>
+    <div class="right"></div>
+   </div>
+</body>
+</html>
