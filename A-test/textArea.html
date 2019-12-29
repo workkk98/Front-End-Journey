@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <div style="display: none;background-image: url(one/3.jpg);">
+  </div>
+  <!-- 此时不会触发图片请求，因为在textarea中，并且textarea元素没有指定行列，所以是显示为纯文字！
+   该span元素并没有被解析为元素!-->
+  <textarea>
+      <span style="display: none;background-image: url(one/3.jpg);"></span>
+  </textarea>
+</body>
+</html>
