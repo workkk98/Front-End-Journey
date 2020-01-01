@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    html,body {
+      margin: 0px;
+      height: 100%;
+    }
+    #container {
+      height: 1000px;
+      overflow: auto;
+    }
+    #container {
+    }
+    .element {
+      text-align: center;
+    }
+    .element:nth-child(2n+1) {
+      height: 200px;
+      background-color: lightgray;
+    }
+    .element:nth-child(2n) {
+      height: 200px;
+      background-color: lightcoral;
+    }
+  </style>
+</head>
+<body>
+  <div id="container">
+    <div class="element" id="first"></div>
+    <div class="element"></div>
+    <div class="element"></div>
+    <div class="element"></div>
+    <div class="element"></div>
+    <div class="element"></div>
+    <div class="element"></div>
+    <div class="element"></div>
+    <div class="element"></div>
+    <div class="element" id="last"></div>
+  </div>
+  <script src="./index.js"></script>
+</body>
+</html>
