@@ -1,5 +1,9 @@
 # web_study
 
+
+
+:fire:新加学习日记专栏和面试专栏
+
 学习的目录结构
 
 ## JavaScript相关
