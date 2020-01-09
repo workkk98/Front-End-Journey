@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>location</title>
+</head>
+<body>
+  <script src="http://localhost:1818/location.js"></script>
+  <script>
+    function deferScript () {
+      var body = document.body; 
+      var script = document.createElement('script');
+      script.src = "http://localhost:1818/navigator.js"
+      body.appendChild(script)
+    }
+    setTimeout(deferScript,1000)
+  </script>
+</body>
+</html>
