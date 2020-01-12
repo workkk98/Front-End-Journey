@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>DOM2 and DOM3</title>
+  <link rel="stylesheet" href="./index.css">
+  <style>
+    #example {
+      height: 200px;
+      width: 200px;
+      background-color: lightcoral;
+    }
+  </style>
+</head>
+<body>
+  <!-- style相关 -->
+  <div id="example" name="style"></div>
+  <div id="container">
+    <div id="conOffset" style="height: 100px;width: 100px;background-color: lightgreen;"></div>
+  </div>
+  <div id="scroll-box" style="overflow: scroll;height: 500px;width: 200px;background-color: lightskyblue;">
+    <div id="scrollItem" style="height: 700px;width:400px;background-color: lightgrey;"></div>
+  </div>
+  <script src="./style.js"></script>
+  <script src="./elemsize.js"></script>
+</body>
+</html>
