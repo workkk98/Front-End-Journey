@@ -1,5 +1,5 @@
 // DOM2和DOM3
-var example = document.body.firstElementChild
+var example = document.querySelector('#example')
 
 // element的样式
 // style属性 CSSStyleDeclaration的实例 类数组对象 这个style只涉及内联样式及元素内部的style属性
@@ -9,7 +9,7 @@ example.style.cssText = "height: 200px;width: 200px;background-color: lightgreen
 setTimeout(function () {
   example.style.cssText = ""  // cssText访问style属性中的css代码，是为元素应用多项变化最快捷的方式
 },500)
-
+console.log("element.style属性 ",example.style)
 // 计算的样式 从上述 我们只能看到元素的class样式 和 内联style 仅可读
 // 通过document.defaultView.getComputedStyle(目标元素,伪元素字符串) 可以获取元素计算后的样式
 var compStyleOfExamp = document.defaultView.getComputedStyle(example,null)
