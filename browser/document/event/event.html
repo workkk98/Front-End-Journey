@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Event</title>
+  <style>
+    body {
+      height: 3000px;
+      margin: 0px;
+    }
+    .container {
+      width: 100%;
+      height: 800px;
+      background-color: lightcyan;
+    }
+    #anotherPart {
+      width: 500px;
+      height: 200px;
+      background-color: lightslategrey;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <input type="button" value="click me" id="target">
+    <a href="www.google.com" id="preventDefault">google</a>
+    <input type="button" value="stop propagation" id="stopPropagtion">
+  </div>
+  <script src="http://localhost:1818/eventType.js"></script>
+  <div id="anotherPart"></div>
+  <script src="http://localhost:1818/index.js" defer></script>
+</body>
+</html>
