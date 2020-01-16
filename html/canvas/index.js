@@ -52,7 +52,7 @@ context.fillText("12",0,-82)
 
 
 
-// 变换 基于原点？
+// 变换 变换原点
 // rotate(angle)
 // translate(x,y)
 

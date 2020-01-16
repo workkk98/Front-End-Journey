@@ -25,7 +25,7 @@ gradient.addColorStop(1 , 'black');
 nextContext.fillStyle = gradient;
 nextContext.fillRect(400,300,100,100)
 
-// const pattern = createPattern(image , "repeat") // image元素 和 如何重复图像的字符串
+// const pattern = nextContext.createPattern(image , "repeat") // image元素 和 如何重复图像的字符串
 // context.fillStyle = pattern;
 
 // 使用图像数据
