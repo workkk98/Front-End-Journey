@@ -56,8 +56,12 @@
 
 ## browser浏览器相关API
 
+## protocols
+
 **待续ing**
 
 > 本人的[blog](https://workingithub.github.io/xiaofanslog/#/)
+
+感谢一些大神的开源博客: [肖鹏](https://www.kancloud.cn/spirit-ling/http-study/) 
 
 
