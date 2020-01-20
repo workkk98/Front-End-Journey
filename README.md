@@ -62,6 +62,7 @@
 
 > 本人的[blog](https://workingithub.github.io/xiaofanslog/#/)
 
-感谢一些大神的开源博客: [肖鹏](https://www.kancloud.cn/spirit-ling/http-study/) 
+感谢一些大神的开源博客: 
+* HTTP协议 [肖鹏](https://www.kancloud.cn/spirit-ling/http-study/) 
 
 

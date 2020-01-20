@@ -81,6 +81,15 @@ app.get('/etag.js',(req, res)=>{
   }
 })
 
+// 响应首部location字段 和 Retry-After
+// 使得客户端重新导航到字段对应地址
+app.get('/location', function (req,res) {
+  // res.setHeader('Retry-After', "20") // 时间 或 日期 都可 事实测试了(注释locatio字段 并)
+  res.setHeader('Location',"http://localhost:8080/");
+  res.writeHead(302,'Moved Temporarily')
+  res.end()
+}) 
+
 app.get('*',(req,res) => {
   console.log(req.url)
   let target = {
