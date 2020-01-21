@@ -92,7 +92,7 @@ accept: text/html
 | **Host** :exclamation::exclamation::exclamation:  | HTTP/1.1 唯一一个必须被包含在请求内的首部字段。告知服务器，请求的资源所处的互联网主机名和端口号。(因为一台服务器可以有多个服务例如端口号是80，8080,通过Host能有效的区分) |
 | **If-Modified-Since** :exclamation::exclamation: |  用于确认代理或客户端拥有本地资源的有效性 |
 | **If-None-Match** :exclamation::exclamation: | 用于确认代理或客户端拥有本地资源的有效性 |
-
+| **Max-Forwards** :exclamation: | 最大转发次数(整数) ，结合via字段 在TRACE方法 或 OPTIONS方法中使用 |
 
 #### 应答首部字段
 
@@ -110,8 +110,7 @@ accept: text/html
 | **Server：** | 告知服务端当前使用的HTTP服务器应用程序的相关信息。|
 | **WWW-Authenticate：** | 告知客户端适用于所访问资源的认证方案，如Basic或Digest。401的响应中肯定带有 |
 WWW-Authenticate字段。
-| **Allow：** | 通知客户端，服务器所支持的请求方法。但服务器收到不支持的请求方法时，会以405（Method Not Allowed）
-作为响应。|
+| **Allow：** | 通知客户端，服务器所支持的请求方法。但服务器收到不支持的请求方法时，会以405（Method Not Allowed）作为响应。 **OPTIONS方法** (和实体字段 重复 后期得重新确认下) |
 | **Content-Encoding：** | 告知客户端，服务器对资源的内容编码。|
 | **Content-Language：** | 告知客户端，资源所使用的自然语言。|
 | **Content-Length：** | 告知客户端资源的长度 |
@@ -123,7 +122,7 @@ WWW-Authenticate字段。
 
 | 实体首部字段 | 内容 |
 | :--------: | :-: |
-| **Allow** |  通知客户端能够支持 Request-URI 指定资源的所有 HTTP 方法。当服务器接收到不支持的 HTTP 方法时，会以状态码 405 Method Not Allowed 作为响应返回。与此同时，还会把所有能支持的 HTTP 方法写入首部字段 Allow 后返回 |
+| **Allow** :exclamation::exclamation: |  通知客户端能够支持 Request-URI 指定资源的所有 HTTP 方法。当服务器接收到不支持的 HTTP 方法时，会以状态码 405 Method Not Allowed 作为响应返回。与此同时，还会把所有能支持的 HTTP 方法写入首部字段 Allow 后返回。 **OPTIONS方法** |
 | **Expires** :exclamation::exclamation::exclamation: | 资源过期时间 |
 | **Last-Modified** :exclamation::exclamation::exclamation: | 上一次修改时间，用于协商缓存 |
 | **Content-Encoding** | 主体部分选用的内容编码方式 |
