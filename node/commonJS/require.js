@@ -2,7 +2,7 @@
  * require(X) 处理顺序
  * 1. X = 内置模块 例如require('http')
  * 2. X 以路径开头 如./同级目录 /根目录 ../上级目录 
- *   a. x当成文件 寻找 x , x.js , x.json , x.node
+ *   a. x当成文件 寻找 x , x.js , x.json , x.node(二进制文件)
  *   b. x等于路径 x/package.json, x/index.js, x/index.json, x/index.node
  * 3. X 不带路径
  *   a. 根据 X 所在的父模块，确定 X 可能的安装目录。

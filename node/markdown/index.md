@@ -25,6 +25,7 @@ module(对象) 模块信息
 process(对象) 进程对象
 
 #### require 我认为这个函数还是十分重要的
+具体code在commonJS文件夹下
 先不谈它和ES6的区别
 
 **require()**
@@ -49,4 +50,9 @@ cache是个缓存对象，表示已被加载模块的缓存区
 
 #### 事件处理机制和事件循环机制
 
+> 详见 eventEmitter.md 和 console.md 还有 debug.md
+
+#### Buffer全局构造函数
+
+没怎么仔细阅读，以后得看
 

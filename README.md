@@ -21,7 +21,7 @@
   * proxy
 * 数组扁平化（待优化）
 * function相关
-* jsonP
+* JsonP
 * ES6module（node暂不支持）
 * 面向对象，深入对象
   * ways(继承的方法)
