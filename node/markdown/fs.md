@@ -3,6 +3,7 @@
 > 文件的读写一直是一块很重要的内容
 > \[mode] 一般指读写删的权利 0777 意思是任何人可以随意操作文件 0是开头必需
 > 1 + 2 + 4
+> atime = access time mtime = modify time , ctime = create time
 
 #### 读文件
 
@@ -68,9 +69,18 @@ fs.write( fd , buffer , offset , length , postion , callback )
 
 **fs.readdir(path , callback)**
 
+#### 操作文件或文件夹状态
+
 **fs.stat() / fs.lstate**
 
-查看目录/文件的信息
+查看文件的信息
 
 **fs.exists(path , callback)**
+
+**fs.rename(oldpath , newpath , callback)**
+
+**fs.watch(path , \[options] , function (curr , prev) )**
+
+有趣的是 使用该函数， 运行监听文件的服务。或许这就跟热编译有关吧。
+curr 和 prev很好理解 就是当前的 stat 和 之前的stat对象
 
