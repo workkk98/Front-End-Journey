@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <iframe src="http://localhost:1818/iframe" frameborder="0" id="myframe"></iframe>
+
+  <script>
+    window.addEventListener('message' , function (event) {
+      console.log('data' , event.data);  // postMessage的数据
+      console.log('origin' , event.origin) // 原地址
+      console.log('source' , event.source) // source window
+    })
+    window.onload = function () {
+      var iframeWindow = document.querySelector('#myframe').contentWindow
+      iframeWindow.postMessage('tell iframe code is a' , 'http://localhost:1818')
+    }
+  </script>
+</body>
+</html>
