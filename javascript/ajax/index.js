@@ -3,6 +3,9 @@ function submit() {
 
   var xhr = new XMLHttpRequest()
 
+  // withCredentials
+  xhr.withCredentials = true
+
   xhr.onreadystatechange = function () {
     var readyState = xhr.readyState;
     // console.log('每次变换的 readState', readyState)
@@ -11,6 +14,10 @@ function submit() {
       document.body.appendChild(textNode)
       console.log(xhr.getAllResponseHeaders())
     }
+  }
+
+  xhr.onerror = function () {
+    console.log("get请求出错")
   }
 
   // xhrReq.open(method, url, async, user, password);
@@ -44,10 +51,6 @@ function submitP() {
 
 }
 
-submit()
-
-submitP()
-
 function catchTimeout ( xhr , timeout , message ) {
   xhr.timeout = timeout;
   xhr.ontimeout = function () {
@@ -60,3 +63,28 @@ function errorXHR (xhr) {
     console.error(xhr.statusText)
   }
 }
+
+// 复杂请求 CORS
+function complictRequest() {
+  var xhr = new XMLHttpRequest()
+
+  // xhr.setRequestHeader('Content-Type' , 'application/json')
+  catchTimeout(xhr,100000,'CORS complictRequest timeout')
+  errorXHR(xhr)
+
+  xhr.onreadystatechange = function () {
+    if(xhr.readyState === 4) {
+      console.log('complictRequest')
+    }
+  }
+
+  xhr.open('put','http://localhost:7012/post/CORS')
+  xhr.send(null)
+}
+
+
+//submit()
+
+//submitP()
+
+complictRequest()

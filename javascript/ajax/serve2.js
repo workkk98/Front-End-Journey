@@ -32,18 +32,7 @@ serve.on('request' , function (req, res) {
   }
 })
 
-serve.on('request' , function (req, res) {
-  if(req.url === '/post/CORS') {
-    res.writeHead(200, "OK" , {
-      'Access-Control-Allow-Origin': 'http://localhost:7013',
-      'Access-Control-Allow-Method': 'PUT,POST',
-      'Access-Control-Allow-Headers': '',
-      'Access-Control-Max-Age': 1000
-    })
-    res.end()
-  }
-})
 
-serve.listen(7012 , function () {
-  console.log('serve is running at 7012')
+serve.listen(7013 , function () {
+  console.log('serve is running at 7013')
 })
