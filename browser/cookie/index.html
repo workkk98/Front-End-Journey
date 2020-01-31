@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    function sendRequest() {
+      var xhr = new XMLHttpRequest()
+      xhr.onerror = function () {
+        console.log('error')
+      }
+      xhr.onreadystatechange = function () {
+        if(xhr.readyState === 4) {
+          console.log('sendRequest' , xhr.responseText)
+        }
+      }
+      xhr.open('get','http://localhost:8012/get')
+      xhr.send(null)
+    }
+    function setCookie (name,value,domain,path,expires,secure) {
+      document.cookie = encodeURIComponent(name) + "=" +
+      encodeURIComponent(value)
+    }
+
+    sendRequest()
+
+    // 操作cookie
+
+    setTimeout(function () {
+      setCookie('workkk',0)
+      console.log(document.cookie)
+      unsetCooke('workkk',0)
+      console.log(document.cookie)
+    },1000)
+    function unsetCooke(name,value) {
+      var cookieText = encodeURIComponent(name) + "=" + encodeURIComponent(value)
+      cookieText = cookieText + "; expires=" + new Date(0).toGMTString()
+      document.cookie = cookieText;
+    }
+  </script>
+</body>
+</html>
