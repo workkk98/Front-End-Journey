@@ -90,7 +90,7 @@ HTTP/1.1(以及HTTP/1.0的各种增强版本) 允许HTTP设备在事务处理结
 盲中继不懂proxy-connection字段，聪明的代理则会把这个字段改成connection转发给服务器。
 结果就是盲中继和客户端、服务器不会建立持久连接
 但是聪明的代理会建立连接。
-![Proxy-Connection首部修正了单个盲中继的问题](https://github.com/workINgithub/web_study/protocols/HTTP/images/Proxy-Connection.png)
+![Proxy-Connection首部修正了单个盲中继的问题](https://github.com/workINgithub/web_study/blob/master/protocols/HTTP/images/Proxy-Connection.png)
 
 ### HTTP/1.1
 
