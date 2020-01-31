@@ -24,7 +24,7 @@ console.log('hasOwnProperty ',document.hasOwnProperty('readyState'),'\'readyStat
 // 扩展的属性有 readyState , compatMode(渲染页面的模式) , head属性(即指向head元素) , charset(字符集属性)
 var xname = document.querySelector('#xname')
 // 自定义属性dataset 之前有讲到element的attribute相关 h5增加了dataset属性 是DOMStringMap的一个实例
-console.log(xname.dataset.xname)  // 对应特性值
+console.log('id为#xname元素的dataset属性',xname.dataset)  // 对应特性值
 // 值得一提的是，这样子注册的特性 通过getAttributes是全称'data-xname'，但是通过dataset属性则是后半部分'xname'
 
 
