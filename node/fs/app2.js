@@ -38,9 +38,9 @@ const fs = require('fs')
 //   ino: 18974006,
 //   size: 96,
 //   blocks: 0,
-//   atimeMs: 1579857358000,
-//   mtimeMs: 1579857358000,
-//   ctimeMs: 1579857358581.5574,
+//   atimeMs: 1579857358000, //access time
+//   mtimeMs: 1579857358000, //modify time 指文件内容被修改时
+//   ctimeMs: 1579857358581.5574, //change time 权限被修改？ chamod后会修改这个事件
 //   birthtimeMs: 1579857246000,
 //   atime: 2020-01-24T09:15:58.000Z,
 //   mtime: 2020-01-24T09:15:58.000Z,

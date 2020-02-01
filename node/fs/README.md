@@ -25,6 +25,8 @@ options 可以是 对象 例如 :
 ```
 但也可以指定一个具体编码格式: readFile( file , 'utf-8' , callback)
 
+返回的值一般是字符串或是buffer
+
 
 #### 写文件
 

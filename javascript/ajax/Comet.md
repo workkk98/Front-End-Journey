@@ -12,8 +12,7 @@
 2. HTTP流
 
 仅用一个http请求，服务器保持连接打开然后周期性的向浏览器放松数据
-通过侦听XHR对象的readyState状态 ， 随着不断从服务器接收到数据 ， readyState的值会周期性变为3
-
+通过侦听XHR对象的readyState状态 ， 随着不断从服务器接收到数据 ， readyState的值**会周期性变为3**
 每次从xhr.responseText中 拿取新的数据即可
 
 
