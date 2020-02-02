@@ -23,8 +23,13 @@ req.on('response' , function (response) {
 req.on('socket' , function (socket) {
   socket.setTimeout(1000)
   socket.on('timeout' , function () {
-    req.abort
+    req.abort()
   })
+})
+
+req.setTimeout(2000 , function () {
+  console.log('timeout')
+  req.abort()
 })
 
 req.on('error' , function (err) {

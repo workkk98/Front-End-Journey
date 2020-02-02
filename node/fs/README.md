@@ -81,8 +81,10 @@ fs.write( fd , buffer , offset , length , postion , callback )
 
 **fs.rename(oldpath , newpath , callback)**
 
-**fs.watch(path , \[options] , function (curr , prev) )**
+**fs.watchFile(path , \[options] , function (curr , prev) )**
 
 有趣的是 使用该函数， 运行监听文件的服务。或许这就跟热编译有关吧。
 curr 和 prev很好理解 就是当前的 stat 和 之前的stat对象
 
+**fs.watch()**
+这个更棒

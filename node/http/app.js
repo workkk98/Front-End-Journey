@@ -18,7 +18,7 @@ server.on('close', function () {
 // error事件
 server.on('error' , function (error) {
   // port被占用时 会触发error事件 
-  if(error.code === 'EADDRINUSE') {
+  if(error.code === 'EADDRINUSE') {  // EADDRINUSE = E Address In Use
     console.log('port 被占用')
   }
 })
