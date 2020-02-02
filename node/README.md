@@ -50,9 +50,28 @@ cache是个缓存对象，表示已被加载模块的缓存区
 
 #### 事件处理机制和事件循环机制
 
-> 详见 eventEmitter.md 和 console.md 还有 debug.md
+V8 <=> Node.js bindings(Node API) <=> Libuv (library Unicorn Velociraptor 独角伶盗龙)
+
+**Libuv的六个阶段**
+```
+  timers
+  I/O callbacks
+  idle, prepare
+  poll          <---------- incoming : connections , data ,etc
+  check
+  close callbacks
+```
+
+假设 node进程正在运行http模块那么当请求发送到服务端时
+整个过程就是 从 外部输入数据 => 轮询阶段(poll) => 检查阶段(check) => 关闭事件回调阶段(close callbacks) =>
+定时器检测阶段(timers) => I/O事件回调阶段(I/O callbacks) => 闲置阶段(idle , prepare) => 轮询阶段(poll) =>
+继续按照顺序执行
+**每个阶段都有自己的回调队列,当回调队列为空或者执行的回调数数量达到系统设定的阈值，就会进入下一阶段**
+
 
 #### Buffer全局构造函数
 
 没怎么仔细阅读，以后得看
+
+#### 
 
