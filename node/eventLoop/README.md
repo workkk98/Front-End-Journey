@@ -16,3 +16,9 @@
   * 没有预设的setImmediate(callback)回调队列,阻塞在poll阶段等待
 
 一旦poll队列为空，事件循环会检查timers阶段里的队列是否为空，如果任务队列里非空，那么跳到timers阶段执行下一轮事件循环。
+
+[Node.js 事件循环，定时器和 process.nextTick()](https://github.com/nodejs/nodejs.org/blob/master/locale/zh-cn/docs/guides/event-loop-timers-and-nexttick.md)
+[Node.js事件循环 by 童欧巴](https://juejin.im/post/5de095dd6fb9a071b5615db2#heading-6)
+
+[事件循环 源码](https://github.com/libuv/libuv/blob/v1.x/src/unix/core.c)
+[node11 PR](https://github.com/nodejs/node/pull/22842#discussion_r218142520)
