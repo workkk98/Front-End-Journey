@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <input type="file" id="fileInterface">
+  <button id="submit">submit</button>
+  <script>
+    const fileInte = document.getElementById('fileInterface');
+    const but = document.getElementById('submit');
+    var files = null;
+    fileInte.addEventListener('change' , function (e) {
+      files = e.target.files
+    })
+    but.addEventListener('click' , function () {
+      if(!files) {
+        return
+      }
+      request(files[0])
+    })
+    function request(data) {
+      const xhr = new XMLHttpRequest();
+      xhr.onerror = function (err) {
+        console.log(err)
+      }
+      xhr.onprogress = function (e) {
+        console.log(e.loaded / e.total)
+      }
+      xhr.onload = function (e) {
+        console.log('load' , e)
+      }
+      xhr.open('POST' , 'http://localhost:8012/upload')
+      const formData = new FormData()
+      formData.append('file' , data)
+      xhr.send(formData)
+    }
+  </script>
+</body>
+</html>

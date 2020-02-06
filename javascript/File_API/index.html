@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <input type="file" id="fileElem" multiple>
+  <div id="dashboard"></div>
+  <script>
+    const fileElem = document.getElementById('fileElem');
+    const dashboard = document.getElementById('dashboard')
+    fileElem.addEventListener('change' , function (e) {
+      var files = e.target.files;
+
+      // 对象URL
+      dashboard.innerHTML = `
+        <img height="60px" width="80px" src="${window.webkitURL.createObjectURL(files[0])}">
+      `
+      var reader = new FileReader()
+      if(/image/ .test(files[0].type)) {
+        reader.readAsDataURL(files[0])
+      }
+      reader.onerror = function () {
+        console.log('error')
+      }
+      reader.onload = function () {
+        document.body.appendChild(createFixedImage(reader.result))
+      }
+    })
+
+    function createFixedImage (url) {
+      var image = new Image(80,60)
+      image.src = url
+      return image
+    }
+  </script>
+</body>
+</html>
