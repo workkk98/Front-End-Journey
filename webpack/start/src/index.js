@@ -1,6 +1,6 @@
-const _  = require('lodash')
+// const _  = require('lodash')
 import print from './print'
-// import './style.css'
+import './style.css'
 // import star from './star.jpg'
 // import data from './data.xml'
 
@@ -8,8 +8,8 @@ function component() {
   let element = document.createElement('div');
 
 
-  element.innerHTML = _.join(['Hello', 'webpack'], ' ');
-  // element.classList.add('hello'); //css api
+  // element.innerHTML = _.join(['Hello', 'webpack'], ' ');
+  element.classList.add('hello');
 
   // 把图像放入到div中
   // let image = new Image(400,300)
@@ -27,13 +27,12 @@ function component() {
 
   return element;
 }
-
 document.body.appendChild(component());
 
-if (module.hot) {
-  // 因为热更新刷新页面，所以这段话在浏览器控制台马上消失
-  module.hot.accept('./print.js', function (params) {
-    console.log('Accepting the updated printMe module!');
-    printMe()
-  })
-}
+// if (module.hot) {
+//   // 因为热更新刷新页面，所以这段话在浏览器控制台马上消失
+//   module.hot.accept('./print.js', function (params) {
+//     console.log('Accepting the updated printMe module!');
+//     printMe()
+//   })
+// }
