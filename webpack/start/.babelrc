@@ -1,0 +1,20 @@
+{
+  "plugins": [
+    [
+      "@babel/plugin-transform-runtime",
+      {
+        "polyfill": false
+      }
+    ]
+  ]
+  // "presets": [
+  //   [
+  //     "es2015",
+  //     {
+  //       "module":false
+  //     }
+  //   ],
+  //   "stage-2",
+  //   "react"
+  // ]
+}
