@@ -1,5 +1,5 @@
 const http = require('http')
-
+const fs = require('fs')
 const server = http.createServer()
 
 server.listen(1337,'127.0.0.1')
@@ -49,12 +49,19 @@ server.on('request' , function (req,res) {
 // req的 data 和 end事件
 server.on('request' , function (req,res) {
   if(req.url == '/postform') {
+    let out = fs.createWriteStream('./file.txt')
     req.on('data' , function (data) {
-      console.log('服务端正在接受数据 ' , decodeURIComponent(data))
+      // console.log('服务端正在接受数据 ' , decodeURIComponent(data))
+      out.write(decodeURIComponent(data))
     })
     req.on('end' , function () {
       console.log('服务端接受数据完成 ')
+      out.end() // end是指把剩余的内容写完 并可以追加内容
     })
+    res.writeHead(200 , 'OK' , {
+      Location : 'http://127.0.0.1/'
+    })
+    res.end()
   }
 })
 
