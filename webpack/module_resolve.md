@@ -74,12 +74,13 @@ mainFields: [’ browser ’,’ main ’ ]
 在导入语句没有携带后缀时，webpack会自动带上后缀去尝试文件是否存在
 默认配置
 ```
-extensions: ['./js' , './json']
+extensions: ['.js' , '.json']
 ```
 
 **modules**
 
-> 有时我们的项目里会有一些模块被其他模块大量依赖和导入，由于其他模块的位置不定，针对不同的文件都要计算被导入的模块文件的相对路径 ，这个路径 有时会很长 ，就像 import ’.. / .. / .. /c omponents/button ’， 这时可以利用modules配置项优化 。假如那些被大量导入的模块都在 .／src/components 目录下， 则将 modules配置 
+webpack默认只会去node_modules中寻找模块
+> 有时我们的项目里会有一些模块被其他模块大量依赖和导入，由于其他模块的位置不定，针对不同的文件都要计算被导入的模块文件的相对路径 ，这个路径 有时会很长 ，就像 import ’.. / .. / .. /components/button ’， 这时可以利用modules配置项优化 。假如那些被大量导入的模块都在 .／src/components 目录下， 则将 modules配置 
 
 ```
 modules : [’./ src/cornponents ’,' node modules ’］后，可以简单地 通过 ’ button ’ 导入 。

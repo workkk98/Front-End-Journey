@@ -4,7 +4,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 module.exports = {
   mode: 'development',
   devtool: 'inline-source-map', // 打开工具 查看错误行数
-  context: __dirname, // 相对路径
+  context: __dirname, // 整个上下文的路径
   entry: './src/index.js',
   output: {
     filename: 'bundle-[name].js',
