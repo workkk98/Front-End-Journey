@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <button id="butt">xss</button>
+  <script>
+    function request(url) {
+      const xhr = new XMLHttpRequest();
+      xhr.onload = function () {
+        console.log('xss注入的脚本请求',xhr.response);
+      }
+      xhr.withCredentials = true;
+      xhr.open('get', url);
+      xhr.send(null);
+      return xhr
+    }
+    document.getElementById('butt').addEventListener('click' , function (e) {
+      const xhr = request('http://localhost:8013/');
+    })
+  </script>
+</body>
+</html>

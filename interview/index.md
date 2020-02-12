@@ -8,4 +8,9 @@
 
 #### 4. 垃圾收集机制相关
 
+文件夹/browser/v8  新生代 和 老生代的 垃圾收集机制
+
 #### 5. XSS和CSRF
+
+[xss,csrf](https://github.com/dwqs/blog/issues/68)
+/secure文件夹
