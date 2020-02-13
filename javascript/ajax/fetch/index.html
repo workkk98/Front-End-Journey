@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    function fetchDemo(url , initHeader) {
+      return fetch(url , initHeader)
+    }
+    let initHeader = {
+      body: JSON.stringify('bbc breaking news'),
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      credentials: 'omit', // include(都携带) same-origin(同源才携带) omit(不携带)
+      mode: 'no-cors', // no-cors, cors, *same-origin
+      method: 'POST',
+      referrer: 'index' // 指referrer字段中的 path部分 (但是http请求头应该是referer) 例如 url/index
+    }
+    const fetchPromise = fetchDemo('http://localhost:8012/get' , initHeader);
+    fetchPromise.then(function (response) {
+      if(response.ok) {
+        console.log(data)
+      }
+      throw new Error('unknown error')
+    },function (err) {
+      console.error(err)
+    }).catch((err) => {
+      console.error(err)
+    })
+  </script>
+</body>
+</html>
