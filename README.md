@@ -58,6 +58,11 @@
 
 ## protocols
 
+* HTTP
+* HTTPS
+* IP
+* UDP (DNS)
+
 **待续ing**
 
 > 本人的[blog](https://workingithub.github.io/xiaofanslog/#/)

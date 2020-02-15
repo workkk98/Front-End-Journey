@@ -2,6 +2,6 @@ function a() {
   console.dir(new.target)
 }
 
-new a()
+new a() // [Function a]
 
-a()
+a() // undefined
