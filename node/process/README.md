@@ -7,6 +7,16 @@
 * execPath 可执行文件的绝对路径
 * argv 数组 也就是一个命令行的参数 例如 $ node app.js 1 2 3 = \[node执行地址 , 文件 , 1 , 2 , 3]
 * env 对象 包含了运行Node.js应用程序的操作系统环境的信息
+  人们人为定义了process.env.NODE_ENV这个属性 作为是什么环境的变量
+  所以我们可以通过设置这个属性来选择打开什么模式
+  ```
+  这两者似乎挺相同的 区别在于env 可能省略也没关系
+  NODE_ENV=development node 
+
+  // bash和zsh设置环境变量的方法
+  env API_KEY=123123 node app.js
+  // 然后可以查看process.env.NODE_ENV的属性了
+```
 * config 对象 node.js 配置
 * pid 进程ID
 
