@@ -13,8 +13,7 @@
   </form>
   <script>
     document.getElementById('subm').addEventListener('click' , function (event) {
-
-      const form = new FormData(document.forms[0]);
+      let form = new FormData(document.forms[0]);
       fetch('http://localhost:8012/post' , {
         method: 'POST',
         headers: {

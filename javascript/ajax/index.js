@@ -78,7 +78,7 @@ function complictRequest() {
     }
   }
 
-  xhr.open('put','http://localhost:7012/post/CORS')
+  xhr.open('POST','http://localhost:7012/post/CORS')
   xhr.send(null)
 }
 
