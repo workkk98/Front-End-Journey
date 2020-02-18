@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {
+      margin: 0px;
+    }
+    .fold-margin {
+      margin-bottom: 150px;
+      height: 200px;
+      background-color: lightseagreen;
+    }
+    .fold-margin-next {
+      margin: 20px auto;
+      height: 200px;
+      background-color: lightcoral;
+      text-align: center;
+    }
+    .container {
+      height: 200px;
+      background-color: lightseagreen;
+    }
+    .inner {
+      margin: 100px 0px;
+      height: 20px;
+      background: moccasin;
+    }
+  </style>
+</head>
+<body>
+  <div class="fold-margin"></div>
+  <div class="fold-margin-next">可以看到 只要是有纵向的margin都会产生折叠</div>
+  <div class="container">
+    <div class="inner">验证七个属性之和必须等于块级框的容纳块的高度 : wrong</div>
+  </div>
+  <div class="container-next" style="line-height: 1em;">
+    <div>a paragraph</div>
+    <div style="margin-top: -1em;">Another paragraph</div>
+  </div>
+</body>
+</html>
