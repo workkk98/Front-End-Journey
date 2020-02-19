@@ -23,10 +23,13 @@
       props:['value']
     })
     Vue.component('sync-comonent',{
-      props:['text'],
+      props:{
+        text:String
+      },
       template:'<div>{{text}}<input @input="$emit(\'update:text\',$event.target.value)" :value="text"></div>',
       created() {
-        console.log(this.text)
+        console.log(this.text);
+        console.log(this.$options.propsData)  //这个对象是父组件传递的
       }
     })
     new Vue({
