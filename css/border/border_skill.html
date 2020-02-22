@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .trapezium {
+            height: 0px;
+            width: 30px;
+            border-left: 10px solid transparent;
+            border-right: 10px solid transparent;
+            border-bottom: 30px solid blue;
+            margin-bottom: 20px;
+        }
+        .circle {
+            width: 20px;
+            height: 20px;
+            background-color: blanchedalmond;
+            border-radius: 50% 50% 50% 50%;
+            margin-bottom: 20px;
+        }
+        .triangle {
+            width: 0px;
+            border-bottom: 10px solid transparent;
+            border-left: 10px solid transparent;
+            border-right: 10px solid transparent;
+            border-top: 10px solid lightblue;
+        }
+        .messageBox {
+            height: 50px;
+            width: 200px;
+            background-color: #E9FBE4;
+            position: relative;
+            border-radius: 2px;
+            border: 1px solid #C9E9C0;
+            text-align: center;
+            line-height: 50px;
+        }
+        .messageBox-triangle {
+            border-width: 10px;
+            border-color: #C9E9C0 transparent transparent transparent;
+            border-style: solid;
+            width: 0px;
+            height: 0px;
+            position: absolute;
+            top: 51px;
+            left: 20px;
+        }
+        .messageBox-triangle2 {
+            border-width: 10px;
+            border-color: #E9FBE4 transparent transparent transparent;
+            border-style: solid;
+            width: 0px;
+            height: 0px;
+            top: 50px;
+            position: absolute;
+            left: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="trapezium"></div>
+    <div class="circle"></div>
+    <div class="triangle"></div>
+
+    <div class="messageBox">
+        <span>我是一条消息</span>
+        <div class="messageBox-triangle"></div>
+        <div class="messageBox-triangle2"></div>
+    </div>
+</body>
+</html>
