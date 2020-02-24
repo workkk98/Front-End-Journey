@@ -19,3 +19,22 @@ var quicksort = function (arr) {
 }
 
 console.log(quicksort([1,5,3,4,7,2,8]))
+
+const quicksort2 = function quickSortHand (nums) {
+  if(nums.length < 2) {
+    return nums;
+  }
+  let pivot = Math.floor(nums.length / 2);
+  const mid = nums.splice(pivot , 1)[0];
+  const left =[] , right = [];
+  for(let i =0 ; i< nums.length ; i++) {
+    if(nums[i] < mid) {
+      left.push(nums[i])
+    } else {
+      right.push(nums[i])
+    }
+  }
+  return quicksort2(left).concat([mid],quicksort2(right))
+}
+
+console.log(quicksort2([91, 60, 96, 7, 35, 65, 10, 65, 9, 30, 20, 31, 77, 81, 24]))
