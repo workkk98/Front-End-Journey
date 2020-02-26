@@ -7,8 +7,8 @@
     {
         "type": "node",
         "request": "launch",
-        "name": "Launch Program",
-        "program": "${workspaceFolder}/algorithm/排序/first-run/heapsort.js",
+        "name": "teat/promise/main.js",
+        "program": "${workspaceFolder}/tear_src/promise/main.js",
         "skipFiles": [
             "<node_internals>/**"
         ]

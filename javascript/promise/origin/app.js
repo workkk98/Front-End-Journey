@@ -8,3 +8,5 @@ var p2 = p1.then(function (value) {
     setTimeout(resolve, 10000)
   })
 })
+
+console.log(Object.keys(p1))
