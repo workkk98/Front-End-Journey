@@ -1,9 +1,9 @@
+// 一些自己整理的堆的性质可以看 日记 20_02_25
 var heapsort = function heapSort1 (nums) {
   let size = nums.length;
-  let mid = Math.floor(size/2);
+  let mid = Math.floor((size-1)/2);
   // 建立最大堆
   for(let i = mid; i >= 0; i--) {
-    console.log(i)
     heapup(nums , i , size);
   }
   console.log(nums)
