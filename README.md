@@ -64,6 +64,10 @@
 * IP
 * UDP (DNS)
 
+## tear_src(手撕源码)
+
+* promise
+
 **待续ing**
 
 > 本人的[blog](https://workingithub.github.io/xiaofanslog/#/)
