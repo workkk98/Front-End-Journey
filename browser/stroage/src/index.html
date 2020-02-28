@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+  <style>
+    .default {
+      margin-top: 20px;
+      width: 0px;
+      height: 0px;
+      border-width: 0px 10px 20px 10px;
+      border-style: solid;
+      border-color: transparent transparent lightcoral;
+    }
+    .light-blue-mode {
+      border-color: transparent transparent lightblue;
+    }
+  </style>
+</head>
+<body>
+  <div id="app">
+    <button @click="updateMode">点我换主题</button>
+    <div :class="dashboard"></div>
+  </div>
+  <script>
+    new Vue({
+      el: '#app',
+      data () {
+        return {
+          dashboard: "default"
+        }
+      },
+      methods: {
+        // 同源页面广播
+        broadcastSameOrigin(e , window) {
+          console.log(e)
+          console.log('window' , window);
+          if(this.dashboard !== e.newValue) {
+            this.dashboard = e.newValue
+          }
+        },
+        // 切换主题
+        updateMode() {
+          this.dashboard = this.dashboard.concat(" light-blue-mode");
+          window.localStorage.setItem('mode' , this.dashboard)
+        }
+      },
+      created() {
+        console.log('created');
+        window.localStorage.setItem('mode' , 'default')
+        const self = this;
+        window.addEventListener('storage' , function (e) {
+          self.broadcastSameOrigin(e,this);
+        })
+      }
+    })
+  </script>
+</body>
+</html>
