@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    window.onmessage = function (e) {
+      console.log("window.onmessage" , e)
+    }
+    window.onload = function () {
+      var loader = new Worker("/worker.js")
+      loader.onmessage = function (e) {
+        var message = e.data;
+        console.log("URL contents: " + message);
+        loader.terminate() // 结束子线程
+      }
+      loader.postMessage("file.txt")
+    }
+  </script>
+</body>
+</html>
