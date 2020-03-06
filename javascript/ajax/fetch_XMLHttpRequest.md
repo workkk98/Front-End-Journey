@@ -1,6 +1,4 @@
-# 学习日记 20年03月06日
-
-#### fetch和XMLHttpRequest的区别
+# fetch和XMLHttpRequest的区别
 
 昨天复习cookie的内容，突然想到这两个请求的区别，因此总结一下。
 

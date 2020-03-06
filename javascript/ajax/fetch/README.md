@@ -1,7 +1,7 @@
 # Fetch
 
 > * 当接收到一个代表错误的 HTTP 状态码时，从 fetch()返回的 Promise 不会被标记为 reject， 即使该 HTTP 响应的状态码是 404 或 500。相反，它会将 Promise 状态标记为 resolve （但是会将 resolve 的返回值的 ok 属性设置为 false ），仅当网络故障时或请求被阻止时，才会标记为 reject。
-> * fetch() 不会接受跨域 cookies；你也不能使用fetch() 建立起跨域会话。其他网站的Set-Cookie头部字段将会被无视。
+> * fetch() 不会接受跨域 cookies。其他网站的Set-Cookie头部字段将会被无视。
 > * fetch 不会发送 cookies。除非你使用了credentials的 初始化选项。（自2017年8月25日以后，默认的credentials政策变更为same-origin。Firefox也在61.0b13版本中，对默认值进行修改）
 
 这是MDN网站 的一个例子
