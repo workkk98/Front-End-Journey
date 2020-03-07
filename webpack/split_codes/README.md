@@ -8,7 +8,7 @@
 * 假如两个入口有重复模块，那些重复模块都会被引入到各个 bundle 中
 * 这种方法不够灵活，并且不能将核心应用程序逻辑进行动态拆分代码。
 
-#### SplitChunksPlugin(事实上之前叫 CommonsChunkPlugin)
+#### 防止重复SplitChunksPlugin(事实上之前叫 CommonsChunkPlugin)
 解决了入口模块 重复的问题
 
 > 可以将公共的依赖模块提取到已有的入口 chunk 中，或者提取到一个新生成的 chunk。
