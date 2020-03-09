@@ -8,8 +8,8 @@ function* helloWorldGenerator(params) {
 
 let p = helloWorldGenerator()  //返回的是遍历器对象
 
-//调用遍历器的Symbol.iterator 即指向本身 ,而非遍历器对象
-console.log("Symbol.iterator指向本身" + p[Symbol.iterator]() === p);
+//invoke 遍历器的Symbol.iterator函数
+console.log("Symbol.iterator指向本身: ", p[Symbol.iterator]() === p);
 console.log(p.next())
 console.log(p.next())
 console.log(p.next())
@@ -36,17 +36,17 @@ var flat = function* (a) {
 //     console.log(f);
 //   }
 
-  //由于generator函数就是生成遍历器函数，所以可以用这个函数 创造遍历器
-  let ex = {
-      [Symbol.iterator] : exObj
-  }
+//由于generator函数就是生成遍历器函数，所以可以用这个函数 创造遍历器
+let ex = {
+    [Symbol.iterator] : exObj
+}
 
-  function* exObj(params) {
-      yield 1;
-      yield 2;
-      yield 3;
-      return 4;
-  }
+function* exObj(params) {
+    yield 1;
+    yield 2;
+    yield 3;
+    return 4;
+}
 
 for(let i of ex) {
     console.log(i)

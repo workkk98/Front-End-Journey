@@ -20,7 +20,8 @@
 function* foo() {
     yield 'c';
     yield 'd';
-  }
+    return 'e'
+}
   
 function* bar() {
     yield 'x';
@@ -28,11 +29,11 @@ function* bar() {
     yield 'y';
 }
 
+// 由于 for of 只能获取到 done:false的值 也就是说 return值不能获取
 for (let v of bar()){
     console.log(v);
 }
 
-//yield*后面的 Generator函数（没有return语句时），等同于在yield*函数体内 对表达式后面的遍历器对象，部署一个for...of循环。+yield
 
 let a = [1, [[2, 3], 4], [5, 6]];
 
