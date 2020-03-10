@@ -81,3 +81,43 @@ function* bar() {
 具体看 throw.js。
 
 gen函数返回的遍历对象，调用对象的throw() 可以捕获函数体外抛出的错误。
+
+```
+function * demoWithTC (x) {
+  console.log('执行顺序')
+  let y
+  try {
+    y = yield x << 1
+  } catch (e) {
+    console.log(e)
+  }
+  console.log(y)
+  yield 'throw在哪个位置停止'
+  return x
+}
+
+let iterator = demoWithTC(2)
+console.log(iterator.next())
+console.log(iterator.throw('an error'))
+console.log(iterator.next())
+
+```
+最后打印结果是
+> 执行顺序
+  { value: 4, done: false }
+  an error
+  undefined
+  { value: 'throw在哪个位置停止', done: false }
+  { value: 2, done: true }
+
+从 an error 一直到 { value: 'throw在哪个位置停止', done: false} 这是 iterator.throw()执行的结果
+
+我们在这里也就可以下结论，调用throw(arg) 方法后,下面是伪代码
+
+```
+// 相当于在 停止的yield地方
+yield => throw arg
+// 执行到下一个yield
+yield xxx
+// 并返回内容xxx
+```
