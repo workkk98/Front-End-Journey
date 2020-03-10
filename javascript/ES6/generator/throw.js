@@ -2,6 +2,7 @@
 // 除此之外，它还有两个特性，使它可以作为异步编程的完整解决方案：函数体内外的数据交换和错误处理机制。
 
 function * demoWithTC (x) {
+  console.log('执行顺序')
   try {
     const y = yield x << 1
   } catch (e) {
@@ -21,9 +22,9 @@ console.log(iterator.next())
 iterator.throw('an error')
 console.log(iterator.next())
 
-iterator = demoWithoutTC(2)
-console.log(iterator.next())
-iterator.throw('an error')
+// iterator = demoWithoutTC(2)
+// console.log(iterator.next())
+// iterator.throw('an error')
 // console.log(iterator.next())
 
 // 很明显 iterator.throw(arg) 等价于 yield 换成了 throw arg
