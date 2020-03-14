@@ -7,20 +7,29 @@
         {
             "type": "node",
             "request": "launch",
+            "name": "Launch Program",
+            "program": "${workspaceFolder}/algorithm/leetcode/5.js",
+            "skipFiles": [
+                "<node_internals>/**"
+            ]
+        },
+        {
+            "type": "node",
+            "request": "launch",
             "name": "generator/generator.js",
             "program": "${workspaceFolder}/javascript/ES6/generator/generator.js",
             "skipFiles": [
                 "<node_internals>/**"
             ]
         },
-    {
-        "type": "node",
-        "request": "launch",
-        "name": "teat/promise/main.js",
-        "program": "${workspaceFolder}/tear_src/promise/main.js",
-        "skipFiles": [
-            "<node_internals>/**"
-        ]
-    }
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "teat/promise/main.js",
+            "program": "${workspaceFolder}/tear_src/promise/main.js",
+            "skipFiles": [
+                "<node_internals>/**"
+            ]
+        }
     ]
 }
