@@ -1,5 +1,8 @@
 <template>
     <div class="flex-container">
+        <div>
+            时间组件<Time></Time>
+        </div>
         <button @click="jumpNext('instagram')">jump to instagram</button>
         <button @click="jumpNext('test')">jump to test</button>
         <Count v-if="false"></Count>
@@ -8,6 +11,7 @@
 </template>
 
 <script>
+import Time from '@/components/time.vue'
 import Count from '../components/Count'
 import CountVuex from '../components/CountVuex.vue'
 
@@ -15,7 +19,8 @@ export default {
     name:'index',
     components:{
         Count,
-        CountVuex
+        CountVuex,
+        Time
     },
     methods: {
         jumpNext(name) {
@@ -37,10 +42,5 @@ export default {
 </script>
 
 <style scoped>
-    .flex-container {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
 </style>
 
