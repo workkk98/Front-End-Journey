@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>overlap</title>
+  <style>
+    .span-class {
+      padding: 10px;
+      background-color: lightyellow;
+      margin-left: -20px;
+    }
+    .float-box {
+      float: left;
+      width: 100px;
+      background-color: mediumaquamarine;
+    }
+    .block-box {
+      height: 100px;
+      width: 100px;
+      background-color: lightskyblue;
+    }
+  </style>
+</head>
+<body>
+  <div style="">
+    <span class="span-class">我是span元素，所以是行内元素，我的边框、背景、内容都在浮动元素"之上"渲染</span>
+    <div class="float-box">因为有内容</div>
+    <div class="block-box">我是块级元素，虽然背景被遮盖了，但内容在上方</div>
+  </div>
+</body>
+</html>

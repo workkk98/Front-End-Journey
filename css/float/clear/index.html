@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .float-box {
+      float: left;
+      background-color: lightslategray;
+      height: 200px;
+      width: 200px;
+    }
+    .normal-box {
+      height: 300px;
+      width: 200px;
+      background-color: lightpink;
+      clear: left;
+    }
+  </style>
+</head>
+<body>
+  <div>
+    <div class="float-box"></div>
+    <div class="normal-box">我是文档流块级元素,clear属性的意思就是指 元素内是否能出现浮动元素</div>
+  </div>
+</body>
+</html>

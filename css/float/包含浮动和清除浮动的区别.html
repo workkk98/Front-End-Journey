@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .father {
+      background-color: #ececdd;
+    }
+    .father::after {
+      display: block;
+      clear: both;
+      content: "";
+    }
+    .son {
+      float: left;
+      width: 100%;
+      height: 100px;
+      margin-top: 50px;
+      margin-bottom: 30px;
+      background-color: lightpink;
+    }
+  </style>
+</head>
+<body>
+  <p>清除浮动</p>
+  <div class="father">
+    <div class="son"></div>
+  </div>
+  <div class="father" style="margin-top: 40px;">
+    <div class="son"></div>
+  </div>
+
+  <p>包含浮动</p>
+  <style type="text/css">
+    .father2 {
+        width: 100%;
+        background: #ececdd;
+        display: table;
+    }
+ 
+    .son2 {
+        height: 100px;
+        width: 100%;
+        margin-top: 50px;
+        margin-bottom: 30px;
+        background: lightpink;
+    }
+ </style>
+ 
+    <div class="father2">
+        <div class="son2"></div>
+    </div>
+    <div class="father2" style="margin-top: 40px;">
+        <div class="son2"></div>
+    </div>
+</body>
+</html>

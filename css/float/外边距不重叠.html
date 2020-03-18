@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <style>
+    .box{
+      width: 100%;
+      height: 200px;
+      background: #ececdd;
+        margin-left: auto;
+      margin-right: auto;
+    }
+    
+    .inner-nofloat {
+      width: 100%;
+      height: 20px;
+      background: #f7c3c3;
+      margin-bottom: 40px;
+      margin-top: 20px;     /*两个nofloat之间的外边距是40px，进行了合并处理*/
+    }
+    
+    .inner-float {
+      width: 100%;
+      height: 20px;
+      background: #d3cff7;
+      float: left;
+      margin-bottom: 40px;  /*float和nofloat之间的外边距是60px，并没有进行合并处理*/
+      margin-top: 20px;
+    }
+  </style>
+  
+  <div class="box">
+    <div class="inner-nofloat"></div>
+    <div class="inner-nofloat"></div>
+    <div class="inner-float"></div>
+  </div>
+</body>
+</html>
