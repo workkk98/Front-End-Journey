@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .father-container {
+      display: flex;
+    }
+    .father-container :first-child {
+      width: 200px;
+      flex: 0 1 300px;
+    }
+  </style>
+</head>
+<body>
+  <div class="father-container">
+    <div>flex-basis 优先级高于width</div>
+    <div></div>
+    <div></div>
+  </div>
+</body>
+</html>

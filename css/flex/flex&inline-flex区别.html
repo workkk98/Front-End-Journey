@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .flex-container {
+      display: flex;
+    }
+    .father {
+      border: 1px dashed black;
+    }
+    .inline-flex-container {
+      display: inline-flex;
+    }
+  </style>
+</head>
+<body>
+  <div class="flex-container father">
+    <div>
+      flex-item
+    </div>
+    <div>
+      flex-item
+    </div>
+    <div>
+      flex-item
+    </div>
+  </div>
+  <p>inline-flex 指明元素是行内块极框</p>
+  <div>
+    <span style="font-size: 30px;">我是span元素,行内块级元素对齐基线</span>
+    <div class="inline-flex-container">
+      <div>flex-item</div>
+      <div>flex-item</div>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .container {
+      display: flex;
+      flex-flow: row wrap;
+      align-items: center;
+    }
+    .container div {
+      width: 50%;
+      height: 200px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div>item1</div>
+    <div style="height: 100px;float: left;">item2, 内联样式 声明 float 对弹性元素没影响</div>
+    <div style="position: absolute;">item3,position: absolute对弹性元素有影响 脱离文档流</div>
+    <div>item4</div>
+  </div>
+</body>
+</html>
