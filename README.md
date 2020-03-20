@@ -71,7 +71,8 @@
 > 本人的[blog](https://workingithub.github.io/xiaofanslog/#/)
 
 感谢一些大神的开源博客: 
-* HTTP协议 [肖鹏](https://www.kancloud.cn/spirit-ling/http-study/) 
+* ES6 [阮一峰](http://es6.ruanyifeng.com//) 
+* Vue.js技术揭秘 [ustbhuangyi](https://ustbhuangyi.github.io/vue-analysis/)
 
 推荐几本书
 * HTTP权威指南
