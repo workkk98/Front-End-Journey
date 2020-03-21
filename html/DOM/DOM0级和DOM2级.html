@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <p>DOM 0级</p>
+  <div id="container">
+    <button id="butt">button</button>
+  </div>
+  <script>
+    var container = document.getElementById('container');
+    container.onclick = function () {
+      console.log('DOM0 container')
+    }
+    var butt = document.querySelector('#butt');
+    butt.onclick = function () {
+      console.log('DOM0 button')
+    }
+  </script>
+
+  <p>DOM 2级</p>
+  <div id="container2">
+    <button id="butt2">button</button>
+  </div>
+  <script>
+    var container2 = document.getElementById('container2');
+    var butt2 = document.getElementById('butt2');
+    container2.addEventListener('click', function () {
+      console.log('dom2 可以指定事件流 , 例如本次就是事件捕获')
+    },true)
+    butt2.addEventListener('click', function () {
+      console.log('DOM2 除此外还可以设置多个事件处理程序')
+    },false)
+    butt2.addEventListener('click', function () {
+      console.log('DOM2 事件处理程序2')
+    },false)
+  </script>
+</body>
+</html>
