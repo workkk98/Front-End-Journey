@@ -43,7 +43,17 @@
 * transition
 * icon
 
-## HTML
+## HTML(集合DOM和BOM相关)
+
+* ajax
+* browser(BOM)
+* canvas
+* cookie
+* document(DOM)
+* File
+* table
+* worker
+* XDM(cross_document_message)
 
 ## 防抖和节流专题
 
@@ -52,8 +62,6 @@
 ## webpack
 
 ## Vue
-
-## browser浏览器相关API
 
 ## protocols
 

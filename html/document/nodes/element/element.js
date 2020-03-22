@@ -5,7 +5,7 @@ var target = document.getElementById('target')
 // id title lang dir(语言方向 left-to-right) className(避免与class保留字的冲突)
 // 都是可读写的属性
 
-// 2.特性 包括自定义特性H5规范特性加data-前缀
+// 2.操作特性,包括自定义特性 (H5规范,特性加data-前缀)
 console.log(target.getAttribute('data-prop'))
 
 // 特性名会被toLowerCase() 即不被区分大小写
