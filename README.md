@@ -2,7 +2,7 @@
 
 :fire:新加学习日记专栏和面试专栏
 
-学习的目录结构
+目录结构
 
 ## JavaScript相关
 
@@ -55,9 +55,13 @@
 * worker
 * XDM(cross_document_message)
 
-## 防抖和节流专题
-
 ## daily(学习日记)
+
+## master_skill
+
+* 列表懒加载
+* 图片懒加载
+* debounce_throttle(防抖和节流)
 
 ## webpack
 
