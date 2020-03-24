@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .nav-item {
+      display: inline-block;
+    }
+    .nav-item > ul {
+      display: none;
+    }
+    .nav-item:hover > ul {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="nav-item">
+      展开列表
+      <ul>
+        <li>导航内容1</li>
+        <li>导航内容2</li>
+        <li>导航内容3</li>
+      </ul>
+    </div>
+  </nav>
+</body>
+</html>
