@@ -2,7 +2,7 @@
 
 JSON = JavaScript Object Natation
 
-> JSON是一种数据格式 而非语言
+> JSON是一种**数据格式** 而非语言
 
 * 基础数据 null , boolean , string ,number (不包括undefined)
 * 对象
