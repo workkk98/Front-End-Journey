@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    @media screen and  (min-device-width: 800px)  {
+      .container {
+        width: 100px;
+        height: 100px;
+        background-color: lightpink;
+      }
+    }
+    @media screen and (max-device-width: 400px) {
+      .for-smart-phone {
+        width: 100px;
+        height: 100px;
+        background-color: lightgreen;
+      }
+    }
+    @media not print {
+      body {
+        margin: 0px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container"></div>
+  <div class="for-smart-phone"></div>
+</body>
+</html>

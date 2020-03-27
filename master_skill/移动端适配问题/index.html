@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {
+      margin: 0px;
+    }
+    .container {
+      width: 375px;
+      height: 812px;
+      background-color: lightsalmon;
+    }
+  </style>
+</head>
+<body>
+  <p>移动端1px问题</p>
+  <div id="personConsole"></div>
+  <div class="container"></div>
+  <script>
+      var personConsole = document.querySelector('#personConsole');
+      personConsole.innerText = window.devicePixelRatio
+  </script>
+</body>
+</html>
