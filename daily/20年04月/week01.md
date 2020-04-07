@@ -60,3 +60,43 @@ js数实际上是32位精度，也就是1位符号位(0代表正数1代表负数
 
 例如 flag = 1, "000000...1"
 flag = 2, "00000000..10"
+
+**AMD CMD**
+
+这段时间学习了下AMD和CMD，那这两个模块规范代表的三方库名称就是
+
+require.js 和 sea.js
+
+1. 区别1 写法上
+
+require.js起名 我觉得和他的入口mian模块调用的方法相关
+```js
+require(['A', 'B'], function (A,B) {
+
+})
+这里是模块A
+
+// A模块
+
+define([], function () {
+  return A
+})
+```
+
+sea.js
+```js
+define(function (require, exports, module) {
+  var A = require('./A')
+})
+
+// A模块
+define(function (require, exports, module) {
+  module.exports = {}
+})
+```
+
+2. 适用环境
+
+AMD就是为了解决浏览器环境下的模块问题，所以都是异步的
+
+而CMD即支持同步 require(), 也支持异步 require.async()

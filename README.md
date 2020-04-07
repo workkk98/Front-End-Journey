@@ -80,7 +80,7 @@
 
 **待续ing**
 
-> 本人的[blog](https://workingithub.github.io/xiaofanslog/#/)
+> 本人的[blog](https://workingithub.github.io/vue-blog-template/#)
 
 感谢一些大神的开源博客: 
 * ES6 [阮一峰](http://es6.ruanyifeng.com//) 
