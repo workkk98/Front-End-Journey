@@ -9,3 +9,5 @@ vue/vue-router-dev
 **/package-lock.json
 **/yarn.lock
 .vscode/
+webpack/splitchunks/src/lodash
+webpack/splitchunks/src/underscore
