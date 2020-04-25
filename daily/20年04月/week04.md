@@ -93,3 +93,35 @@ Object.keys(b)
 
 这个对象a 和 b从实际意义上明显是相等的， 但是a和b对象key输出顺序由于添加顺序的不同而不同.
 
+#### 实现一个自动适应高度的textarea
+
+textarea是个行级元素。一般都会给他设定一个固定的宽度和高度，当用户输入的文本超过这个高度的时候，会出现滚轮然后滚动到新的一行。这在我看来是比较落后的一个控件。现在流行的控件都是自动适应高度的输入框，即用户输入的文本超过高度后，输入框自动变高。
+
+
+**修改textarea的高度**
+实现思路: 当文本超过textarea的高度时，通过更改textarea的高度,达到想要的效果。
+
+```html
+<div>
+  <span></span>
+  <textarea></textarea>
+</div>
+```
+
+像input类的控件，用户键入的文本都储存在节点的value属性上(elment继承Node)
+通过把textarea中的value同步到一个占位元素span， 文本有多高，span就有多高，同理textarea也是相同的高度。
+
+如何把span的高度同步到textarea上面？
+可以通过一个父容器，因为span撑开了父容器。把textarea设置成与父容器等高等宽即可，这使得textarea就自动撑开了
+把textarea的父元素div的position属性设置成realtive, 然后textarea position: absolute
+
+这三者的层叠关系从上到下  textarea -> span -> div(这里我们也可以知道 用户看到的都是textarea内容)
+
+**一些细节**
+
+textarea通过占位元素改变高度，所以这两者的字体大小得相同。
+
+另外， span遇到换行符\n不会自动换行，所以得设置 css属性 white-space: pre-wrap;(这个我得去看看，忘记掉了具体用途)
+
+
+
