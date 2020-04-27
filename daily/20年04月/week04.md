@@ -123,5 +123,33 @@ textarea通过占位元素改变高度，所以这两者的字体大小得相同
 
 另外， span遇到换行符\n不会自动换行，所以得设置 css属性 white-space: pre-wrap;(这个我得去看看，忘记掉了具体用途)
 
+#### HMR和热重载不同
 
+HMR是 Hot Module ReplaceMent，直译的意思是 模块热替换。指部分模块会替换。我对HMR的了解还是比较少的后面得去花些时间去看下。
 
+而热重载是整个项目的重新运行。
+
+#### require.context()
+
+[require.context](https://webpack.js.org/guides/dependency-management/#context-module-api)
+```js
+const requireContext = require.context(directory, useSubdirectories = true, regExp = /^\.\/.*$/, mode = 'sync');
+```
+
+第一个参数: 目录地址
+第二个参数: 是否使用子目录，即是否搜索子目录里文件
+第三个参数: 文件后缀名匹配模式
+第四个参数: 模式
+
+require.context()方法返回一个function, 这个函数需要一个参数request.
+
+假设requireContext变量指向这个函数function, 函数有以下三个属性
+
+>> The exported function has 3 properties: resolve, keys, id.
+
+resolve is a function and returns the module id of the parsed request.
+keys is a function that returns an array of all possible requests that the context module can handle.
+
+requireContext.keys() 返回一个数组，数组包含可能的请求路径
+
+那这个API就提供我们能快速的引入一个目录下的内容，而不用去繁琐一个个的写需要引入的内容。
