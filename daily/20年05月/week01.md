@@ -114,3 +114,11 @@ worker通过指定js文件地址，加载后执行。worker线程是一个IO堵�
 
 1. 接收端确认应答包丢失了， 但后面的确认应答包告诉发送端已经接收到了前面的数据包。发送端就不需要再次发送了
 2. 发送端包丢了，接收端会在后面3次确认应答包中反应这个问题，接收端收到三次后，重新发送丢掉的数据包。值得一提的是，丢失包后面的数据包接收端拿到后，会放在缓冲区。这样避免了发送端再次发重复的数据包。
+
+#### webkit, Gecko渲染引擎是如何工作的？
+
+目前有些难以理解，主要总结下就是把
+
+html先解析成tokens，然后转换成dom树，dom树再经过计算获得渲染树(webkit是这样子的), 最后在调用native GUI 绘制
+
+[howbrowserswork](https://www.html5rocks.com/zh/tutorials/internals/howbrowserswork/#Render_tree_construction)
