@@ -8,7 +8,7 @@
             "type": "node",
             "request": "launch",
             "name": "Launch Program",
-            "program": "${workspaceFolder}/algorithm/深信服算法题/cuboiddisplay",
+            "program": "${workspaceFolder}/algorithm/深信服算法题/checkboard.js",
             "skipFiles": [
                 "<node_internals>/**"
             ]
