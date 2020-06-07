@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <input type="text" class="user-input">
+  <div class="user-div">
+    <p>
+      这是一段文字，主要想
+      <span class="user-span">验证由于在行内元素的断行导致outline是非矩形</span>
+      其他文字则不受影响
+    </p>
+  </div>
+  <style>
+    .user-input {
+      outline: none;
+    }
+    .user-div {
+      width: 20em;
+    }
+    .user-span {
+      outline: 1px dashed black;
+    }
+  </style>
+</body>
+</html>
