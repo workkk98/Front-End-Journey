@@ -8,7 +8,7 @@
             "type": "node",
             "request": "launch",
             "name": "Launch Program",
-            "program": "${workspaceFolder}/algorithm/sangfor/mergeIP.js",
+            "program": "${workspaceFolder}/algorithm/sangfor/indexBinaryTree.js",
             "skipFiles": [
                 "<node_internals>/**"
             ]
