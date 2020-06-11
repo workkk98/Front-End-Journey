@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    p:nth-child(1) {
+      word-spacing: 0.5em;
+    }
+    p:nth-child(2) {
+      word-spacing: -0.5em;
+    }
+    p:nth-child(3) {
+      word-spacing: normal;
+      /* 等价于长度0 */
+    }
+  </style>
+</head>
+<body>
+  <p>The spaces between words in this paragraph will be increased by 0.5em.</p>
+  <p>The spaces between words in this paragraph will be decreased by 0.5em.</p>
+  <p>The spaces between words in this paragraph will be normal.</p>
+  <p style="word-spacing: 0.25em;">如 果 是中 文，word-spacing会出现怎样的表现？</p>
+</body>
+</html>
