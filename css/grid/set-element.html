@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .grid {
+      display: grid;
+      /* grid-template-columns: [a] 200px [b] 50% [c] 100px [d]; */
+      grid-template-rows: repeat(5, 5em);
+      grid-template-columns: repeat(20, 5em);
+      height: 200px;
+    }
+    .one {
+      grid-column-start: 2;
+      grid-column-end: 4;
+      grid-row-start: 2;
+      grid-row-end: 4;
+      background-color: lightgray;
+    }
+    .two {
+      grid-row-start: 1;
+      grid-row-end: span 4;
+      grid-column-start: 5;
+      grid-column-end: 10;
+      background-color: lightblue;
+    }
+    .three {
+      background-color: lightpink;
+      grid-column: 15 / 17;
+      grid-row: 3 / 4;
+    }
+  </style>
+</head>
+<body>
+  <div class="grid">
+    <div class="one"></div>
+    <div class="two"></div>
+    <div class="three"></div>
+  </div>
+</body>
+</html>

@@ -6,13 +6,13 @@ display: grid创建的是块级栅格。但其布局行为与块级容器很像�
 
 1. 栅格容器的外边距不与其后代的外边距折叠。而块级框的外边距默认与其后代的外边距折叠。(除非有padding，或border)
 
-## 基本的栅格术语
+#### 基本的栅格术语
 
 栅格轨道: 指两条相邻的栅格线之间夹住的整个区域，从栅格容器的一边延伸到对边，即栅格列或栅格行。
 栅格单元: 栅格布局中区域的最小单位。
 栅格区域: 由一个或多个栅格单元构成。
 
-## 放置栅格线
+#### 放置栅格线
 
 grid-template-columns定义栅格列
 grid-template-rows定义栅格行
@@ -88,3 +88,109 @@ repeat(auto-fill, 若干个间距)
 注意: 浏览器会把同名的字符串合成为同一个区域，如果区域太复杂，就比如说是“L”型的，grid-template-area属性就无效了。
 
 > 另外，如果你想把栅格单元不归到任何区域里，可以用空单元标记。标记为"..."
+
+## 在栅格中附加元素
+
+具体就是通过属性例如grid-column-start，指定栅格元素起始边附加到具体某条栅格线上。
+
+**span**
+span关键词，可以指明，具体跨越几条轨道或者说是跨过几条线。
+> span的特殊之处在于，结束和开始栅格线都能使用。具体行为是，向确定了编号的栅格线的反方向
+
+```css
+    .one {
+      grid-column-start: 2;
+      grid-column-end: 4;
+      grid-row-start: 2;
+      grid-row-end: 4;
+      background-color: lightgray;
+    }
+```
+
+除了用栅格线的数字编号来指代栅格线外，还可以使用具体的名称。
+
+**行和列的简写属性**
+
+grid-row, grid-column
+
+```css
+    .three {
+      background-color: lightpink;
+      grid-column: 15 / 17;
+      grid-row: 3 / 4;
+    }
+```
+
+#### 隐式栅格
+
+具体就是，浏览器在搜索具体栅格后未找到对应名称的栅格线后，会自动创建该名称的隐式栅格。
+
+#### 使用区域
+
+grid-area: grid-line [ / grid-line]{0,3}
+
+值得一提的是，栅格线放置的顺序是逆时针的，与盒元素外边距等设置的顺序相反。
+
+
+## 栅格流
+
+因为栅格元素有可能重叠，所以有栅格流这个概念。
+#### 栅格元素重叠
+./repeat-grid-item.html
+> 与定位元素一样，栅格元素是完全有可能重叠的。
+
+
+#### grid-auto-flow
+
+该属性指定，栅格元素的摆放位置。
+> 栅格流指定后，浏览器放置的其实是栅格区域，然后再把栅格元素附加到栅格区域中。
+
+具体的例子，指定grit-auto-flow: row;后，浏览器先按行一个个把栅格单元放进去，再把元素放进对应的单元中，
+
+#### grid-auto-rows/grid-auto-columns
+
+这里千万得和grid-rows/grid-columns区分开来。一个是用于容器隐式栅格轨道的具体长度，另一个是指定元素具体依附与哪条栅格线。
+
+#### grid属性
+
+先来个例子./grid.html
+```css
+  .default-grid {
+      display: grid;
+      grid: "header header header header" 5em
+            "leftside section section rightside" 5em
+            "footer footer footer footer" 5em /
+            2fr 35% 35% 2fr;
+      height: 15em;
+  }
+```
+
+先不考虑grid-template-area的属性混入，grid-template-row和grid-template-columns就按照先行再列的顺序，中间通过 "/" 隔开。
+
+例子: 5em 5em 5em / 2fr 35% 35% 2fr;
+
+## 释放栅格空间
+
+#### 栏距
+
+grid-row-gap | grid-column-gap | grid-gap
+
+> 起初是用 grid-gap 属性来定义的，目前逐渐被 gap 替代。但是，为了兼容那些不支持 gap 属性的浏览器，你需要像上面的例子一样使用带有前缀的属性。
+
+也就是说可以使用row-gap或是column-gap来替代。
+
+#### 栅格元素和盒模型
+
+> 元素在外边距的边界处附加到栅格中。换句话说，外边距的边贴合栅格区域边界。
+
+栅格元素如果是绝对定位元素，那么对应的定位上下文是谁？
+结论是：
+开始栅格线和结束栅格线围城的栅格区域用作容纳块和定位上下文。
+
+## 栅格的对齐方式
+
+弹性盒有justify-content, align-items, align-self等对齐方式，这些在grid布局中也能使用，而且作用十分相似。
+
+## 分层和排序
+
+z-index 和 order

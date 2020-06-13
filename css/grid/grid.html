@@ -6,8 +6,31 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="./style.css">
     <title>Document</title>
+    <style>
+        .default-grid {
+            display: grid;
+            grid: "header header header header" 5em
+                  "leftside section section rightside" 5em
+                  "footer footer footer footer" 5em /
+                  2fr 35% 35% 2fr;
+            height: 15em;
+        }
+        .default-grid-header {
+            /* grid-row: 1 / 2;
+            grid-column: 1 / 5; */
+            grid-area: header
+        }
+    </style>
 </head>
 <body>
+    <div class="default-grid">
+        <div class="default-grid-header">1</div>
+        <div>2</div>
+        <div>3</div>
+        <div>4</div>
+        <div>5</div>
+    </div>
+
     <p>栅格线</p>
     <div class="cl-grid">
         <div class="cl-grid-one">1</div>

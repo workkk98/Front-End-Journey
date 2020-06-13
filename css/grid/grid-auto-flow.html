@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 15em);
+      grid-template-rows: repeat(4, 4em);
+      width: 45em;
+      height: 16em;
+      grid-auto-flow: row;
+      list-style-type: none;
+      padding: 0px;
+    }
+    .grid li {
+      grid-row: auto;
+      grid-row: auto;
+      border: 1px solid black;
+      width: 20em;
+    }
+    .picture1 {
+      width: 15em;
+      height: 4em;
+      background-color: lightcoral;
+    }
+    .picture2 {
+      width: 30em;
+      height: 4em;
+      background-color: lightgreen;
+    }
+    .picture3 {
+      width: 15em;
+      height: 8em;
+      background-color: lightskyblue;
+    }
+    .picture4 {
+      width: 30em;
+      height: 8em;
+      background-color: lightgoldenrodyellow;
+    }
+    /* .grid>div {
+      grid-column: auto / span 2;
+      grid-row: auto / span 2;
+    } */
+  </style>
+</head>
+<body>
+  <ol class="grid">
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+    <li>4</li>
+    <li>5</li>
+  </ol>
+  <h2>模拟图片重叠的问题</h2>
+  <div class="grid">
+    <div class="picture1"></div>
+    <div class="picture2"></div>
+    <div class="picture1"></div>
+    <div class="picture4"></div>
+    <div class="picture3"></div>
+  </div>
+</body>
+</html>
