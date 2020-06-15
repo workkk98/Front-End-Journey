@@ -1,4 +1,3 @@
-// LRU = Least Rencently Used，缓存淘汰策略(最少的最近使用)
 function Node (key, val) {
   this.key = key
   this.val = val
@@ -14,47 +13,14 @@ Node.prototype.setAfter = function (node) {
   this.after = node
 }
 
-function LRUCache(limit) {
-  this.limit = limit
-  this.hash = {}
-  this.doubleList = new DoubleList(limit, this.hash)
-}
-
-function DoubleList (limit, hash) {
-  this.limit = limit
+function DoubleList (capacity, hash) {
+  this.capacity = capacity
   this.hash = hash
   this.size = 0
   this.head = new Node('head', null)
   this.tail = new Node('tail', null)
   this.head.setAfter(this.tail)
   this.tail.setBefore(this.head)
-}
-
-LRUCache.prototype.get = function getNode (key) {
-  if(this.hash[key]) {
-    let node = this.hash[key]
-    this.set(key, node.val)
-    return node.val
-  } else {
-    return -1
-  }
-}
-
-LRUCache.prototype.set = function setNode (key, val) {
-  var node = new Node(key, val)
-  // 如果哈希表中存在，则把节点挪到队头
-  if(this.hash[key]) {
-    var node = this.doubleList.remove(key)
-    this.doubleList.addFirst(node)
-  } else {
-    // 超过容纳数，去掉队尾节点后，新的节点加到队头
-    if(this.doubleList.size === this.limit) {
-      this.doubleList.removeLast()
-      this.doubleList.addFirst(node)
-    } else {
-      this.doubleList.addFirst(node)
-    }
-  }
 }
 
 DoubleList.prototype.remove = function removeNode (key) {
@@ -82,13 +48,62 @@ DoubleList.prototype.addFirst = function addFirstNode (node) {
   this.hash[node.key] = node
 }
 
+/**
+ * @param {number} capacity
+ */
+var LRUCache = function(capacity) {
+  this.capacity = capacity
+  this.hash = {}
+  this.doubleList = new DoubleList(capacity, this.hash)
+};
 
-var LRU = new LRUCache(3)
+/** 
+ * @param {number} key
+ * @return {number}
+ */
+LRUCache.prototype.get = function(key) {
+  if(this.hash[key]) {
+    let node = this.hash[key]
+    this.put(key, node.val)
+    return node.val
+  } else {
+    return -1
+  }
+};
 
-LRU.set(1, 2)
-LRU.set(2, 3)
-LRU.set(3, 4)
-console.log(LRU.get(1))
-console.log(LRU.get(4))
-LRU.set(4, 5)
-console.log(LRU.get(2))
+/** 
+ * @param {number} key 
+ * @param {number} value
+ * @return {void}
+ */
+LRUCache.prototype.put = function(key, value) {
+  var node = new Node(key, value)
+  // 如果哈希表中存在，则把节点挪到队头
+  if(this.hash[key]) {
+    this.doubleList.remove(key)
+    this.doubleList.addFirst(node)
+  } else {
+    // 超过容纳数，去掉队尾节点后，新的节点加到队头
+    if(this.doubleList.size === this.capacity) {
+      this.doubleList.removeLast()
+      this.doubleList.addFirst(node)
+    } else {
+      this.doubleList.addFirst(node)
+    }
+  }
+};
+
+/**
+ * Your LRUCache object will be instantiated and called as such:
+ * var obj = new LRUCache(capacity)
+ * var param_1 = obj.get(key)
+ * obj.put(key,value)
+ */
+
+ const lru = new LRUCache(2)
+ lru.put(2, 1)
+ lru.put(2, 2)
+ console.log(lru.get(2))
+ lru.put(1, 1)
+ lru.put(4, 1)
+ console.log(lru.get(2))
