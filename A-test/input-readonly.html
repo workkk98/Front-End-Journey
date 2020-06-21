@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <label for="readonly">只读: </label><input type="text" class="inputSgl" value="before" data-value="input-readonly" id="readonly" readonly>
+  <script>
+    var input = document.getElementsByClassName('inputSgl')[0]
+    // input.removeAttribute('readonly')
+    console.log(input.getAttribute('readonly'))
+    input.value = input.dataset.value
+  </script>
+</body>
+</html>
