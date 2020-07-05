@@ -4,7 +4,7 @@
 
 rebase可以让两条分支合成在同一条线上
 
-**git rebase \[branchName]**
+**git rebase \[分支名/节点]**
 
 ❗️❗️❗️值得一提的，无论是merge，还是rebase都是把其他分支的节点融合到本分支上，区别就是表现形式不同。
 
@@ -23,6 +23,33 @@ i的意思 interactive
 
 * 但是在实验过程中 整理两个提交节点 并使用s 即squash（压缩）出现了错误 然后我整理三个节点，压缩两个没有问题
 
+**git rebase -i \[节点]**
+
+注意，中括号的内容可以是具体的某个节点，这也就是说可以在基于本分支的某个节点上开始重建，
+-i的含义是interactive，git会产生一个交互式的交互场景。
+
+```
+pick ca553f5 feat: git stash
+pick b143230 feat: other main.js
+pick 4315905 feat: main.js
+
+# Rebase 605a08e..4315905 onto 605a08e (3 commands)
+#
+# Commands:
+# p, pick <commit> = use commit
+# r, reword <commit> = use commit, but edit the commit message
+# e, edit <commit> = use commit, but stop for amending
+# s, squash <commit> = use commit, but meld into previous commit
+# f, fixup <commit> = like "squash", but discard this commit's log message
+# x, exec <command> = run command (the rest of the line) using shell
+# b, break = stop here (continue rebase later with 'git rebase --continue')
+# d, drop <commit> = remove commit
+# l, label <label> = label current HEAD with a name
+# t, reset <label> = reset HEAD to a label
+"~/Desktop/sangfor/Git讲师培训课件/demo/.git/rebase-merge/git-rebase-todo" 29L, 1225C
+```
+
+进入vim编辑器，并且按照commands指令操作节点即可。
 
 ### git fetch
 
