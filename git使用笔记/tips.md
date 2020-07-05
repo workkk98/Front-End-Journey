@@ -1,10 +1,20 @@
-# rebase的妙用
+# git tips
+
+### rebase
 
 rebase可以让两条分支合成在同一条线上
 
 **git rebase \[branchName]**
 
->也就是说把本分支 上游不同于新分支的节点基于新分支 添加到新分支上 **一定要注意两个分支的共同的节点**
+❗️❗️❗️值得一提的，无论是merge，还是rebase都是把其他分支的节点融合到本分支上，区别就是表现形式不同。
+
+假设本地仓库下有两个分支，一个分支是别人的分支them，一个是你自己的分支you，这两个分支肯定会有一个共同的父亲节点.
+```s
+git rebase them
+```
+
+这行命令就是说，基于them分支，把you分支的上游节点（共同父亲节点后的新的节点）添加到them分支后。
+>也就是说把本分支 上游不同于新分支的节点**基于新分支** 添加到新分支上 **一定要注意两个分支的共同的节点**
 
 rebase -i \[节点]
 i的意思 interactive
@@ -14,7 +24,7 @@ i的意思 interactive
 * 但是在实验过程中 整理两个提交节点 并使用s 即squash（压缩）出现了错误 然后我整理三个节点，压缩两个没有问题
 
 
-###git fetch
+### git fetch
 
 git fetch origin \<source>:\<destination>
 这里的source和destination恰好和push相反，原因也很简单，一个是推送一个是拉取
