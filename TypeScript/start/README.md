@@ -67,6 +67,9 @@ function getLength(something: string | number): number {
 
 ```
 
+> 联合类型的变量在被赋值的时候，会根据类型推论(type inference)的规则推断出一个类型。
+
+例如union-types文件中的例子，每当赋值时，tsc会推断该变量的类型。假设赋值为string，可以使用string的相关属性和方法。
 
 #### interface
 
