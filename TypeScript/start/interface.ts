@@ -21,3 +21,22 @@ interface Car {
   maker? : string
   [propName: string]: any
 }
+
+// const BMW: Car = {
+//   name: '330'
+// }
+
+// BMW.name = '325li'
+
+
+// 关于任意属性, 任意属性指定了整个接口所有属性的类型都得是它的子集
+interface hospital {
+  level: string,
+  people: number,
+  [propName: string]: string
+}
+
+const yuHanghospital: hospital = {
+  level: '三乙',
+  people: null
+}

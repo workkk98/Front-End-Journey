@@ -83,8 +83,19 @@ function getLength(something: string | number): number {
 
 **任意属性**
 
-> 需要注意的是，一旦定义了任意属性，那么 **确定属性和可选属性的类型** 都必须是它的 **类型的子集**
-> 一个接口中只能定义一个任意属性。如果接口中有多个类型的属性，则可以在任意属性中使用联合类型
+> :exclamation::exclamation:需要注意的是，一旦定义了任意属性，那么 **确定属性和可选属性的类型** 都必须是它的 **类型的子集**
+> 一个接口中只能定义**唯一**一个任意属性。如果接口中有多个类型的属性，则可以在任意属性中使用联合类型
+
+另外任意属性，只能针对键名是相同类型的属性，例如：
+
+```ts
+interface person {
+  [propName: string]: string,
+  0: 0,
+  name: 2333
+}
+```
+propName这个任意属性只能针对name属性
 
 **只读属性**
 
@@ -103,3 +114,39 @@ interface func {
 // 括号内代表入参, 括号结尾跟着boolean
 ```
 
+##### 泛型Generics
+
+我对泛型的理解就是，抽象的一个数据类型，它是按照输入变量的类型变化的。
+有了它就不用老是使用“any”
+
+使用方法
+```ts
+function createArray<T> (leng: number, item: T): Array<T> {
+  return [item, item, item]
+}
+```
+
+但也有些局限性，因为T的类型是未知的，所以我们不能随意的去操作它的属性，否则会带来
+一些reference、type的错误。通过泛型约束来使T类型必须含有相关的属性
+
+例如
+```ts
+interface Person {
+  age: string
+}
+function sayAge<T extends Person> (person: T): void {
+  console.log(person.age)
+}
+```
+
+另外在函数表达式方面，因为我们知道可以用interface表示一个函数变量
+在这里也可以把函数变量使用泛型声明
+
+```ts
+interface creaArray {
+  <T>(item: T): [T,T]
+}
+interface creaArray<T> {
+  (item: T): [T,T]
+}
+```

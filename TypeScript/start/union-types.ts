@@ -8,7 +8,7 @@ let myFavoriteNumber: string | number = 'seven'
 //   return something.length;
 // }
 
-let myFavoPlayCode: string | number = 'bryant';
+let myFavoPlayCode: string | number | boolean = 'bryant';
 myFavoriteNumber = 'kobe'
 console.log(myFavoriteNumber.length)
 myFavoriteNumber = 24

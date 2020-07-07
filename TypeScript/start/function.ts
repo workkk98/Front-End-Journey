@@ -14,7 +14,8 @@ sum(1,2)
 let mySum = function (x: number, y: number): number {
   return x + y;
 };
-// mySum的类型通过 类型推断
+// 在上面的函数中，仅对右侧的函数进行了类型定义，而左侧的数据是通过类型推论而来的。
+// 手动添加对左侧变量的类型声明，应当例如函数mySum2
 
 let mySum2: (x:number, y:number) => number = function (x: number, y: number): number {
   return x+y;
@@ -24,7 +25,7 @@ let mySum2: (x:number, y:number) => number = function (x: number, y: number): nu
 // 在 TypeScript 的类型定义中，=> 用来表示函数的定义，左边是输入类型，需要用括号括起来，右边是输出类型。
 
 
-// 使用interface 描述 函数
+// 使用interface 描述 左侧的变量
 
 interface SearchFunc {
   (source: string, subString: string): boolean
@@ -34,16 +35,21 @@ let mySearch: SearchFunc = function (source, subString):boolean {
   return source.search(subString) !== -1;
 }
 
-// 可选参数optional 必须放在末尾
+// 可选参数optional 必须放在末尾，也很好理解，可选参数如果放参数列表前头不是出大问题了。
 
 function buildName (firstName: string, lastName: string, middleName?: string): string {
   return firstName + middleName + lastName
 }
 
-// 默认值(声明了默认值，相当于该变量成了可选参数)
+// 默认值(声明了默认值，相当于该变量成了可选参数), 默认值其实是ES6的东西，
+// 但只是TS会把这个值， 优化成默认值
 
 function buildName2 (firstName: string, lastName: string, middleName: string = 'may'): string {
   return firstName + middleName + lastName
+}
+
+function defaultParams (one: string, two: number = 123) {
+  return two
 }
 
 // 剩余参数
