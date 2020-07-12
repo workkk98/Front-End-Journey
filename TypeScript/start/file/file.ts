@@ -6,9 +6,9 @@ jQuery(function () {
   console.log('ready')
 })
 
-let cat = new Animal('cat')
+// let cat = new Animal('cat')
 
-let directions = [Directions.up]
+// let directions = [Directions.up]
 
 jQuery.fn.entend()
 
