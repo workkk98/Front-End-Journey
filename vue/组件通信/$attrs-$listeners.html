@@ -21,11 +21,15 @@
       methods:{
         changeFatherState() {
           this.$emit('to-be-drunk',{action:'peace'})
+          this.$listeners['to-be-dunk']()
         }
       }
     })
     Vue.component('middle', {
-      template:'<div>我是middle:<br><son-god v-bind="$attrs" v-on="$listeners"></son-god></div>',
+      template:`<div>我是middle:
+      <br>
+      <son-god v-bind="$attrs" v-on="$listeners"></son-god>
+      </div>`,
       props:['name'] //已被注册的 不在attrs中
     })
     new Vue({
