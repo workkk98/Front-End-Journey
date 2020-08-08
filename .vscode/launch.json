@@ -8,7 +8,7 @@
             "type": "node",
             "request": "launch",
             "name": "Launch Program",
-            "program": "${workspaceFolder}/algorithm/sangfor/bitalignment.js",
+            "program": "${workspaceFolder}/algorithm/leetcode/337.js",
             "skipFiles": [
                 "<node_internals>/**"
             ]
