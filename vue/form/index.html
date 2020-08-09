@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <!-- <form>
+    <label for="userName">用户名:<input type="text" name="userName" maxlength="10"></label>
+  </form> -->
+
+  <div id="app">
+    <input type="text" v-model="name">
+    <input type="text" v-model="age">
+    <button @click="submit">submit</button>
+
+    <ul>
+      <li v-for="item of $v.prompt" :key="item">
+        {{item}}
+      </li>
+    </ul>
+  </div>
+  <script src="../dist/vue.js"></script>
+  <script>
+    const Validate = Vue.extend({
+      beforeCreate () {
+        this.$options.computed = Object.assign({}, this.$options.computed, {
+          $v () {
+            let res = true,
+                prompt = [];
+            const { validates } = this.$options;
+            if(validates) {
+              Object.keys(validates).forEach((key) => {
+                // 如果是false
+                if(!validates[key].validate(this[key])) {
+                  res = false;
+                  prompt.push(validates[key].message)
+                }
+              })
+            }
+            return {
+              res,
+              prompt
+            }
+          }
+        })
+      }
+    })
+    new Validate({
+      el: '#app',
+      data () {
+        return {
+          name: '',
+          age: ''
+        }
+      },
+      validates: {
+        name: {
+          validate: value => value.length >=5,
+          message: 'length >= 5'
+        },
+        age: {
+          validate: value => Number.isInteger(+value),
+          message: 'age must be a number'
+        }
+      },
+      methods: {
+        submit () {
+          // 通过校验
+          if(this.$v.res) {
+            console.log('submit')
+          }
+        }
+      }
+    })
+  </script>
+</body>
+</html>
