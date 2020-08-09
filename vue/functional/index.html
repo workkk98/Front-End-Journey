@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>函数组件</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+</head>
+<body>
+  <div id="app"></div>
+  <script>
+    var foo = {
+      functional: true,
+      render (h, context) {
+        return h('div', 'placeholder')
+      }
+    }
+    new Vue({
+      el: '#app',
+      components: {
+        foo
+      },
+      beforeMount () {
+        console.time('functional')
+      },
+      mounted () {
+        console.timeEnd('functional')
+      },
+      render (h) {
+        let i = 0, nodeArray = [];
+        for(let i = 0; i < 1000 ; i++) {
+          nodeArray[i] = h(foo)
+        }
+        return h('div', nodeArray)
+      }
+    })
+  </script>
+</body>
+</html>

@@ -1,6 +1,6 @@
 var Validation;
 (function (Validation) {
-    var lettersRegexp = /^[A-Za-z]+$/; //他们在命名空间外是不能访问的。
+    var lettersRegexp = /^[A-Za-z]+$/; //他们在命名空间外是不能访问的,因为函数作用域
     var numberRegexp = /^[0-9]+$/;
     var LettersOnlyValidator = /** @class */ (function () {
         function LettersOnlyValidator() {
