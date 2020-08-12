@@ -33,3 +33,11 @@ function add (a, b) {
 }
 
 add(1,'aaa')
+
+interface EchartSet {
+  [index: string]: string | number;
+  length: number;
+}
+
+const series: (string | number)[][] = []; // 二维数组的表示方法
+series.push(['a', 0])

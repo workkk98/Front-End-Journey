@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+  <input type="checkbox" name="AR" id="AR" checked="true">
+  左侧的checkbox是否可选中: <span id="text"></span>
+  <button id="butt">click me</button>
+  <script>
+    var AR = document.querySelector('#AR');
+    var closeAble = false;
+    document.querySelector('#text').innerHTML = '' + closeAble
+    var butt = document.querySelector('#butt')
+    butt.addEventListener('click', function () {
+      closeAble = !closeAble;
+      document.querySelector('#text').innerHTML = '' + closeAble
+    })
+    AR.addEventListener('click', function (e) {
+      if(!closeAble) {
+        e.preventDefault();
+      }
+      let value = $('#AR').prop('checked')
+      console.log(AR.defaultChecked)
+      // 模拟延时操作
+      setTimeout(() => {
+        // AR.setAttribute('defaultChecked', false)
+        console.log($('#AR').prop('checked', false))
+      }, 1000)
+    })
+
+  </script>
+</body>
+</html>
