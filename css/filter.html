@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div class="contianer">
+    <div class="header"></div>
+    <div>black into gray</div>
+    <!-- filter: <filter-function> [<filter-function>]* | none -->
+  </div>
+  <style>
+    .container {
+      height: 800px;
+    }
+    div {
+      filter: grayscale(0.8);
+    }
+    .header {
+      width: 200px;
+      height: 200px;
+      background-color: red;
+      filter: grayscale(0.8)
+    }
+  </style>
+</body>
+</html>

@@ -150,3 +150,28 @@ interface creaArray<T> {
   (item: T): [T,T]
 }
 ```
+
+### 枚举值 enumerate
+
+enum枚举类型的实质，就是把花括号里的当成string，并从编号开始互相映射
+
+(当然你可以选择让序号开始为1)
+
+```ts
+let enum = { Red, Green, Blue}
+```
+
+另外，我想到既然可以赋值， 那么当然也可以对某个属性赋值为string，例如``` { apple = 'us'} ```
+
+但有趣的现象发生了，编译后的代码是
+
+
+```js
+(function (company) {
+    company["apple"] = "us";
+    company["tencent"] = "china";
+    company["bbc"] = "uk";
+})(company || (company = {}));
+```
+
+也就是说，他们没有互相映射的步骤，相比于默认的序号枚举值外
