@@ -1,0 +1,16 @@
+.prove {
+  line-height: 30px;
+}
+
+.prove .percent {
+  vertical-align: -10%;
+}
+
+.prove .pixel {
+  vertical-align: -3px;
+}
+
+.line-height {
+  background-color: coral;
+  line-height: 5px;
+}
