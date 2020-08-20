@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <div style="background-color: lightcoral;">
+    <img src="../static/img.JPG" width="200px"></img>
+  </div>
+
+  <div>
+    <div class="block"></div><div class="block" style="font-size: 0px;">xxx</div>
+  </div>
+
+  案例三： 注意此时嵌套的inline-block里面有内联元素了，所以基线就变成内联元素的基线。
+  <div>
+    <div class="block"><div class="block">xxx</div></div>
+    xxxx
+  </div>
+
+  案例4：
+  <div>
+    <div class="block"></div>
+    <div class="block" style="line-height: 0px;font-size: 40px;width:300px;">x-baseline</div>
+  </div>
+
+  案例5:
+  <div style="text-align: justify;width: 510px;background-color: whitesmoke;line-height: 5px;">
+    <div class="block"></div>
+    <div class="block"></div>
+    <div class="block"></div>
+    <div class="block"></div>
+    x-baseline
+    <i class="outline"></i>
+    <i class="outline"></i>
+    <i class="outline">xxx</i>
+    x-baseline
+  </div>
+</body>
+</html>

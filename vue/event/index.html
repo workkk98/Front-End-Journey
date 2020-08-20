@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="../dist/vue.js"></script>
+</head>
+<body>
+  <div id="app">
+    native修饰符作用在子组件的根元素上。
+    <z-input @focus="onFocus" @input="onInput" :label="123" :value="55"></z-input>
+  </div>
+  <script>
+    Vue.component('z-input', {
+      props: ['label', 'value'],
+      template: `<label>
+                  {{ label }}
+                  <input
+                    v-bind="$attrs"
+                    v-bind:value="value"
+                    v-on="computedListeners"
+                  >
+                </label>`,
+      computed: {
+        computedListeners () {
+          console.log(this.$listeners);
+          return Object.assign({}, {
+            ...this.$listeners
+          })
+        }
+      }
+    })
+    new Vue({
+      el: '#app',
+      methods: {
+        onFocus (event) {
+          console.log(window.event === event);
+        },
+        onInput () {
+
+        }
+      }
+    })
+  </script>
+</body>
+</html>

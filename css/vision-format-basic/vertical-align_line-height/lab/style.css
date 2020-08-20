@@ -1,0 +1,16 @@
+.exm1 {
+  vertical-align: top;
+}
+
+.block {
+  width: 150px;
+  height: 150px;
+  background-color: gainsboro;
+  display: inline-block;
+}
+
+.outline {
+  outline: 1px solid red;
+  display: inline-block;
+  width: 128px;
+}
