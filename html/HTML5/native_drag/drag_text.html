@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <span id="text">我是被拖动的文本</span>
+
+  <div id="target" style="width: 200px;height: 200px;background-color: teal;"></div>
+
+  <script>
+    let target = document.getElementById('target');
+    target.addEventListener('dragenter', function (event) {
+      console.log('dragenter')
+    })
+    target.addEventListener('drop', function (event) {
+      debugger;
+      target.appendChild(document.createTextNode(event.dataTransfer.getData('text')))
+      document.body.removeChild(document.getElementById('text'))
+    })
+    target.addEventListener('dragover', function (event) {
+      event.preventDefault();
+    })
+  </script>
+</body>
+</html>

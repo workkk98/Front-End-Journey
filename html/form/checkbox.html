@@ -24,11 +24,12 @@
         e.preventDefault();
       }
       let value = $('#AR').prop('checked')
-      console.log(AR.defaultChecked)
+
       // 模拟延时操作
       setTimeout(() => {
         // AR.setAttribute('defaultChecked', false)
-        console.log($('#AR').prop('checked', false))
+        AR.checked = !AR.checked;
+        // console.log($('#AR').prop('checked', false))
       }, 1000)
     })
 

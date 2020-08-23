@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {
+      height: 800px;
+    }
+  </style>
+</head>
+<body>
+  <div id="elem" style="width: 200px;height: 200px;background-color: teal;" draggable="true"></div>
+
+  <div id="box" style="height: 200px;background-color: red;"></div>
+  <script>
+    function debounce (fn, timeout) {
+      let timer = null;
+      return function () {
+        if(!timer) {
+          fn()
+          timer = setTimeout(function () {
+            timer = null
+          }, timeout)
+        }
+        clearTimeout(timer)
+        timer = setTimeout(function () {
+            timer = null
+          }, timeout)
+      }
+    }
+
+    let dragover = debounce(function () {
+        console.log('dragover')
+      }, 5000)
+
+    let elem = document.getElementById('elem');
+    let box = document.getElementById('box');
+    elem.addEventListener('dragstart', function (event) {
+      console.log('dragstart');
+      event.dataTransfer.setData('text', 'transfer text')
+      event.dataTransfer.setData('application/elem-id', event.target.id)
+      event.dataTransfer.effectAllowed = 'move';''
+    })
+    // document.getElementById('elem').addEventListener('dragend', function (event) {
+    //   console.log('end');
+    // })
+
+    box.addEventListener('dragenter', function (event) {
+      console.log('dragenter');
+      event.dataTransfer.dropEffect = 'move';
+    })
+    box.addEventListener('drop', function (event) {
+      console.log(event.dataTransfer.getData('text'));
+      let elem = event.dataTransfer.getData('application/elem-id')
+      debugger;
+      box.appendChild(document.getElementById(elem))
+    })
+    box.addEventListener('dragover', function (event) {
+      event.preventDefault();
+      dragover()
+    })
+  </script>
+</body>
+</html>
