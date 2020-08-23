@@ -1,8 +1,5 @@
 // 暂时性死区
 
-
-//虽然这些变量始终“存在”于它们的作用域里，但在直到声明它的代码之前的区域都属于 暂时性死区。
-
 // function tempDeadBlock (arg: number) {
 
 //   a++;
@@ -19,3 +16,24 @@ function foo() {
 foo();
 
 let a;
+
+
+// 重定义
+function f (x) {
+  let x = 0;
+}
+
+function g () {
+  let y = 0;
+  var y = 0;
+}
+
+// 屏蔽
+
+function sheild () {
+  let y = 0
+  for(let y = 0; y < 10; y++) {
+    console.log(y)
+  }
+  return y
+}
