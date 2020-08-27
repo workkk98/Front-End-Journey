@@ -1,8 +1,15 @@
 # Study List
 
-1. Vue
-2. TS
-3. webpack
-4. Mock
-5. 拖拽
-6. CSS - filter
+* Vue
+* TS
+* babel
+* webpack
+* Mock
+* yarn
+* CSS - filter
+
+8月24日 - 28日 学习计划
+
+* keep-alive组件
+* Form表单
+* ts日常
