@@ -30,6 +30,10 @@ interface NotOkay {
   [x: string]: Dog;
 }
 
+let cat: NotOkay = {
+  1: new Animal()
+};
+
 interface ReadonlyStringArray {
   readonly [index: number]: string;
 }
