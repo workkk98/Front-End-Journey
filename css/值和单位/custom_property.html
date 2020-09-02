@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    :root {
+      --custom-font-color: red;
+    }
+    div {
+      color: var(--custom-font-color);
+      --custom-font-size: 25px;
+    }
+    .son {
+      --custom-font-size: 33px;
+      font-size: var(--custom-font-size);
+    }
+  </style>
+</head>
+<body>
+  <div>
+    喂，我怎么变色了。
+    <div class="son">子元素比父元素大</div>
+  </div>
+</body>
+</html>

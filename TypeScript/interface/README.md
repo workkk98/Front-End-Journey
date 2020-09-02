@@ -42,7 +42,7 @@ interface Square extends A, B {
 }
 
 let square: Square = {};
-let square = <Square> {};
+let square = <Square> {}; // 这个是类型断言的一种写法。
 ```
 
 这两种是不一样的, 后面留意一下。

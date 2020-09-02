@@ -8,8 +8,15 @@
 * yarn
 * CSS - filter
 
-8月24日 - 28日 学习计划
+8月24日 - 30日 学习计划
 
-* keep-alive组件
+* keep-alive组件 ☑️
 * Form表单
-* ts日常
+* TS: interface ☑️
+
+8月21日 - 6日 学习计划
+
+* Babel
+* TS: class
+* JEST
+* Vue-NextTick再看一次

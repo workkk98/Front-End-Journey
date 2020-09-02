@@ -58,3 +58,29 @@ function sheild() {
 let array = [1, 2, 3, 4];
 let [, b, , c] = array;
 ```
+
+**null和undefined**
+
+> 默认情况下null和undefined是所有类型的子类型。 就是说你可以把 null和undefined赋值给number类型的变量。
+
+> 当你指定了--strictNullChecks标记，null和undefined只能赋值给void和它们各自。
+
+
+**类型断言**
+类型断言只有两种语法：
+* ```let strLength: number = (<string>someValue).length;```
+* ```let strLength: number = (someValue as string).length;```
+
+**显式赋值断言**
+
+[更严格的类属性检查](https://www.tslang.cn/docs/release-notes/typescript-2.7.html)
+
+> TypeScript 2.7引入了一个新的控制严格性的标记 --strictPropertyInitialization！
+
+使用这个标记会确保类的每个实例属性都会在构造函数里或使用属性初始化器赋值。 在某种意义上，它会明确地进行从变量到类的实例属性的赋值检查。
+
+```ts
+class car {
+  size!: number
+}
+```
