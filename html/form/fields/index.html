@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <form id="myForm">
+    <ul>
+      <li><input type="text" name="name" readonly></li>
+      <li><input type="radio"></li>
+      <li><input type="checkbox"></li>
+    </ul>
+  </form>
+  <script>
+    var myForm = document.getElementById('myForm');
+    var fieldProperty = [
+      'name',
+      'value',
+      'disabled',
+      'readOnly'
+    ]
+    fieldProperty.forEach((property) => {
+      console.log(myForm.elements[0][property])
+    })
+  </script>
+</body>
+</html>

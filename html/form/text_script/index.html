@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <ul>
+    <li>
+      <input id="input" type="text" size="20" maxlength="5">
+    </li>
+    <li>
+      <textarea cols="20" rows="10">inital value</textarea>
+    </li>
+  </ul>
+  <button onclick="copy()">click to copy</button>
+  <script>
+    var input = document.getElementById('input')
+    function copy() {
+      input.select()
+    }
+    input.addEventListener('select', function (event) {
+      console.log(this.value)
+      console.log(this.selectionStart, this.selectionEnd)
+    })
+  </script>
+</body>
+</html>
