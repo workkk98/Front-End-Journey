@@ -16,7 +16,8 @@
 
 8月21日 - 6日 学习计划
 
-* Babel
+* Form表单 - 文本框选择看完了
 * TS: class
-* JEST
 * Vue-NextTick再看一次
+
+9月7日 - 13日 学习计划
