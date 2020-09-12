@@ -21,3 +21,8 @@
 * Vue-NextTick再看一次
 
 9月7日 - 13日 学习计划
+
+* reflect
+* ts-class
+* Vue-NextTick
+* loader
