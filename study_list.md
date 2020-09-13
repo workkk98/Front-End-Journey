@@ -22,7 +22,7 @@
 
 9月7日 - 13日 学习计划
 
-* reflect
+* reflect ☑️
 * ts-class
 * Vue-NextTick
 * loader
