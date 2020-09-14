@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div class="outer1">
+    <div class="inner"></div>
+  </div>
+  <div class="outer2"></div>
+  <style>
+    .outer1 {
+      position: relative;
+      z-index: 0;
+    }
+    .outer2 {
+      width: 100px;
+      height: 200px;
+      background-color: burlywood;
+      position: fixed;
+      z-index: 10;
+      left: 0;
+      top: 0;
+    }
+    .inner {
+      width: 100%;
+      height: 200px;
+      background-color: gold;
+      position: fixed;
+      z-index: 99;
+      left: 0;
+      top: 0;
+    }
+  </style>
+</body>
+</html>
