@@ -63,8 +63,6 @@
 * 图片懒加载
 * debounce_throttle(防抖和节流)
 
-## webpack
-
 ## Vue
 
 ## protocols
