@@ -47,4 +47,28 @@ socket.onmessage = function (event) {
 
 
 [零距离接触websocket](https://juejin.im/post/6876301731966713869)
-这篇文章里关于websocket这个字段还是值得一看的。
+这篇文章里关于websocket的请求响应头字段还是值得一看的。
+
+### 请求头和响应头
+
+```HTTP
+// request headers
+Accept-Language: zh-CN,zh;q=0.9,en;q=0.8
+Cache-Control: no-cache
+Connection: Upgrade
+Host: localhost:3000
+Origin: http://localhost:52330
+Pragma: no-cache
+Sec-WebSocket-Extensions: permessage-deflate; client_max_window_bits
+Sec-WebSocket-Key: TysbuHsx37RohDG2AvLblw==
+Sec-WebSocket-Version: 13
+Upgrade: websocket
+
+// response headers
+Connection: Upgrade
+Sec-WebSocket-Accept: NfChBMZ/95IwRgftlHZngH/uP2s=
+Upgrade: websocket
+```
+
+```Sec-WebSocket-Key```这个字段由浏览器随机生成。
+[有趣的文章](https://www.zhihu.com/question/20215561/answer/40316953)
