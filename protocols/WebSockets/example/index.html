@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    var webSocket = new WebSocket('ws://localhost:3000');
+
+    function createTextNode (value) {
+      return document.createTextNode(value);
+    }
+
+    webSocket.onopen = function () {
+      webSocket.send('hello, Web Socket')
+    }
+    
+    webSocket.onmessage = function (event) {
+      var div = document.createElement('div');
+      div.append(createTextNode(event.data));
+      document.body.appendChild(div)
+    }
+
+    webSocket.onerror = function (error) {
+      console.error(error)
+    }
+  </script>
+</body>
+</html>
