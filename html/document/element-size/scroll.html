@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Scroll</title>
+</head>
+<style>
+  .wrap {
+    height: 300px;
+    overflow: auto;
+  }
+  .inner {
+    height: 600px;
+    background-color: cornflowerblue;
+  }
+</style>
+<body>
+  <div class="wrap">
+    <div class="inner"></div>
+  </div>
+
+  <script>
+    const wrap = document.querySelector('.wrap');
+
+    function getClientWrap (dom) {
+      return dom.clientWidth;
+    }
+
+    function getScrollInfo (dom) {
+      return [dom.scrollWidth, dom.scrollHeight, dom.scrollTop, dom.scrollLeft]
+    }
+
+    const index = ['scrollWidth', 'scrollHeight', 'scrollTop', 'scrollLeft'];
+
+    wrap.addEventListener('scroll', (e) => {
+      console.log(getClientWrap(e.target));
+      const scrollInfo = getScrollInfo(e.target);
+      console.log(index.map((prompt, index) => {
+        return `${prompt}: ${scrollInfo[index]}`;
+      }).join(','));
+    })
+  </script>
+</body>
+</html>
