@@ -12,13 +12,15 @@
   }
   .inner {
     height: 600px;
-    background-color: cornflowerblue;
+    background: linear-gradient(#e66465, #9198e5);
   }
 </style>
 <body>
   <div class="wrap">
     <div class="inner"></div>
   </div>
+
+  <button id="butt">点击后，视口往下滚动100px</button>
 
   <script>
     const wrap = document.querySelector('.wrap');
@@ -40,6 +42,15 @@
         return `${prompt}: ${scrollInfo[index]}`;
       }).join(','));
     })
+  </script>
+
+  <script>
+    let scrollTop = 0;
+    var butt = document.querySelector('#butt');
+
+    butt.addEventListener('click', (e) => {
+      wrap.scrollTop = scrollTop += 100;
+    });
   </script>
 </body>
 </html>

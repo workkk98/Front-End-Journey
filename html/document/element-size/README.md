@@ -21,6 +21,8 @@ MDN介绍到这个关键词指代的是客户区的大小，在border以内的�
 
 `.wrap`元素作为一个视口元素，它知道它内部元素的高度和宽度，即scrollHeight和scrollWidth。然后也能知道视口在整个画布的位置，即scrollTop和scrollWidth。
 
+**scrollTop 和 scrollLeft可读写**
+
 #### 总结
 
 1. 偏移量宽高 包含元素边框+内边距+内容 => 边框及边框内的大小
