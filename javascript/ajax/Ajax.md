@@ -71,6 +71,21 @@ xhr.ontimeout = function () {
   ```
   在调用open()前 ，声明这个事件处理程序
 
+**xhr.upload对象**
+xhr.onprogress事件处理函数，是用于处理下载事件。那对应的上传文件的动态数据，我们得通过xhr.upload对象获取。
+
+[XMLHttpRequest.upload](https://developer.mozilla.org/zh-CN/docs/Web/API/XMLHttpRequest/upload)
+
+```ts
+xhr.upload.onprogress = function (e: progressEvent) {
+
+  // 并且上传的字节数目，和总文件上传数对应的名称，如下：
+  e.loaded;
+  e.total;
+}
+
+```
+
 3. abort
   调用xhr.abort() 后触发
 
