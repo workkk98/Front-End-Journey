@@ -1,6 +1,6 @@
 # TS的模块
 
-ts的模块导入导出和ES6的很相似。
+ts的模块借鉴了node.js和E6module。
 
 ### export default
 
@@ -34,3 +34,8 @@ export default var a = 3;
 因为使用default的本质就是把后面的变量赋值给default，可能设计者觉得这样重复赋值很蠢。
 
 > 就比如上面的例子， a = 3;  default = a;
+
+### /// <reference> 和 import的区别
+`<reference>`引用标签和import语法是两个不同的概念。当我们使用引用标签后，ts就会帮助引用相关路径的文件，在开发过程中提示类型。
+
+而import是实际的引用了那块区域的代码，在编译器里。
