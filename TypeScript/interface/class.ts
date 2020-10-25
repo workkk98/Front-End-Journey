@@ -12,7 +12,7 @@ interface ClockConstructor {
   new (hour: number, minute: number); // 构造器签名
 }
 
-// 16行报错的原因，接口在定义类时，描述的是其new之后的实例的形状。而非类本身。
+// 17行报错的原因，接口在定义类时，描述的是其new之后的实例的形状。而非类本身。
 // 但在类当作参数时，描述的就是其函数对象的行为。
 class Clock implements ClockConstructor {
   currentTime: Date;

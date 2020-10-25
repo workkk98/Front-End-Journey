@@ -37,3 +37,38 @@
 > 除了这些合并外，你还需要了解非导出成员是如何处理的。**非导出成员仅在其原有的（合并前的）命名空间内可见**。这就是说合并之后，从其它命名空间合并进来的成员无法访问非导出成员。
 
 这点在将ts文件编译后，实际上就是两个IFEE函数，有先后顺序。因为没有导出变量，所以后面的函数内部拿不到那个变量。
+
+### 合并命名空间和类、函数和枚举值
+
+例子在：namespace——merging.ts
+
+事实上，这个语法糖就是在类Album上，添加了静态内部类。
+但关键是，声明这个内部类其实在class声明前，此时你提前调用这个内部类会报错。
+
+> 命名空间能和这么多的类型合并，最关键的原因就是这些变量都是对象。命名空间仅仅是在对象上扩展属性罢了。
+
+### 模块扩展
+
+虽然JavaScript不支持合并，但你可以为导入的对象打补丁以更新它们。
+
+> 它也可以很好地工作在TypeScript中， 但编译器对`Observable.prototype.map`一无所知。 你可以使用扩展模块来将它告诉编译器
+
+**全局扩展**
+
+```ts
+// observable.ts
+export class Observable<T> {
+    // ... still no implementation ...
+}
+
+//模块内部添加声明到全局作用域中
+declare global {
+    interface Array<T> {
+        toObservable(): Observable<T>;
+    }
+}
+
+Array.prototype.toObservable = function () {
+    // ...
+}
+```
