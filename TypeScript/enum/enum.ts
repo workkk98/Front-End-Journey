@@ -10,4 +10,10 @@ console.log(eIndex);
 
 
 
-enum company { apple = 'us', tencent = 'china', bbc = 'uk'}
+enum company { apple = 'Apple', tencent = 'Tencent', bbc = 'BBC'}
+
+function getCompanyCountry (companyName: 'apple' | 'tencent') {
+  return company[companyName];
+}
+
+getCompanyCountry('apple')
