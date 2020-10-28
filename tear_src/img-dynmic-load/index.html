@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <style>
+    .img-alter {
+      position: relative;
+      display: block;
+    }
+    .img-alter::after {
+      content: attr(data-alt);
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background-color: chocolate;
+    }
+  </style>
+  <img alt="讨厌男孩" data-alt="可爱女孩" class="img-alter">
+
+  <script>
+    setTimeout(() => {
+      document.querySelector('.img-alter').src = './cutegirl.png'
+    }, 1000)
+  </script>
+</body>
+</html>
