@@ -4,12 +4,15 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
+  <script src="img.js"></script>
 </head>
 <body>
   <style>
     .img-alter {
       position: relative;
       display: block;
+      width: 200px;
+      height: 200px;
     }
     .img-alter::after {
       content: attr(data-alt);
@@ -17,15 +20,18 @@
       bottom: 0;
       left: 0;
       width: 100%;
+      height: 100%;
       background-color: chocolate;
     }
   </style>
-  <img alt="讨厌男孩" data-alt="可爱女孩" class="img-alter">
 
+  <div style="height: 100vh">
+  </div>
+  <div>
+    <div style="width: 200px;" id="target"></div>
+  </div>
   <script>
-    setTimeout(() => {
-      document.querySelector('.img-alter').src = './cutegirl.png'
-    }, 1000)
+    new DynmicImg('cutegirl.png', document.querySelector('#target'))
   </script>
 </body>
 </html>
