@@ -1,0 +1,11 @@
+{
+  "name": "module-resolve",
+  "version": "1.0.0",
+  "description": "> TypeScript是模仿Node.js运行时的解析策略来在编译阶段定位模块定义文件。 因此，TypeScript在Node解析逻辑基础上增加了TypeScript源文件的扩展名（ .ts，.tsx和.d.ts）。 同时，TypeScript在 package.json里使用字段\"types\"来表示类似\"main\"的意义 - 编译器会使用它来找到要使用的\"main\"定义文件。",
+  "main": "index.js",
+  "types": "./index.ts",
+  "scripts": {
+  },
+  "author": "",
+  "license": "ISC"
+}

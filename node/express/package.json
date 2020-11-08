@@ -1,0 +1,19 @@
+{
+  "name": "learn-express",
+  "version": "1.0.0",
+  "description": "其实自己刚开始用的就是express。但只能说学了些皮毛，在现在的基础上更深入的学习一些。",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "NODE_ENV=devlopment node app.js",
+    "prod": "NODE_ENV=porduction node app.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cookie-parser": "^1.4.4",
+    "express": "^4.17.1",
+    "zlib": "^1.0.5"
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "name": "file",
+  "version": "1.0.0",
+  "description": "> 自己的一些理解，第三方模块往往提供的是全局函数，全局变量，全局类等内容。所以通过声明文件来规范第三方模块。",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/jquery": "^3.5.0"
+  }
+}
