@@ -26,5 +26,8 @@
     "husky": "^4.3.0"
   },
   "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
   }
 }
