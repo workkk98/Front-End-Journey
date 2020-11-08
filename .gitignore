@@ -5,7 +5,6 @@ leetcode.code-workspace
 vue/vue-dev
 vue/vue-router-dev
 **/node_modules
-**/package.json
 **/package-lock.json
 **/yarn.lock
 .vscode/

@@ -1,0 +1,30 @@
+{
+  "name": "front-end-journey",
+  "version": "1.0.0",
+  "description": ":fire:新加学习日记专栏和面试专栏",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/workINgithub/Front-End-with-workkk.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/workINgithub/Front-End-with-workkk/issues"
+  },
+  "homepage": "https://github.com/workINgithub/Front-End-with-workkk#readme",
+  "dependencies": {
+    "tsc": "^1.20150623.0"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^11.0.0",
+    "@commitlint/config-conventional": "^11.0.0",
+    "husky": "^4.3.0"
+  },
+  "husky": {
+  }
+}
