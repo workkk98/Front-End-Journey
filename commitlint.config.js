@@ -6,7 +6,8 @@ module.exports = {
       'js',
       'css',
       'feat',
-      'test'
+      'test',
+      "directory"
     ]]
   }
 }
