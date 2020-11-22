@@ -7,7 +7,8 @@ module.exports = {
       'css',
       'feat',
       'test',
-      "directory"
+      "directory",
+      'vue'
     ]]
   }
 }
