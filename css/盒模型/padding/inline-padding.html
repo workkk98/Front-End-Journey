@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div style="display: none;"
+       class="container">
+    <span>inline元素的padding对视觉和布局具有双重影响。</span>
+  </div>
+
+  <div style="display: none;"
+       class="box">
+    <span>内有文字若干</span>
+  </div>
+
+  <div class="box2">
+    <span></span>
+  </div>
+
+  <style>
+    .container {
+      height: 3em;
+      overflow: auto;
+    }
+    .container span {
+      padding: 20em 0;
+      background-color: rgba(255, 0, 0, 0.3);
+    }
+
+    .box {
+      margin-top: 300px;
+      border: 2px dashed #cd0000;
+    }
+
+    .box span {
+      padding: 50%;
+      background-color: gray;
+    }
+
+    .box2 {
+      margin-top: 300px;
+      border: 2px dashed #cd0000;
+    }
+
+    .box span {
+      padding: 50%;
+      background-color: gray;
+    }
+  </style>
+</body>
+</html>
