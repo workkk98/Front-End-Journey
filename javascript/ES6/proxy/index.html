@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    var target = {};
+    var proxy = new Proxy(target, {
+      get (target, key, recevier) {
+        return target[key] || null;
+      }
+    });
+  </script>
+
+  <script src="get.js"></script>
+  <script src="set.js"></script>
+  <script src="apply.js"></script>
+</body>
+</html>
