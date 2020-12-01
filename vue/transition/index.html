@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="../dist/vue.js"></script>
+  <style>
+    .ball {
+      display: inline-block;
+      width: 30px;
+      height: 30px;
+      background-color: pink;
+      border-radius: 100%;
+    }
+    .common {
+      transition: margin-left 2s linear;
+    }
+  </style>
+</head>
+<body>
+  <div id="app">
+    <transition @before-leave="beforeLeave"
+                @leave="leave"
+                @after-leave="afterLeave">
+      <i v-if="hasBall"
+         class="ball"></i>
+    </transition>
+  </div>
+  <script>
+    new Vue({
+      el: '#app',
+      data () {
+        return {
+          hasBall: true
+        }
+      },
+      methods: {
+        beforeLeave (el) {
+          console.log(el);
+          el.style.backgroudColor = 'red';
+        },
+        leave (el, done) {
+          el.style.marginLeft = '30px';
+          el.classList.add('common');
+          setTimeout(() => {
+            done();
+          }, 2000)
+        },
+        afterLeave (el) {
+          console.log(el);
+        }
+      },
+      mounted () {
+        setTimeout(() => {
+          this.hasBall = false;
+        }, 2000);
+      }
+    })
+  </script>
+</body>
+</html>

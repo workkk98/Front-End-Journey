@@ -8,7 +8,8 @@ module.exports = {
       'feat',
       'test',
       "directory",
-      'vue'
+      'vue',
+      'html'
     ]]
   }
 }
