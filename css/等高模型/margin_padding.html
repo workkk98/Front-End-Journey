@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .wrapper {
+      overflow: hidden;
+    }
+
+    .node {
+      width: 200px;
+      height: 30px;
+    }
+
+    .common {
+      float: left;
+      width: 200px;
+      padding-bottom: 9999px;
+      margin-bottom: -9999px;
+    }
+
+    .left {
+      background-color: pink;
+    }
+
+    .right {
+      background-color: burlywood;
+    }
+  </style>
+</head>
+<body>
+  <button id="leftBtn">左边</button>
+  <button id="rightBtn">右边</button>
+  <div class="wrapper">
+    <div class="left common"></div>
+    <div class="right common"></div>
+  </div>
+
+  <script>
+    var left = document.querySelector('.left'),
+        right = document.querySelector('.right');
+
+    function createDiv () {
+      var div = document.createElement('div');
+      div.classList.add('node')
+      return div;
+    }
+
+    document.querySelector('#leftBtn').addEventListener('click', function () {
+      left.appendChild(createDiv());
+    });
+    document.querySelector('#rightBtn').addEventListener('click', function () {
+      right.appendChild(createDiv());
+    });
+  </script>
+</body>
+</html>
