@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .example {
+      width: 200px;
+      background-color: pink;
+    }
+  </style>
+</head>
+<body>
+  <button id="stretch">stretch</button>
+  <button id="shrink">shrink</button>
+  <button id="normal">normal</button>
+  <button id="console">console</button>
+  <div class="example">exmaple</div>
+  <script>
+    document.getElementById('stretch').addEventListener('click', () => {
+      document.documentElement.style = 'zoom: 200%';
+    })
+    document.getElementById('shrink').addEventListener('click', () => {
+      document.documentElement.style = 'zoom: 50%';
+    })
+    document.getElementById('normal').addEventListener('click', () => {
+      document.documentElement.style = 'zoom: 100%';
+    })
+    document.getElementById('console').addEventListener('click', () => {
+      console.log('html-clientWidth: ', document.documentElement.clientWidth,
+        'html-clientHeight: ', document.documentElement.clientHeight)
+    })
+  </script>
+</body>
+</html>
