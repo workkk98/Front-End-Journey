@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    var foo = {};
+    console.time('memory');
+    for (let i = 0; i < 2**32; i++) {
+      // foo[i] = JSON.stringify({});
+    }
+    // console.log(foo[2*31]);
+    console.timeEnd('memory');
+  </script>
+</body>
+</html>
