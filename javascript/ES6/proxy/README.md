@@ -33,4 +33,6 @@ configurable为false，删除这个属性或修改属性的（enumerable, writal
 * set(target, key, value)
 拦截赋值操作。
 
-* apply(target, )
+* apply(target, ctx, args)
+
+target目标对象，ctx是调用proxy"函数"时的上下文，args是参数数组。
