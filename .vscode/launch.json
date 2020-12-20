@@ -8,7 +8,7 @@
             "type": "node",
             "request": "launch",
             "name": "Launch Program",
-            "program": "${workspaceFolder}/algorithm/leetcode/337.js",
+            "program": "${workspaceFolder}/algorithm/leetcode/316-removeDuplicateLetters.js",
             "skipFiles": [
                 "<node_internals>/**"
             ]

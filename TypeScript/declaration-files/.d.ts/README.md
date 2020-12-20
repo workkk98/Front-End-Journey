@@ -34,3 +34,25 @@ module.exports = getArrayLength;
 export default function getArrayLength(arr: any[]): number;
 export const maxInterval: 12;
 ```
+
+问题解决了，经过导师的解惑。default默认指向commonjs中的exports对象，而结构去拿exports对象中的属性，所以可以写成上述这样。例如下面这个例子
+
+```js
+// /utility/uncurryinng
+function uncurrying (func) {
+  return function () {
+    const self = Array.prototype.shift.apply(arguments)
+    return func.apply(self, arguments)
+  }
+}
+
+uncurrying.foo = 1
+
+module.exports = uncurrying
+
+// main.js
+import uncurrying, { foo } from './utility/uncurrying'
+
+// foo = 1
+console.log(foo)
+```
