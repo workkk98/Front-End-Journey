@@ -9,7 +9,8 @@ module.exports = {
       'test',
       "directory",
       'vue',
-      'html'
+      'html',
+      'algorithm'
     ]]
   }
 }
