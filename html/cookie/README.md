@@ -1,20 +1,20 @@
 # cookie
 
 #### document.cookie
-没想到cookie是归到文档对象上的，不过我觉得也非常合理。毕竟文档也是服务器发过来的解析后获得的。
+没想到cookie是归到文档对象上的，不过我觉得也非常合理。**毕竟文档也是服务器发过来的解析后获得的。**
 
 #### cookie的结构
 
 比我想象中的复杂。
 
-1. **名称name: 一个唯一确定cookie的名称。经过URL编码的**
+1. **名称name: 一个唯一确定cookie的名称。经过URL编码的**(因为HTTP请求头不支持ASCII码？以外的字符)
 2. **值value: 储存在cookie中的字符值。经过URL编码的**
 3. secure: 设置后，cookie只能设置在发往https资源的请求上
 4. 域名domain: cookie对于哪个域名是有效的。如果没有明确设定，那么这个域会被认作来自设置cookie的那个域
 5. 路径path: 具体访问那个路径会携带这个cookie
-6. 失效时间expires: GMT时间
+6. 失效时间expires: GMT时间(Thu, 01 Jan 1970 00:00:00 GMT)这个想到Date的`Date.prototype.toGMTString()`这个方法就可以了
 
-3,4,5完全就是个路径🤔，可以按照这样记忆。
+3,4,5完全就是个web资源的具体地址🤔，可以按照这样记忆。
 
 
 一个cookie的样子:

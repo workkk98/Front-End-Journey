@@ -1,0 +1,15 @@
+{
+  "name": "module",
+  "version": "1.0.0",
+  "description": "例子可以看vue-cli/hello文件夹",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@babel/plugin-proposal-export-namespace-from": "^7.12.1"
+  }
+}
