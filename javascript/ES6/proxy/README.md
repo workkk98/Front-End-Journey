@@ -19,9 +19,11 @@ var proxy = new Proxy(target, handler);
 * get(target, key, recevier)
 
 即访问对象的某个属性时做拦截。
-前两个参数很好理解，但是第三个参数就蛮奇怪的，这个参数指向proxy对象本身？
+前两个参数很好理解，但是第三个参数`recevier`就蛮奇怪的，这个参数指向proxy对象本身？
 
-联系到Reflect.get(target, key, recevier)。访问到目标对象，如果对象有设置get函数用this，此时this就指向receciver。
+> 如果通过reflect.get(target, name, recevier)，方法访问proxy对象, 则`receiver`参数就是reflect传递的recevier对象。否则就指向target本身。
+
+类推到Reflect.get(target, key, recevier)。访问到目标对象，如果对象有设置get函数用this，此时this就指向receciver。这个例子可以看../reflect/index.js
 
 > 对象的某个属性是配置属性（configurable）设置为false的时候, 就强制proxy返回的数据和target对象得返回的一致。
 > 例如get.js中的例子。

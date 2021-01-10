@@ -2,7 +2,9 @@
   function createQueue (...args) {
     return new Proxy(args, {
       get (target, name, recevier) {
-        console.log(name, typeof name);
+        // console.log(name, typeof name);
+        console.log('tartget: ', target)
+        console.log('recevier: ', recevier)
         if (+name >= 0) {
           return target[+name];
         } else {
@@ -19,6 +21,8 @@
   console.log(Reflect.get(queue, 'abc', {
     abc: 'cba'
   }))
+
+  console.log('\n\n')
 
   var bar = {};
   Object.defineProperty(bar, 'bar', {
