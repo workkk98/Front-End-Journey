@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="../dist/vue.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@vue/composition-api@1.0.0-beta.25"></script>
+</head>
+<body>
+  <div id="app"></div>
+  <script>
+    console.log(window.VueCompositionAPI)
+    new Vue({
+      components: {
+        foo: {
+          props: ['bar'],
+          setup (props) {
+            let { toRef } = VueCompositionAPI;
+
+            let title = toRef(props, 'title')
+            title.value = 'title: '
+
+            VueCompositionAPI.onMounted(() => {
+              title.value = 'title-mounted: '
+            })
+
+            return {
+              title,
+              valueOfSetup: 'valueOfSetup'
+            }
+
+            // return () => VueCompositionAPI.h('div', [toRef(props.bar)]) //not work
+          },
+          render (h) {
+            debugger;
+            return h('div', [this.title, this.valueOfSetup])
+          }
+        }
+      },
+      data () {
+        return {
+          bar: 'bar'
+        }
+      },
+      render (h) {
+        return h('foo', {
+          props: {
+            bar: this.bar
+          }
+        })
+      },
+      mounted () {
+        this.bar = 'bar2'
+      }
+    }).$mount('#app')
+  </script>
+</body>
+</html>
