@@ -1,0 +1,8 @@
+{
+"version":3,
+"file":"demo.min.js",
+"lineCount":1,
+"mappings":"AAAAA,QAASA,SAAS,CAACC,CAAD,CAAQ,CACxB,MAAOA,EADiB,CAI1BC,QAASA,IAAI,CAACC,CAAD,CAAYC,CAAZ,CAAuB,CAClC,MAAOD,EAAP,CAAiBC,CADiB;",
+"sources":["demo.js"],
+"names":["uniqueBy","array","add","longNameA","longNameB"]
+}
