@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .demo1 {
+      line-height: 96px;
+      background-color: lightpink;
+    }
+
+    .demo1 span {
+      line-height: 20px;
+      /* vertical-align: top; */
+    }
+
+    .demo2 {
+      line-height: 20px;
+      background-color: lightsalmon;
+    }
+
+    .demo2 span {
+      line-height: 96px;
+    }
+  </style>
+</head>
+<body>
+  <h1>demo1</h1>
+  <div class="demo1">
+    <span>父元素line-height: 96px, 子元素则是20px</span>
+  </div>
+
+  <h1>demo2</h1>
+  <div class="demo2">
+    <span>父元素line-height: 20px, 子元素则是96px</span>
+  </div>
+</body>
+</html>

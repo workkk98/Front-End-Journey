@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    :root {
+      --default-background: #fff;
+    }
+    @keyframes shimmer {
+      0% {
+        background-position: -468px;
+      }
+      100% {
+        background-position: 468px;
+      }
+    }
+
+    .app {
+      background-color: #fff;
+      padding: 18px;
+      border: 2px solid;
+      border-color: #e5e6e9 #dfe0e4 #d0d1d5;
+      border-radius: 4px;
+    }
+
+    .container {
+      max-width: 458px;
+      position: relative;
+      height: 88px;
+    }
+
+    .skeleton {
+      animation-name: shimmer;
+      animation-duration: 1s;
+      animation-timing-function: linear;
+      animation-iteration-count: infinite;
+      animation-fill-mode: forwards;
+      background: linear-gradient(to right, #eeeeee 8%, #dddddd 18%, #eeeeee 33%);
+      background-size: 800px 104px;
+    }
+
+    .container div {
+      line-height: 22px;
+    }
+
+    .text-wrapper {
+      display: inline-block;
+      width: 60%;
+      height: 10px;
+    }
+
+    .mask {
+      background: var(--default-background);
+    }
+
+    .top {
+      height: 22px;
+    }
+
+    .right {
+      position: absolute;
+      width: 40%;
+      top: 22px;
+      right: 0;
+      height: 22px;
+    }
+
+    .third {
+      position: absolute;
+      top: 44px;
+      left: 0;
+      height: 22px;
+      width: 100%;
+    }
+
+    .forth {
+      position: absolute;
+      width: 20%;
+      top: 66px;
+      right: 0;
+      height: 22px;
+    }
+  </style>
+</head>
+<body>
+  <div class="app">
+    <div id="container" class="container skeleton">
+      <div class="mask top"></div>
+      <div class="mask right"></div>
+      <div class="mask third"></div>
+      <div class="mask forth"></div>
+    </div>
+  </div>
+  <script>
+    async function request () {
+      return await fetch('https://jsonplaceholder.typicode.com/users').then(res => res.json());
+    }
+    function render (users) {
+
+      removeSkeleton();
+      loadContent(users);
+    }
+
+    function removeSkeleton () {
+      var masks = document.querySelectorAll('.mask');
+      
+      Array.prototype.map.call(masks, (node) => {
+        document.querySelector('#container').removeChild(node);
+      });
+
+      document.querySelector('#container').classList.remove('skeleton');
+    }
+
+    function loadContent (users) {
+      var container = document.querySelector('#container');
+          count = 0;
+      for (let i = 0; i < 4; i++) {
+        let div = document.createElement('div');
+        div.classList.add('top');
+
+        if (i % 2 !== 0) {
+          div.appendChild(document.createTextNode(users[count++]))
+        }
+        container.appendChild(div);
+      }
+      var name = document.createElement('div'),
+          phone = document.querySelector('#phone'),
+          email = document.querySelector('#email'),
+          company = document.querySelector('#company');
+
+      name.setTextContent(user.name);
+      phone.setTextContent(user.phone);
+      email.setTextContent(user.email);
+      company.setTextContent(user.company);
+    }
+    window.onload = async function () {
+      let users = await request();
+      render([
+        users[0].name,
+        Object.values(users[0].company).join(', ')
+      ]);
+    }
+  </script>
+</body>
+</html>
