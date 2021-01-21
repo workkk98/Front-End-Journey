@@ -11,7 +11,8 @@ module.exports = {
       'vue',
       'html',
       'algorithm',
-      'broswer'
+      'broswer',
+      'questions'
     ]]
   }
 }
