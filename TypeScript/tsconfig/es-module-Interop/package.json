@@ -1,0 +1,15 @@
+{
+  "name": "es-module-Interop",
+  "version": "1.0.0",
+  "description": "默认情况下，该属性默认为true。此时编译index.ts文件，代码如下:",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "typescript": "^2.8.0-dev.20180204"
+  }
+}
