@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/workINgithub/Front-End-with-workkk#readme",
   "dependencies": {
+    "shelljs": "^0.8.4",
     "tsc": "^1.20150623.0"
   },
   "devDependencies": {

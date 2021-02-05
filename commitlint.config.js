@@ -12,7 +12,8 @@ module.exports = {
       'html',
       'algorithm',
       'broswer',
-      'questions'
+      'questions',
+      'node'
     ]]
   }
 }

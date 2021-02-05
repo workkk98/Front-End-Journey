@@ -1,5 +1,5 @@
 #忽略 module文件夹下的包
-
+.DS_Store
 module/node_modules
 leetcode.code-workspace
 vue/vue-dev
