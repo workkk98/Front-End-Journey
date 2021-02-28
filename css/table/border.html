@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    table.separate {
+      border-spacing: 5px 8px;
+      border: 1px solid pink;
+    }
+
+    td {
+      border: 1px solid gray;
+    }
+
+    thead > tr {
+      background-color: lightblue;
+    }
+
+    table.collapse {
+      border-collapse: collapse;
+    }
+
+    .collapse tr {
+      border-left: hidden;
+      border-right: hidden;
+    }
+  </style>
+</head>
+<body>
+  <table class="separate">
+    <caption>separated</caption>
+    <thead>
+      <tr>
+        <th>账号类型</th>
+        <th>账号权限</th>
+        <th colspan="5">权限指令</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td rowspan="3">普通账号</td>
+        <td rowspan="2">只读</td>
+        <td>1.1</td>
+        <td>1.2</td>
+        <td>1.3</td>
+        <td>1.4</td>
+        <td>1.5</td>
+      </tr>
+      <tr>
+        <td>1.6</td>
+        <td>1.7</td>
+        <td>1.8</td>
+        <td>1.9</td>
+        <td>1.10</td>
+      </tr>
+      <tr>
+        <td>只写</td>
+        <td>2.1</td>
+        <td>2.2</td>
+        <td>2.3</td>
+        <td>2.4</td>
+        <td>2.5</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <table class="collapse">
+    <caption>collapse</caption>
+    <thead>
+      <tr>
+        <th>账号类型</th>
+        <th>账号权限</th>
+        <th colspan="5">权限指令</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td rowspan="3">普通账号</td>
+        <td rowspan="2">只读</td>
+        <td>1.1</td>
+        <td>1.2</td>
+        <td>假设这个权限的很长</td>
+        <td>1.4</td>
+        <td>1.5</td>
+      </tr>
+      <tr>
+        <td>1.6</td>
+        <td>1.7</td>
+        <td>1.8</td>
+        <td>1.9</td>
+        <td>1.10</td>
+      </tr>
+      <tr>
+        <td>只写</td>
+        <td>2.1</td>
+        <td>2.2</td>
+        <td>2.3</td>
+        <td>2.4</td>
+        <td>2.5</td>
+      </tr>
+    </tbody>
+  </table>
+</body>
+</html>
