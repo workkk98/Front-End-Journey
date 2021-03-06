@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .demo1 {
+      overflow: hidden;
+    }
+    .demo2 {
+      position: absolute;
+    }
+
+    .demo3 {
+      position: relative;
+    }
+
+    .pink {
+      background-color: pink;
+    }
+    .squre {
+      width: 20px;
+      height: 20px;
+    }
+  </style>
+</head>
+<body>
+  <h1>父元素是overflow: hidden, 子元素无依赖绝对定位，不被裁剪</h1>
+  <div class="demo1">
+    <div class="demo2 squre pink"></div>
+  </div>
+
+  <h1>父元素是overflow: hidden, 子元素相对定位，孙子元素绝对定位, 被剪裁</h1>
+  <div class="demo1">
+    <div class="demo3">
+      <div class="demo2 squre pink"></div>
+    </div>
+  </div>
+</body>
+</html>

@@ -45,6 +45,29 @@
 #### 进一步深入无依赖绝对定位
 
 position: absolute的元素display计算值都是块状的，但其定位的位置和却和设置position: absolut时候的位置相关。
+举个例子：span元素就会在同一行上，div元素则会换行。（通俗点，在自己原本的位置上，却脱离了流）
 
 
+### text-align和absolute
 
+position: absolute的元素，已经脱离了流，并且text-align作用到的是行内元素（position: absolute的元素已块状化）
+那为什么在./text-align.html文件中，元素会剧中显示？
+
+原因就是幽灵空白节点因为父元素的`text-align: center`的缘故，剧中显示了。而无依赖绝对定位的元素（必须是内联元素，还记得上面讲过元素的位置跟元素本身原本的位置有关）自然是跟随其后。
+
+这种定位方式，是实现主窗体右侧的“返回顶部”以及“反馈”等小布局的实现。但最关键的是引出了overflow以及absolute的关系。
+
+### absolute与overflow
+
+> 绝对定位元素不总是被父级overflow属性剪裁，尤其当overflow在绝对定位元素及其包含块之间的时候。
+
+换句话说，就是有overflow属性的元素不是定位元素，同时绝对定位元素和overflow容器之间也没有定位元素。
+具体看下./overflow.html
+
+### clip属性
+
+> 剪裁属性clip要想起作用，元素必须是绝对定位或是固定定位。
+
+用法`clip: rect(50px 50px 50px 50px)`
+
+但这个属性已不被推荐(推荐使用了clip-path)，所以就不多做讨论。
