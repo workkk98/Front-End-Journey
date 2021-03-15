@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="../dist/vue.js"></script>
+</head>
+<body>
+  <div id="app"></div>
+  <script>
+    function Item(x) {
+      this.x = x;
+    }
+    new Vue({
+      el: '#app',
+      components: {
+        foo: {
+          data () {
+            return {
+              bar: new Array(10000).fill(0).map(() => new Item('x'))
+            }
+          },
+          render (h) {
+            return h('div', 'foo')
+          }
+        },
+      },
+      data () {
+        return {
+          show: true
+        };
+      },
+      render (h) {
+        return h('div', [this.show ? h('foo') : null])
+      },
+      mounted () {
+        setTimeout(() => {
+          console.log('销毁foo组件')
+          this.show = false
+        }, 2000);
+      }
+    })
+  </script>
+</body>
+</html>
