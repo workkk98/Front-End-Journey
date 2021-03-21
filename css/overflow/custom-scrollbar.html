@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .foo {
+      height: 300px;
+      width: 400px;
+    }
+    .overflow-auto {
+      overflow: auto;
+    }
+
+    .customer-scrollbar::-webkit-scrollbar {
+      width: 16px;
+      height: 16px;
+    }
+
+    .customer-scrollbar::-webkit-scrollbar-thumb {
+      background-color: white;
+    }
+
+    .customer-scrollbar::-webkit-scrollbar-track {
+      background-color: blue;
+    }
+  </style>
+</head>
+<body>
+  <div class="foo overflow-auto customer-scrollbar">
+    <div class="inner" style="height: 300px;background-color: pink;"></div>
+    <div style="height: 300px;background-color: black;"></div>
+  </div>
+
+  <script>
+    function calcScrollbarWidth () {
+      var wrapper = document.querySelector('.foo');
+      var inner = document.querySelector('.inner');
+      return 400 - inner.clientWidth;
+    }
+    console.log(calcScrollbarWidth());
+  </script>
+</body>
+</html>
