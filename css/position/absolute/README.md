@@ -51,7 +51,7 @@ position: absolute的元素display计算值都是块状的，但其定位的位�
 ### text-align和absolute
 
 position: absolute的元素，已经脱离了流，并且text-align作用到的是行内元素（position: absolute的元素已块状化）
-那为什么在./text-align.html文件中，元素会剧中显示？
+那为什么在./text-align.html文件中，元素会居中显示？
 
 原因就是幽灵空白节点因为父元素的`text-align: center`的缘故，剧中显示了。而无依赖绝对定位的元素（必须是内联元素，还记得上面讲过元素的位置跟元素本身原本的位置有关）自然是跟随其后。
 
