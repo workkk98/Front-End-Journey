@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .father {
+      width: 300px;
+      height: 200px;
+      position: relative;
+      background-color: black;
+    }
+
+    .right {
+      /* height: 0; 没有意义不知道为啥*/
+      text-align: right;
+      overflow: hidden;
+      background-color: pink;
+    }
+
+    .son {
+      display: inline;
+      width: 40px;
+      height: 40px;
+      position: fixed;
+      margin-left: -40px;
+      background-color: blue;
+    }
+  </style>
+</head>
+<body>
+  <div class="father">
+    <div class="right"><span class="son"></span></div>
+  </div>
+</body>
+</html>
