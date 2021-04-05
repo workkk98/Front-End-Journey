@@ -7,7 +7,8 @@
 常见的FC有BFC、IFC（行级格式化上下文），还有GFC（网格布局格式化上下文）和FFC（自适应格式化上下文），这里就不再展开了。 摘自掘金
 
 ## 生成BFC的方法
-* 根元素(<html>)
+* 根元素(<html>) 
+  令我好奇的是html元素也能用class（谁说不能呢?）。更好玩的是，背景色直接影响到了视口。
 * 浮动元素（元素的 float 不是 none）
 * 绝对定位元素（元素的 position 为 absolute 或 fixed）
 * 行内块元素（元素的 display 为 inline-block）
