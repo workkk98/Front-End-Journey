@@ -1,0 +1,20 @@
+{
+  "name": "import-type",
+  "version": "1.0.0",
+  "description": "这个语法的又来是因为两个原因：",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build:foo": "babel ./import-elision/foo.ts",
+    "build:foo2": "babel ./import-elision/foo2.ts",
+    "build:type-foo2": "babel ./import-type/foo2.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/cli": "^7.13.16",
+    "@babel/core": "^7.13.16",
+    "@babel/preset-typescript": "^7.13.0"
+  }
+}
