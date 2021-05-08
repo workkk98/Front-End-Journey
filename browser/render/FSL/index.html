@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div>
+    <button id="butt1">butt1</button>
+    <button id="butt2">butt2</button>
+  </div>
+  <div>
+    <button id="trigger1">trigger1</button>
+    <button id="trigger2">trigger2</button>
+  </div>
+  <script>
+    let butt1 = document.querySelector('#butt1');
+    let butt2 = document.querySelector('#butt2');
+
+    let trigger1 = document.querySelector('#trigger1');
+
+    trigger1.addEventListener('click', function updateWidth () {
+      let butt1Width = butt1.offsetWidth;
+      butt1.style.width = butt1Width * 2 + 'px';
+      let butt2Width = butt1.offsetWidth;
+      butt2.style.width = butt2Width * 2 + 'px';
+    });
+  </script>
+
+  <script>
+    let trigger2 = document.querySelector('#trigger2');
+
+    trigger2.addEventListener('click', function updateWidth2 () {
+      let butt1Width = butt1.offsetWidth;
+      butt1.style.width = butt1Width * 2 + 'px';
+      butt2.style.width = butt1Width * 4 + 'px';
+    });
+  </script>
+</body>
+</html>
