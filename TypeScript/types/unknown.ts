@@ -1,6 +1,5 @@
-// unknown 也是一种顶级类型(全局超级类型/universal supertype)。
-
-
+// unknown 是一种顶级类型(全局超级类型/universal supertype)。
+// 但any不是，any是放弃类型检查
 let value: unknown;
 
 value = true;             // OK
