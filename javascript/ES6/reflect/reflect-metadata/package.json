@@ -1,0 +1,12 @@
+{
+  "name": "reflect-metadata",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "dev": "tsc --target ES5 --experimentalDecorators --emitDecoratorMetadata index.ts && node index.js"
+  },
+  "dependencies": {
+    "reflect-metadata": "^0.1.13"
+  }
+}
