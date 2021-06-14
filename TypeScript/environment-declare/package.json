@@ -1,0 +1,9 @@
+{
+  "name": "environment-declare",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^15.12.2"
+  }
+}
