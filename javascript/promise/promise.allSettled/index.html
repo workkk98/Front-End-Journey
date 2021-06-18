@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    function allSettled (array) {
+      let resultOfArray = [],
+        count = 0;
+
+      return new Promise((resolve, reject) => {
+        array.forEach((promise, index) => {
+          function handler (result) {
+            resultOfArray[index] = result;
+            if (++count === array.length) {
+              resolve(resultOfArray)
+            }
+          }
+          promise.then(function handler (result) {
+            resultOfArray[index] = {
+              status: 'fullfilled',
+              value: result
+            };
+            if (++count === array.length) {
+              resolve(resultOfArray)
+            }
+          }, function handler2 (result) {
+            resultOfArray[index] = {
+              status: 'rejected',
+              reason: result
+            };
+            if (++count === array.length) {
+              resolve(resultOfArray)
+            }
+          })
+        });
+      });
+    }
+
+    function createPromise (isSuccess, msg) {
+      return new Promise(function (resolve, reject) {
+        setTimeout(function () {
+          isSuccess ? resolve(msg) : reject(msg);
+        }, 200);
+      });
+    }
+    let all = allSettled([
+      createPromise(true, 'success'),
+      createPromise(false, 'fail2'),
+      createPromise(false, 'fail1'),
+    ]);
+
+    all.then(function (result) {
+      console.log('resolve', result);
+    }, function (msg) {
+      console.log('reject', msg);
+    })
+
+  </script>
+</body>
+</html>
