@@ -6,7 +6,7 @@ XSS = cross site script 区别于CSS(Cascading Style Sheet) 所以叫XSS
 
 > 攻击者对客户端网页注入的恶意脚本一般包括 JavaScript，有时也会包含 HTML 和 Flash。有很多种方式进行 XSS 攻击，但它们的共同点为：将一些隐私数据像 cookie、session 发送给攻击者，将受害者重定向到一个由攻击者控制的网站，在受害者的机器上进行一些恶意操作。
 
-XSS攻击可以分为3类：反射型（非持久型）、存储型（持久型）、基于DOM。
+XSS攻击可以分为3类：反射型（非持久型）、存储型（持久型）、DOM型。
 
 #### 反射型
 > 反射型 XSS 只是简单地把用户输入的数据 “反射” 给浏览器，这种攻击方式往往需要攻击者诱使用户点击一个恶意链接，或者提交一个表单，或者进入一个恶意网站时，注入脚本**进入攻击者的网站。**
@@ -14,6 +14,13 @@ XSS攻击可以分为3类：反射型（非持久型）、存储型（持久型�
 
 可以启动 app.js和app2.js文件 然后打开服务器访问http://localhost:8012并点击xss按钮
 通过(伪造的)XSS注入 你可以看到然后 你可以在app2.js的终端看见 服务器成功获取了app.js
+
+还可以看index.html的例子, 假设`"><script>alert('XSS');</script>`这一段是攻击者通过url输入的。突破了原有的位置，原本浏览器解析的是value = "文本"，然后文本中这一段就让浏览器误以为是有一个input标签以及script标签了。
+
+
+那我们是不是对这些敏感的HTML文本转义就高枕无忧了呢？
+但是在某些特定位置上，即使文本被转义了，也有可能出现问题，比如说a连接，文本输入一个`javascript`伪协议。
+
 
 这里复习下cookie在CORS中的使用
 1. 请求中得开启携带 xhr.withCredentials
@@ -25,7 +32,7 @@ XSS攻击可以分为3类：反射型（非持久型）、存储型（持久型�
 
 
 #### 基于DOM
-基于 DOM 的 XSS 攻击是指通过恶意脚本修改页面的 DOM 结构，是纯粹发生在客户端的攻击。
+基于 DOM 的 XSS 攻击经常发生在Javascript从攻击者控制的地方取到了数据。例如URL、然后将其传入支持动态语句执行的sink，例如eval函数或者是innerHTML等
 
 [XSS-game](https://xss-game.appspot.com/)
 #### 解决方案
@@ -52,3 +59,13 @@ const decodingMap = {
 **输出检查**
 
 用户的输入会存在问题，服务端的输出也会存在问题。一般来说，除富文本的输出外，在变量输出到 HTML 页面时，可以使用编码或转义的方式来防御 XSS 攻击。例如利用 sanitize-html 对输出内容进行有规则的过滤之后再输出到页面中。
+
+### 如何检测
+
+1. 使用通用XSS攻击字符串手动检测XSS漏洞
+
+```
+jaVasCript:/*-/*`/*\`/*'/*"/**/(/* */oNcliCk=alert() )//%0D%0A%0d%0a//</stYle/</titLe/</teXtarEa/</scRipt/--!>\x3csVg/<sVg/oNloAd=alert()//>\x3e
+```
+
+2. 使用扫描工具自动检测 XSS 漏洞。(例如w3af)
