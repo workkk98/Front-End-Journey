@@ -19,10 +19,12 @@
     </transition>  
     <div style="margin-left: 50px;">
       <div>我可以控制上面的文字</div>
+      <!-- <keep-alive> -->
       <transition name="change" mode="out-in">
           <button v-if="show" key="on" class="display-button" @click="showContent">on</button>
           <button v-else key="off" class="display-button" @click="showContent">off</button>
         </transition>
+     <!-- </keep-alive> -->
     </div>
     <div style="margin-top: 50px;">
       <div>
@@ -30,10 +32,10 @@
         <button @click="removeItemOfList">remove</button>
       </div>
       <div>
-        <transition-group name="list" tag="p">
-          <!-- 注意这里的key -->
-          <span v-for="(item, index) of list" :key="item" class="span-item">{{item}}</span>
-        </transition-group>
+          <transition-group name="list" tag="p">
+            <!-- 注意这里的key -->
+            <span v-for="(item, index) of list" :key="item" class="span-item">{{item}}</span>
+          </transition-group>
       </div>
     </div>
     <div>
