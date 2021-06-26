@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {
+      margin: 0px;
+    }
+    .contianer {
+      width: 400px;
+      height: 600px;
+      overflow: auto;
+    }
+
+    div.sticky-constrain-block {
+      height: 100px;    
+      margin-top: 50px;
+      border: solid deepskyblue;
+    }
+    nav {
+      position: sticky;
+      top: 20px; 
+      background: lightskyblue;
+    }
+
+    .content {
+      height: 800px;
+      background-color: pink;
+    }
+  </style>
+</head>
+<body>
+  <div class="contianer">
+    <!-- sticky元素的容纳块 -->
+    <div class="sticky-constrain-block">
+      <nav>导航</nav>
+    </div>
+    <div class="content"></div>
+  </div>
+</body>
+</html>
