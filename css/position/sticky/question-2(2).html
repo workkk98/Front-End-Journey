@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .container {
+      height: 600px;
+      overflow: auto;
+    }
+
+    .sticky-wrapper {
+      border: 1px solid rgba(0, 0, 255, 0.5);
+      margin-top: 200px;
+      height: 300px;
+    }
+
+    .sticky {
+      position: sticky;
+      top: 0;
+    }
+
+    .content {
+      height: 2000px;
+      background-color: pink;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="sticky-wrapper">
+      <header class="sticky">header</header>
+    </div>
+
+    <div class="content"></div>
+  </div>
+</body>
+</html>

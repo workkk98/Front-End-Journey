@@ -31,6 +31,12 @@ nav {
 3. 同一个父容器中的sticky元素，如果定位值相等，则会重叠；如果属于不同父元素，且这些父元素正好紧密相连，则会鸠占鹊巢，挤开原来的元素，形成依次占位的效果。至于原因需要理解粘性定位的计算规则，同样点击这里查看。
 4. sticky定位，不仅可以设置top，基于滚动容器上边缘定位；还可以设置bottom，也就是相对底部粘滞。如果是水平滚动，也可以设置left和right值。
 
+### 容纳块 和 最近祖先滚动元素
+
+可以从question-2.html和question-2(2).html文件中看到。
+
+postion:sticky元素先是在原先到位置上（体现了relative的特性），当它
+
 ### 参考文章
 
 [张鑫旭 position: sticky](https://www.zhangxinxu.com/wordpress/2018/12/css-position-sticky/)
