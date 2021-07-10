@@ -36,7 +36,7 @@ type Flatten<Type> = Type extends Array<infer Item> ? Item : Type;
 type ToArray<Type> = Type extends any ? Type[] : never;
 type StrArrOrNumArr = ToArray<string | number>;
 
-// 避免部分条件类型
+// 避免部分条件类型: 不要让Type extends any ? Type[] : never;中的Type变成union类型不就行了。
 type ToArrayNoDist<T> = [T] extends [any] ? T[] : never;
 type StrOrArrNoDistArr = ToArrayNoDist<string | number>;
 
