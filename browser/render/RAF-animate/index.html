@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .title-img {
+      width: 64px;
+      height: 64px;
+      background-repeat: no-repeat;
+      background-position: 0 0;
+      background-size: 100%;
+    }
+    .foo {
+      background-image: url("animate-img.png");
+      background-position-y: 0px;
+    }
+  </style>
+</head>
+<body>
+  <div>
+    <label for="switch">是否开启RAF：<input id="switch" type="checkbox" checked></label>
+  </div>
+  <div class="foo title-img"></div>
+  <script>
+    let switchRAF = true;
+    document.querySelector('#switch').addEventListener('change', function (e) {
+      switchRAF = e.target.checked;
+    })
+
+    // 贝塞尔曲线？
+    function intervalAPI (fn, rAF = false) {
+      let cancel = fn();
+      if (!cancel) {
+        if (rAF) {
+          window.requestAnimationFrame(function () {
+            intervalAPI(fn, rAF);
+          });
+        } else {
+          setTimeout(function () {
+            intervalAPI(fn, rAF);
+          }, 30);
+        }
+      }
+    }
+    function animate (target, imgHeight) {
+      let direct = true,
+          positionY = 0;
+
+      // 每帧的高度
+      const average = 64;
+      target.addEventListener('mouseenter', function () {
+        direct = true;
+        intervalAPI(function () {
+          if (direct === false) {
+            return true;
+          }
+          positionY += average;
+
+          //不能超过范围  
+          if (positionY > imgHeight) {
+            positionY = imgHeight;
+          }
+          target.style.backgroundPositionY = -positionY + 'px';
+          return positionY === imgHeight;
+        }, switchRAF);
+      })
+
+      target.addEventListener('mouseleave', function () {
+        direct = false;
+        intervalAPI(function () {
+          if (direct === true) {
+            return true;
+          }
+          positionY -= average;
+
+          //不能超过范围  
+          if (positionY < 0) {
+            positionY = 0;
+          }
+          target.style.backgroundPositionY = -positionY + 'px';
+          return positionY === 0;
+        }, switchRAF);
+      })
+    }
+
+    animate(document.querySelector('.foo'), 1280)
+  </script>
+</body>
+</html>
