@@ -5,7 +5,8 @@
 * Reflect.get(target, name[, recevier])
 
 函数化取对象值
-如果目标属性是个getter函数，则调用这个函数取值，如果有recervier对象，则getter函数的this指向recevier
+**如果目标属性是个getter函数，则调用这个函数取值，如果有recervier对象，则getter函数的this指向recevier**
+但如果没有这个receiver则this指向本对象，另外因为proxy作为代理层，所以get函数第三个参数是recevier，因为要兼容被代理的对象有get属性的场景。
 
 * Reflect.set(target, name, value[, recevier])
 
