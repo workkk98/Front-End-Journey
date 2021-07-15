@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="target">true</div>
+  <label>专门用来渲染用的：<input type="checkbox" id="trigger" checked></label>
+  <script>
+    let count = 0;
+    const target = document.querySelector('#target');
+
+    document.querySelector('#trigger').addEventListener('change', function (e) {
+      target.innerHTML = this.checked + '';
+        window.requestIdleCallback(function (deadline) {
+          while (deadline.timeRemaining() > 0) {
+            console.log(++count, deadline);
+          }
+          if (deadline.timeRemaining === 0) {
+            
+          }
+        })
+    });
+  </script>
+</body>
+</html>
