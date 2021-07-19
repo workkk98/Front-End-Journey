@@ -1,0 +1,23 @@
+
+<!DOCTYPE html>
+<html>
+    <body>
+        <div id='demo'>
+            <ol>
+                <li>test</li>
+            </ol>
+        </div>
+    </body>
+    <script type="text/javascript">
+        function timerCallback2(){
+          console.log(2)
+        }
+        function timerCallback(){
+            console.log(1)
+            // 中间创建一个很大的数组，希望触发垃圾回收
+            var arr = new Array(10000).fill(0)
+            setTimeout(timerCallback2,0)
+        }
+        setTimeout(timerCallback,0)
+    </script>
+</html>
