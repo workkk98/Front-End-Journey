@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    const maxLength = 5 * 1024 * 1024 / 2;
+
+    // 将数组的长度加上个1都会导致报错。
+    const maxStr = new Array(maxLength - 1 ).fill('t');
+    localStorage.setItem('max', maxStr);
+    console.log(localStorage.getItem('max'));
+  </script>
+</body>
+</html>
