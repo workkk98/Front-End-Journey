@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="foo">
+    <script>
+      // 探究父元素的高度
+      var foo = document.querySelector('#foo');
+      console.log(foo.clientHeight);
+    </script>
+    <div id="bar">123</div>
+    <script>
+      console.log(foo.clientHeight);
+    </script>
+  </div>
+
+  <script>
+
+    window.addEventListener('resize', function (e) {
+      console.log('bar');
+    });
+    window.addEventListener('resize', function (e) {
+      console.log('foo');
+    });
+  </script>
+</body>
+</html>
