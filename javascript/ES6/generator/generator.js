@@ -1,18 +1,20 @@
 //基本语法 函数关键字  和 函数名 中间有*  函数体内有 yield
 
 function* helloWorldGenerator(params) {
-    yield 'hello'
-    yield 'world'
-    return 'end'
+  console.log(params);
+  let r1 = yield 'hello'
+  console.log(r1);
+  yield 'world'
+  return 'end'
 }
 
-let p = helloWorldGenerator()  //返回的是遍历器对象
+let p = helloWorldGenerator('params')  //返回的是遍历器对象
 
 //invoke 遍历器的Symbol.iterator函数
 console.log("Symbol.iterator指向本身: ", p[Symbol.iterator]() === p);
-console.log(p.next())
-console.log(p.next())
-console.log(p.next())
+console.log(p.next(1))
+console.log(p.next(2))
+console.log(p.next(3))
 
 //只能在 generator函数中 使用 yield关键词
 
