@@ -8,6 +8,9 @@ function heapify (arr, start, length) {
   }
   const left = 2 * start + 1,
         right = 2 * start + 2;
+
+  // 这里很细节，用个temp变量来看到底是有没有被left或right修改。而且数组上的元素没有改动
+  // temp永远指向最小的那个index
   let temp = start;
 
   // 注意是否超出长度
@@ -15,7 +18,7 @@ function heapify (arr, start, length) {
     temp = left;
   }
 
-  // 注意长度，以及比对的是temp
+  // 注意长度，以及**比对的是temp**
   if (right < length && arr[right] > arr[temp]) {
     temp = right;
   }
