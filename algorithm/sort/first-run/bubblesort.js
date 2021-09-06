@@ -1,12 +1,13 @@
 // bubble 冒泡排序 也是最基础的一种
 // 冒泡就同它的名字一样 思路是 把最大或最小的值 交换到数组头部 (当然也可以从尾部开始 一样的道理)
-var bubble = function bubble1 (nums) {
+function bubble1 (nums) {
   for(let i = 0 ; i <nums.length-1 ; i++) {
     for (let j = i+1 ; j < nums.length ; j++) {
       if(nums[i] > nums[j]) {
         let swap = nums[i];
         nums[i] = nums[j];
-        nums[j] = swap;
+        nums[j] = swap;0116
+        
       }
     }
   }
@@ -17,7 +18,7 @@ var bubble = function bubble1 (nums) {
 
 // 所以冒泡 应该是这么理解  从低端一步步交换到顶端
 
-bubble = function bubble2 (nums) {
+function bubble2 (nums) {
   for(let i = 0; i < nums.length-1 ; i++) {
     for(let j = nums.length -1 ;  j > i ; j--) {
       if(nums[j] <= nums[j-1]) {
@@ -37,7 +38,7 @@ bubble = function bubble2 (nums) {
 // 所以记录下最后一次 交换的位置
 
 // 避免一点 第二次若没有发生交换 可能是排序已经完成 所以要退出
-bubble = function bubble3 (nums) {
+function bubble3 (nums) {
   let len = nums.length,i = 0,postion = 0;
   while(i< len-1) {
     for(let j = len -1 ; j > i ; j--) {
@@ -59,7 +60,7 @@ bubble = function bubble3 (nums) {
 
 // 每次循环 双向遍历也就是说一次 获得一个最大值 一次获得一个最小值
 // 每次循环 实际上是 O(n+n-1) 所以 还是有一定优化的
-bubble = function bubble4 (nums) {
+function bubble4 (nums) {
   let start = 0,len = nums.length ,end = len -1;
   while(start < end ) {
     // 这一趟循环 交换下来 end位置是最大的值
@@ -83,7 +84,7 @@ bubble = function bubble4 (nums) {
 
 
 // 合二为一
-bubble = function bubble5 (nums) {
+function bubble5 (nums) {
   let start = 0,len = nums.length ,end = len -1 , topPos , bottomPos;
   while(start < end ) {
     // 解决 若第二次循环 没有交换的情况 即已经排序完成
@@ -107,7 +108,7 @@ bubble = function bubble5 (nums) {
   return nums
 }
 
-console.log(bubble([1,2,3,4,3,9,6,8,9,3]))
+console.log(bubble5([1,2,3,4,3,9,6,8,9,3]))
 
 
 // 工具人

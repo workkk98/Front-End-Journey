@@ -48,4 +48,5 @@ promiseAll返回的promise对象自然也有fullfilled和rejected状态。
 
 ### promise.race()
 
-race从名称就能略知一二，实际上就是iterable对象中的每个元素但凡fullfilled，或reject了。返回这第一个promise。
+race从名称就能略知一二，实际上就是iterable对象中的每个元素但凡fullfilled，或reject了。
+返回这第一个promise。由于这返回的第一个promise，所以then中resolve或reject的回调函数可以理解成是添加到这个返回的promise上。
