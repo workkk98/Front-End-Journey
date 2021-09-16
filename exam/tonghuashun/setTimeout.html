@@ -1,0 +1,33 @@
+<script>
+
+let id = 0;
+function _setTimeOut (callback, time = 0) {
+  const timer = id++;
+  const before = Date.now();
+  function rec () {
+    window.requestAnimationFrame(() => {
+      if (Date.now() - before >= time) {
+        callback();
+        return;
+      }
+      rec();
+    })
+  }
+
+  rec();
+  return timer;
+}
+
+_setTimeOut(function test() {
+  console.log(new Date())
+}, 1000)
+
+function block () {
+  let now = Date.now();
+  while (Date.now() - now <= 2000) ;
+}
+
+
+block()
+
+</script>
