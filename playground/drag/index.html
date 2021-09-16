@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .foo {
+      width: 200px;
+      height: 200px;
+      background-color: pink;
+    }
+    .draging {
+      position: fixed;
+    }
+  </style>
+</head>
+<body>
+  <div class="foo"></div>
+  <script>
+    const target = document.querySelector('.foo');
+    function bindDrag (target) {
+      // 表示拖拽0终止，1点击
+      let status = 0;
+      let offsetX = 0;
+      let offsetY = 0;
+      target.addEventListener('mousedown', (e) => {
+        status = 1;
+        console.log('down');
+        offsetX = e.offsetX;
+        offsetY = e.offsetY;
+      })
+      document.body.addEventListener('mousemove', (e) => {
+        if (status === 1) {
+          e.target.classList.add('draging')
+          e.target.style.left = (e.pageX - offsetX) + 'px';
+          e.target.style.top = (e.pageY - offsetY) + 'px';
+        }
+      })
+      target.addEventListener('mouseup', (e) => {
+        status = 0;
+      })
+    }
+
+    bindDrag(target);
+  </script>
+</body>
+</html>
