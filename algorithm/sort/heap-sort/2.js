@@ -23,7 +23,6 @@ function heapify (arr, start, length) {
     temp = right;
   }
 
-  console.log(arr[start], arr[left], arr[right]);
   if (temp !== start) {
     swap(arr, start, temp);
     heapify(arr, temp, length);
@@ -44,14 +43,15 @@ function heapSort (arr, length) {
     --start;
   }
 
-  while (length > 0) {
-    // 取大顶堆中第一个元素，替换到未排序队列的最后一个元素
-    swap(arr, length - 1, 0);
+  // while (length > 0) {
+  //   // 取大顶堆中第一个元素，替换到未排序队列的最后一个元素
+  //   swap(arr, length - 1, 0);
 
-    // 最后一个元素排序好了，所以length-1
-    heapify(arr, 0, --length);
-    console.log('after heapify', arr);
-  }
+  //   // 最后一个元素排序好了，所以length-1
+  //   heapify(arr, 0, --length);
+  // }
+
+  return arr;
 }
 
 function swap (arr, index1, index2) {
@@ -60,8 +60,28 @@ function swap (arr, index1, index2) {
   arr[index2] = temp;  
 }
 
-// const arr = [1, 7, 3, 9, 2]
-// heapSort(arr, 5)
-// console.log(arr);
 
-console.log(heapify([4, 3, 6, 7], 3, 4))
+function heapPush (arr, item, itemIndex) {
+  if (itemIndex <= 0) {
+      return;
+  }
+
+  function dfs (arr, itemIndex) {
+      let parent = itemIndex % 2 === 0 ? (itemIndex - 2) / 2 : (itemIndex - 1) / 2;
+
+      if (arr[itemIndex] > arr[parent]) {
+          let temp = arr[itemIndex];
+          arr[itemIndex] = arr[parent];
+          arr[parent] = temp;
+          dfs(arr, parent);
+      }
+  }
+  arr[itemIndex] = item;
+  dfs(arr, itemIndex);
+}
+
+const arr = heapSort([4, 3, 6, 7], 4);
+console.log(arr);
+heapPush(arr, 10, arr.length);
+
+console.log(arr);
